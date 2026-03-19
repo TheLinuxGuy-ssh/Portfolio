@@ -10,7 +10,7 @@
         <div class="hydra">
             <div class="hydra_rebooting">
                 <p>&lt; SYSTEM BOOTING &gt;</p>
-                <p class="text--sm">ARCH 1.01 SYS RECOVERY</p>
+                <p class="text--sm">ARCH 1.01 SYS BOOTUP</p>
                 <p class="text--sm">
                     PROCESS: <span class="process-amount">0</span>%
                 </p>

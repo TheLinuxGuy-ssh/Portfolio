@@ -1032,6 +1032,7 @@ svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
 	transition: 0.2s all;
 	text-decoration: none;
 	color: #fff;
+	width: 100%;
 }
 .projects .project:hover {
 	background-color: #fff;
@@ -1066,17 +1067,18 @@ svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
 	margin-right: 0.5em;
 	border-radius: 0.25em;
 }
-.projects .project:hover .project-image {
+.projects .project:hover .project-img {
 	transform: scale(1.05);
 	overflow: hidden;
 	border-radius: 1em;
 }
 .projects .project:hover .project-image img {
-	transform: scale(1.1);
+	width: 100%;
 }
 
-.projects .project .project-image {
-	margin: 1.5em;
+.projects .project .project-img {
+	margin: 1.5em 2em;
+	margin-right: auto;
 	height: 15em;
 	transition: 0.2s all;
 }

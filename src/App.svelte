@@ -2,20 +2,19 @@
   import { Header, Hero, Loader, Nav, About, Skills, Work, Footer, Miscellaneous } from "./components/";
 </script>
 <link rel="stylesheet" href="/src/assets/css/normalize.css">
-<link rel="stylesheet" href="/src/assets/css/locomotive.css">
 <link rel="stylesheet" href="/src/assets/css/links.css">
 <link rel="stylesheet" href="/src/assets/css/style.css">
 
+<Loader />
+<Nav />
+<Miscellaneous />
 <main class="mega-container" data-scroll-container>
-  <Loader />
   <Header />
-  <Nav />
   <Hero />
   <About />
   <Skills />
   <Work />
   <Footer />
-  <Miscellaneous />
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"
   ></script>
@@ -32,8 +31,8 @@
   <script
     src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
   ></script>
-  <script src="/src/assets/js/script.js" type="module"></script>
-  <script src="/src/assets/js/stl.js" type="module"></script>
+  <!-- <script src="/src/assets/js/script.js" type="module"></script>
+  <script src="/src/assets/js/stl.js" type="module"></script> -->
   <script src="/src/assets/js/lights.js" type="module"></script>
   <script src="/src/assets/js/blob.js" type="module"></script>
 </main>

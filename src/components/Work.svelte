@@ -2,6 +2,7 @@
     import { projects } from "../assets/projects.json";
 </script>
 
+<div class="projects">
 {#each Object.entries(projects) as [key, project], index (key)}
     <div class="project">
         <img
@@ -9,6 +10,10 @@
             class="project-img"
             alt={project.name}
         />
-        <h2>{project.name}</h2>
+        <div class="project-content">
+            <h2>{project.name}</h2>
+            <p>{project.desc}</p>
+        </div>
     </div>
 {/each}
+</div>
