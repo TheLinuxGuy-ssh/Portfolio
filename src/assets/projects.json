@@ -3,7 +3,8 @@
         {
             "name": "DarwinX",
             "desc": "An online experience of macOS at the cost of nothing but Internet packets",
-            "url": "https://darwinx.vercel.app"
+            "url": "https://darwinx.vercel.app",
+            "github": "darwinx"
         },
         {
             "name": "Cosma2k24",
@@ -13,7 +14,8 @@
         {
             "name": "Unite.Do",
             "desc": "A Task management Web app for team management",
-            "url": "https://unite-do.vercel.app"
+            "url": "https://unite-do.vercel.app",
+            "github": "unite-do"
         }
     ]
 }

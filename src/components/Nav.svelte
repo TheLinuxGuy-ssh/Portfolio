@@ -8,9 +8,9 @@
                         class="nav-item__link"
                         target="_blank"
                         ><img
-                            src="./assets/github.png"
+                            src="/src/assets/images/general/github.png"
                             loading="eager"
-                            alt="Notion app icon"
+                            alt="Github Icon"
                             class="image"
                         /></a
                     >

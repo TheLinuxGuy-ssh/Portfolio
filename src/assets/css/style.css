@@ -1025,7 +1025,7 @@ svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
 }
 .projects .project {
 	display: flex;
-	justify-content: center;
+	justify-content: end;
 	align-items: center;
 	border-top: 1px solid #fff;
 	font-family: Pro;
@@ -1054,8 +1054,9 @@ svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
 	font-family: HermitBold;
 }
 .projects .project .project-content {
-	margin-left: 4em;
-	margin-right: auto;
+	margin: 0 4em;
+	width: 60%;
+	text-align: left;
 }
 .projects .project .project-category-pane {
 	display: flex;
@@ -1067,10 +1068,32 @@ svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
 	margin-right: 0.5em;
 	border-radius: 0.25em;
 }
+.project-links {
+	margin: 1em 0;
+}
+
+.github-btn {
+	color: white;
+	background-color: #000000;
+	padding: 0.5em 0.75em;
+	border-radius: 0.75em;
+	border: 1px solid #676767;
+}
+.live-btn {
+	color: black;
+	background-color: #fff;
+	padding: 0.5em 0.75em;
+	border-radius: 0.75em;
+	border: 1px solid #676767;
+}
+
+
+.github-btn img {
+	width: 1em;
+}
 .projects .project:hover .project-img {
 	transform: scale(1.05);
 	overflow: hidden;
-	border-radius: 1em;
 }
 .projects .project:hover .project-image img {
 	width: 100%;
@@ -1079,13 +1102,9 @@ svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
 .projects .project .project-img {
 	margin: 1.5em 2em;
 	margin-right: auto;
-	height: 15em;
+	height: 17.5em;
 	transition: 0.2s all;
-}
-.project .project-image img {
-	border-radius: 1em;
-	height: 100%;
-	transition: 0.2s all;
+		border-radius: 0.75em;
 }
 
 @media screen and (max-width: 768px) { 
