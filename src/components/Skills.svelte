@@ -17,13 +17,13 @@
       <div class="col">
         <div class="card" data-aos="fade-left" data-aos-delay="0.4s">
           <div class="card-num">
-            200<sup>+</sup>
+            400<sup>+</sup>
           </div>
           <div class="card-title">Contributions</div>
         </div>
         <div class="card" data-aos="fade-left" data-aos-delay="0.6s">
           <div class="card-num">
-            10<sup>+</sup>
+            30<sup>+</sup>
           </div>
           <div class="card-title">Clients</div>
         </div>

@@ -3,6 +3,7 @@
 </script>
 <link rel="stylesheet" href="/src/assets/css/normalize.css">
 <link rel="stylesheet" href="/src/assets/css/links.css">
+<link rel="stylesheet" href="/src/assets/css/locomotive.css">
 <link rel="stylesheet" href="/src/assets/css/style.css">
 
 <Loader />
@@ -31,8 +32,8 @@
   <script
     src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
   ></script>
-  <!-- <script src="/src/assets/js/script.js" type="module"></script>
-  <script src="/src/assets/js/stl.js" type="module"></script> -->
-  <script src="/src/assets/js/lights.js" type="module"></script>
-  <script src="/src/assets/js/blob.js" type="module"></script>
+  <script src="/src/assets/js/script.js"></script>
+  <script src="/src/assets/js/stl.js"></script>
+  <script src="/src/assets/js/lights.js"></script>
+  <script src="/src/assets/js/blob.js"></script>
 </main>

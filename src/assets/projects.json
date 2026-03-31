@@ -1,21 +1,45 @@
 {
     "projects": [
         {
+            "name": "Hyprfect",
+            "desc": "Config file for a clean, minimal arch linux setup! (hyprland)",
+            "url": "",
+            "github": "https://github.com/TheLinuxGuy-ssh/hyprfect",
+            "status": "1"
+        },
+        {
+            "name": "The Spartan Rage",
+            "desc": "Kratos faces his next adventure in the egyptian mythology after his son walks on a different path.",
+            "url": "",
+            "github": "https://github.com/TheLinuxGuy-ssh/Tagged",
+            "status": "1"
+        },
+        {
             "name": "DarwinX",
             "desc": "An online experience of macOS at the cost of nothing but Internet packets",
             "url": "https://darwinx.vercel.app",
-            "github": "darwinx"
+            "github": "darwinx",
+            "status": "0"
+        },
+                {
+            "name": "Tagged",
+            "desc": "Co-op game where two players play tag to win!",
+            "url": "https://thelinuxguy-ssh.github.io/Tagged",
+            "github": "https://github.com/TheLinuxGuy-ssh/Tagged",
+            "status": "1"
         },
         {
             "name": "Cosma2k24",
             "desc": "A website for an inter-school Tech Event",
-            "url": "https://thelinuxguy-ssh.github.io/cosma2k24/"
+            "url": "https://thelinuxguy-ssh.github.io/cosma2k24/",
+            "status": "2"
         },
         {
             "name": "Unite.Do",
             "desc": "A Task management Web app for team management",
             "url": "https://unite-do.vercel.app",
-            "github": "unite-do"
+            "github": "unite-do",
+            "status": "0"
         }
     ]
 }
