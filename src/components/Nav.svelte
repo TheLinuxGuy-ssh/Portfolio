@@ -1,3 +1,7 @@
+<script>
+    import github from "../assets/images/general/github.png?enhanced"
+</script>
+
 <section class="bottom-nav cloneable">
     <div class="nav-wrap">
         <nav class="nav-bar">
@@ -8,7 +12,7 @@
                         class="nav-item__link"
                         target="_blank"
                         ><img
-                            src="/src/assets/images/general/github.png"
+                            src={github}
                             loading="eager"
                             alt="Github Icon"
                             class="image"

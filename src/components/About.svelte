@@ -35,8 +35,7 @@
         </div>
         <br />
       </div>
-
-      <svg
+       <svg
         class="filters"
         width="1440px"
         height="300px"
@@ -231,7 +230,7 @@
                 />Copyright (c) 2026<br />
               </p>
               <p class="sctext">
-                anonymous@codeplanet-core:~$ <input class="screentext" />
+                anonymous@starwalk-core:~$ <input class="screentext" />
               </p>
             </div>
           </div>

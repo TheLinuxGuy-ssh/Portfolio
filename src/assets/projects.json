@@ -5,7 +5,21 @@
             "desc": "Config file for a clean, minimal arch linux setup! (hyprland)",
             "url": "",
             "github": "hyprfect",
-            "status": "1"
+            "status": "1",
+            "tags": [
+                {
+                    "name": "Bash",
+                    "accent": ""
+                },
+                {
+                    "name": "SCSS",
+                    "accent": ""
+                },
+                {
+                    "name": "GLSL",
+                    "accent": ""
+                }
+            ]
         },
         {
             "name": "The Spartan Rage",

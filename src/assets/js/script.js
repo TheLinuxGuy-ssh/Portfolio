@@ -391,18 +391,7 @@ if (scrollpos >= scrollChange) { add_class_on_scroll(), add_class_on_scrol() }
 else { remove_class_on_scroll(), remove_class_on_scrol() }
 })
 
-$(function() {
-var text = $(".text");
-$(window).scroll(function() {
-  var scroll = $(window).scrollTop();
 
-  if (scroll >= 200) {
-    text.removeClass("hidden");
-  } else {
-    text.addClass("hidden");
-  }
-});
-});
 
 var design = document.querySelector(".designer-btn");
 var comp = document.querySelector(".transition-comp")

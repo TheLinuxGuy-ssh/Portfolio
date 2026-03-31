@@ -133,9 +133,6 @@ span, ul {
   #logo {
     transition: 0.5s top;
   }
-  #logo.scrolled {
-    top: 5em;
-  }
 
   .cloneable {
 	padding: var(--container-padding);
@@ -876,6 +873,7 @@ svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
 	background-size: 100% 4px;
 	background-repeat: repeat-y;
 	opacity: 0.9;
+	animation: 5s flicker infinite;
   }
   .screen {
 	width: 50%;
@@ -1029,7 +1027,7 @@ svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
 }
 
 .projects {
-	margin-top: 20em;
+	margin: 20em 5em;
 	color: #fff;
 }
 .projects .project {
@@ -1044,7 +1042,7 @@ svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
 	width: 100%;
 }
 .projects .project:hover {
-	background-color: #fff;
+	background-color: #e7e7e7;
 	color: #000;
 }
 
@@ -1157,7 +1155,7 @@ svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
 	width: 13em;
 	height: 4.2em;
 	background-color: #000;
-	border: 0.08em solid #00FE1A;
+	border: 0;
 	border-radius: 0.3em;
 	font-size: 12px;
 	margin: 0 1em;

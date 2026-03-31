@@ -8,7 +8,7 @@
             <div
                 class="hero-title"
                 data-scroll
-                data-scroll-speed="-1"
+                data-scroll-speed="-0.1"
                 data-scroll-direction="vertical"
                 data-aos="zoom-in-up"
             >
