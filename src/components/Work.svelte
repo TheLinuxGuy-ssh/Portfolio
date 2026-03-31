@@ -24,7 +24,7 @@
                         /> Github
                     </a>
                 {/if}
-                <a href="" class="live-btn">
+                <a href={project.url} class="live-btn" target="_blank">
                     Visit
                 </a>
                 </div>

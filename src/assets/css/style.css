@@ -15,6 +15,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	text-decoration: none;
 }
 html {
 	scroll-behavior: smooth;
@@ -1020,6 +1021,11 @@ svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
 }
 .card-num {
   font-size: 1.5em;
+}
+
+.pccase {
+	display: flex;
+	justify-content: center;
 }
 
 .projects {

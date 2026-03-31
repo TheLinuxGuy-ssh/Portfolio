@@ -1,3 +1,11 @@
+<script>
+    import { onMount } from 'svelte';
+    let ascii;
+    onMount(async () => {
+    const stl = await import('/src/assets/js/stl.js')
+    stl.init?.(ascii);
+  });
+</script>
 <style>
     
 </style>
@@ -212,11 +220,11 @@
                 █▀█ █▄█ █▄█ █▄█ ░█░   █░▀░█ ██▄<br />
                 <br />A passionate Tech Enthusiast who is a well experienced
                 Server Administrator, Web Developer, Designer with a great sense
-                of humour. I have a mind which works just like electrical
+                of humour. A mind which works just like electrical
                 current in terms of coding, finding the shortest and least
-                resistant path towards a goat, that is keeping a clean and
+                resistant path towards a goal, that is keeping a clean and
                 optimised code ensuring the best efficiency to get the best out
-                of my projects. Self Reliant like the Servers, Creative like the
+                of his projects. Self Reliant like the Servers, Creative like the
                 Builders. A refined observer caring about every pixel of detail.
                 Not a perfectionist, Just
                 <span class="sc-highlight">Precision-Driven</span><b>.</b><br
@@ -230,4 +238,5 @@
         </div>
       </div>
     </section>
-  <div id="ascii-sec" class="ascii-sec"></div>
+      <div id="ascii-sec" class="ascii-sec"  bind:this={ascii}>
+      </div>

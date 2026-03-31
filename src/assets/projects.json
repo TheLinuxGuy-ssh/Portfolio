@@ -4,14 +4,14 @@
             "name": "Hyprfect",
             "desc": "Config file for a clean, minimal arch linux setup! (hyprland)",
             "url": "",
-            "github": "https://github.com/TheLinuxGuy-ssh/hyprfect",
+            "github": "hyprfect",
             "status": "1"
         },
         {
             "name": "The Spartan Rage",
             "desc": "Kratos faces his next adventure in the egyptian mythology after his son walks on a different path.",
-            "url": "",
-            "github": "https://github.com/TheLinuxGuy-ssh/Tagged",
+            "url": "https://thelinuxguy-ssh.github.io/TheSpartanRage",
+            "github": "thespartanrage",
             "status": "1"
         },
         {
@@ -25,7 +25,7 @@
             "name": "Tagged",
             "desc": "Co-op game where two players play tag to win!",
             "url": "https://thelinuxguy-ssh.github.io/Tagged",
-            "github": "https://github.com/TheLinuxGuy-ssh/Tagged",
+            "github": "Tagged",
             "status": "1"
         },
         {

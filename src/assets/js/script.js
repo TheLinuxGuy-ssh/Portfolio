@@ -377,6 +377,7 @@ const header = document.querySelector(".nav-wrap")
 const head = document.querySelector("#logo")
 const pod = document.querySelector(".pod")
 const scrollChange = 1
+let scrollpos=0
 const globe = 350
 const add_class_on_scroll = () => header.classList.add("scrolled")
 const add_class_on_scrol = () => head.classList.add("scrolled")
