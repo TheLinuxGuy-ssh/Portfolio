@@ -1,6 +1,6 @@
 <script>
   import { mount, onMount } from "svelte";
-  import { bored } from "../assets/js/about";
+  let isBored;
 </script>
 
 <section class="about">
@@ -199,7 +199,7 @@
   </section>
 </section>
 <section class="about-real" id="about">
-  <div class="about-content" id="content">
+  <div class="about-content" class:bored={isBored} id="content">
     <div class="pccase" data-aos="fade-right" data-aos-delay="0.5">
       <div class="screen oldscreeneffect">
         <div class="screentext">
@@ -216,14 +216,16 @@
             to get the best out of his projects. Self Reliant like the Servers,
             Creative like the Builders. A refined observer caring about every
             pixel of detail. Not a perfectionist, Just
-            <span class="sc-highlight">Precision-Driven</span><b>.</b><br
+            <span class="sc-highlight">Precision-Driven</span><b>.</b><br /><br
             />Copyright (c) 2026<br />
           </p>
-          <p class="sc-text">
-            Bored yet? Same. Let’s <button
-              onclick={bored()}
+          <p class="sc-text change-text">
+            Bored yet? Same. Let’s
+            <button
+              on:click={() => (isBored = true)}
               class="change-is-necessary">change</button
-            > that.
+            >
+            that.
           </p>
         </div>
       </div>
@@ -267,6 +269,10 @@
 
     font-family: ProMono;
   }
+  .change-text {
+    text-align: center;
+    margin-bottom: 1em !important;
+  }
   .change-is-necessary {
     border: 0;
     outline: 0;
@@ -277,7 +283,21 @@
     cursor: pointer;
     text-decoration: underline;
   }
-
+  .header-text {
+    color: #c0c8bd;
+    font-size: 5em;
+    text-align: center;
+    line-height: 1.0625;
+    font-weight: 600;
+    letter-spacing: -0.009em;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .pccase {
+    display: flex;
+    justify-content: center;
+  }
   @media screen and (max-width: 1024px) {
     .caption {
       text-align: center;
@@ -363,6 +383,50 @@
     translate: 0 70%;
     animation: onloadbgb 1s ease-in-out forwards;
   }
+  .glow-filter {
+    position: relative;
+    display: inline-block;
+    scale: 1;
+
+    animation: onloadscale 1s ease-out forwards;
+  }
+
+  .glow-filter::before {
+    content: attr(data-text);
+    position: absolute;
+    pointer-events: none;
+    color: #f6fff6;
+    background: linear-gradient(0deg, #dfeee1 0%, #e5f8d5 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: url(#glow-4);
+    -moz-filter: url(#glow-4);
+    -webkit-filter: url(#glow-4);
+
+    opacity: 0;
+    animation: onloadopacity 1s ease-out forwards;
+  }
+
+  @keyframes onloadscale {
+    24% {
+      scale: 1;
+    }
+
+    100% {
+      scale: 1.02;
+    }
+  }
+
+  @keyframes onloadopacity {
+    24% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 
   @keyframes onloadbgt {
     0% {
@@ -437,6 +501,8 @@
 
   .sctext {
     font-size: 1rem;
+    line-height: 1.5;
+    margin: 1em 0 0 0;
   }
 
   .about-real {
@@ -466,7 +532,7 @@
     opacity: 1;
   }
 
-  .about-content.bored {
-    opacity: 0;
+  .bored {
+    opacity: 0 !important;
   }
 </style>

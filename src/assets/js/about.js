@@ -1,4 +1,3 @@
-export function bored() {
-        let content = document.getElementById('content');
+export function bored(content) {
         content.classList.add("bored");
 }

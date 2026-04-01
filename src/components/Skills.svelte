@@ -39,4 +39,27 @@
   .skills-sec .row .col {
     width: 50%;
   }
+  .skills-sec {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .skills-sec .card {
+    margin: 2em 15vw;
+    padding: 2em;
+    color: #fff;
+    text-align: center;
+    border-radius: 1em;
+    font-family: "Pro";
+  }
+
+  @media screen and (max-width: 1024px) {
+    .skills-sec .card {
+      margin: 2em 2vw;
+    }
+  }
+
+  .card-num {
+    font-size: 1.5em;
+  }
 </style>
