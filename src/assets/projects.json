@@ -2,10 +2,10 @@
     "projects": [
         {
             "name": "Hyprfect",
-            "desc": "Config file for a clean, minimal arch linux setup! (hyprland)",
+            "desc": "Hyprland configuration for a clean, minimal arch linux setup!",
             "url": "",
             "github": "hyprfect",
-            "status": "1",
+            "status": "4",
             "tags": [
                 {
                     "name": "Bash",
@@ -35,12 +35,19 @@
             "github": "darwinx",
             "status": "0"
         },
-                {
+        {
             "name": "Tagged",
             "desc": "Co-op game where two players play tag to win!",
             "url": "https://thelinuxguy-ssh.github.io/Tagged",
             "github": "Tagged",
-            "status": "1"
+            "status": "2"
+        },
+        {
+            "name": "Start Page",
+            "desc": "Your Personal Browser Start Page from the Future! ",
+            "url": "https://thelinuxguy-ssh.github.io/tlg-start-page",
+            "github": "tlg-start-page",
+            "status": "2"
         },
         {
             "name": "Cosma2k24",
@@ -53,7 +60,7 @@
             "desc": "A Task management Web app for team management",
             "url": "https://unite-do.vercel.app",
             "github": "unite-do",
-            "status": "0"
+            "status": "3"
         }
     ]
 }

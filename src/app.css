@@ -1,0 +1,40 @@
+@font-face {
+    font-family: HermitBold;
+    src: url(assets/fonts/Hermit/HurmitNerdFont-Bold.otf);
+}
+
+@font-face {
+    font-family: Pro;
+    src: url(assets/fonts/ProFont/ProFontIIxNerdFont-Regular.ttf);
+}
+
+@font-face {
+    font-family: ProMono;
+    src: url(assets/fonts/ProFont/ProFontIIxNerdFontMono-Regular.ttf);
+}
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+html {
+	scroll-behavior: smooth;
+
+}
+
+body {
+    background-color: #000000;
+	position: relative;
+	overflow-x: hidden;
+}
+
+.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+.hidden {
+	display: none;
+}

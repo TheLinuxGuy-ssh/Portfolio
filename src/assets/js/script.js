@@ -272,12 +272,6 @@ gsap.set(".server", { x: '40%' });  // Set initial position for element2
   smoothChildTiming: true
   });
   
-  gsap.set(".ascii-sec", {x: '0', y: '0' });  // Set initial position for element1
-  t0.to(".ascii-sec", {
-    y: '20%',
-    scale: '1.3',
-    opacity: '0.5',
-  });
 
 
   const t00 = gsap.timeline({
@@ -291,27 +285,6 @@ gsap.set(".server", { x: '40%' });  // Set initial position for element2
   smoothChildTiming: true
   });
   
-  gsap.set(".ascii-sec", {x: '0' });  // Set initial position for element1
-  t00.to(".ascii-sec", {
-    x: '25%',
-    scale: '1',
-    opacity: '1',
-  });
-  const t000 = gsap.timeline({
-    scrollTrigger: {
-    trigger: ".skills-sec",
-      scrub: 1,
-    end: "5vh",
-    start: "top bottom"
-  },
-
-  smoothChildTiming: true
-  });
-  t000.to(".ascii-sec", {
-    y: '10%',
-    x: '0',
-  
-  });
 // Select the logo
 const logo = document.getElementById("logo");
 
@@ -399,3 +372,5 @@ design.addEventListener("click", function() {
     comp.classList.add("transition");
     setTimeout( function() { window.location = "./design" }, 1500 );
 })
+
+    

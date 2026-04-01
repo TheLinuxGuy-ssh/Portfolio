@@ -18,6 +18,7 @@ console.log(scroll.lenisInstance.direction); // Get direction
 console.log(scroll.lenisInstance.velocity); // Get speed
   });
 </script>
+<link rel="stylesheet" href="/src/app.css">
 <link rel="stylesheet" href="/src/assets/css/normalize.css">
 <link rel="stylesheet" href="/src/assets/css/links.css">
 <link rel="stylesheet" href="/src/assets/css/locomotive.css">
