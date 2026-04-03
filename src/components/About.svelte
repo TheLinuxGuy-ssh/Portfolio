@@ -199,6 +199,26 @@
   </section>
 </section>
 <section class="about-real" id="about">
+  <div class="about-change" class:appear={isBored} id="change-is-real">
+    <pre><code>
+<pre><code>
+#!/usr/bin/env developer
+
+role="Full-stack developer"
+stack=("React" "Node.js" "TypeScript")
+
+function build() &#123;
+  echo "Creating fast, scalable web applications"
+&#125;
+
+function focus() &#123;
+  echo "Clean architecture and performance"
+&#125;
+
+current_interest="Backend systems & developer tools"
+</code></pre>
+    </code></pre>
+  </div>
   <div class="about-content" class:bored={isBored} id="content">
     <div class="pccase" data-aos="fade-right" data-aos-delay="0.5">
       <div class="screen oldscreeneffect">
@@ -282,6 +302,19 @@
     border: 2px solid #000;
     cursor: pointer;
     text-decoration: underline;
+  }
+  .about-change {
+    opacity: 0;
+    color: white;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-change.appear {
+    opacity: 1;
+    z-index: 11;
   }
   .header-text {
     color: #c0c8bd;
