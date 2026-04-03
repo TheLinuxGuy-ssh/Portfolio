@@ -204,16 +204,28 @@
 <pre><code>
 #!/usr/bin/env developer
 
-role="Full-stack developer"
-stack=("React" "Node.js" "TypeScript")
+<span class="off-white">role=</span><span class="double-quotes"
+              >"Full-stack developer"</span
+            >
+<span class="off-white">stack=</span><span class="light-blue">(</span><span
+              class="double-quotes">"React" "Node.js" "TypeScript"</span
+            ><span class="light-blue">)</span>
 
-function build() &#123;
-  echo "Creating fast, scalable web applications"
-&#125;
+<span class="off-blue">function</span> <span class="off-white">build</span><span
+              class="light-blue"
+              >() &#123; </span>
+  <span class="special-orange">echo</span> <span class="double-quotes"
+              >"Creating fast, scalable web applications"</span
+            >
+<span class="light-blue">&#125;</span>
 
-function focus() &#123;
-  echo "Clean architecture and performance"
-&#125;
+<span class="off-blue">function</span> <span class="off-white">focus</span><span
+              class="light-blue">() &#123;</span
+            >
+  <span class="special-orange">echo</span> <span class="double-quotes"
+              >"Clean architecture and performance"</span
+            >
+<span class="light-blue">&#125;</span>
 
 current_interest="Backend systems & developer tools"
 </code></pre>
@@ -254,6 +266,21 @@ current_interest="Backend systems & developer tools"
 </section>
 
 <style>
+  .off-white {
+    color: #bebbb5;
+  }
+  .double-quotes {
+    color: #c6b28a;
+  }
+  .off-blue {
+    color: #56afee;
+  }
+  .light-blue {
+    color: #4c749a;
+  }
+  .special-orange {
+    color: #d5a087;
+  }
   .about {
     height: 100vh;
     display: flex;
