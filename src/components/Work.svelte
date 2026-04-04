@@ -19,7 +19,7 @@
         <div class="project">
             <a href={project.url} target="_blank">
                 <img
-                    src={"/src/assets/images/projects/" + project.name + ".gif"}
+                    src={"/images/projects/" + project.name + ".gif"}
                     class="project-img"
                     alt={project.name}
                 />
@@ -41,7 +41,7 @@
                             target="_blank"
                         >
                             <img
-                                src="/public/images/general/github.png"
+                                src="/images/general/github.png"
                                 alt=""
                             /> Github
                         </a>
