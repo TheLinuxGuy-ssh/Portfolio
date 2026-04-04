@@ -1,5 +1,5 @@
 <script>
-	import github from "../assets/images/general/github.png?enhanced";
+	import github from "/public/images/general/github.png?enhanced";
 </script>
 
 <section class="bottom-nav">

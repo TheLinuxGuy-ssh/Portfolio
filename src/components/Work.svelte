@@ -41,7 +41,7 @@
                             target="_blank"
                         >
                             <img
-                                src="/src/assets/images/general/github.png"
+                                src="/public/images/general/github.png"
                                 alt=""
                             /> Github
                         </a>
