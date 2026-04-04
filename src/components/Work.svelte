@@ -10,6 +10,7 @@
 </script>
 
 <div class="projects">
+    <h1 class="project-title">What I’ve been up to.</h1>
     {#each Object.entries(projects) as [key, project], index (key)}
         {@const status = statusMap[project.status] || {
             label: "Unknown",
@@ -45,9 +46,18 @@
                             /> Github
                         </a>
                     {/if}
-                    <a href={project.url} class="live-btn" target="_blank">
-                        Visit
-                    </a>
+                    {#if project.url != null}
+                        <a href={project.url} class="live-btn" target="_blank">
+                            Visit
+                        </a>
+                    {/if}
+                </div>
+                <div class="tags">
+                    {#each Object.entries(project.tags || {}) as [key, tag], index (key)}
+                        <div class="tag" style:color={tag.accent}>
+                            {tag.name}
+                        </div>
+                    {/each}
                 </div>
             </div>
         </div>
@@ -69,7 +79,6 @@
         font-size: 0.55em;
         background-color: #000;
         padding: 0.2em 0.5em;
-        border-radius: 0.5em;
         border: 1px solid;
         display: flex;
         align-items: center;
@@ -98,7 +107,7 @@
     }
 
     .projects {
-        margin: 20em 5em;
+        margin: 20em 5vw;
         color: #fff;
     }
 
@@ -106,19 +115,27 @@
         display: flex;
         justify-content: end;
         align-items: center;
-        border-top: 1px solid #fff;
         font-family: Pro;
         transition: 0.2s all;
         text-decoration: none;
         color: #fff;
         width: 100%;
+        border-top: 1px solid #575757;
+    }
+    .projects .project:nth-child(1) {
+        border: 0;
     }
 
     .projects .project:hover {
         background-color: #e7e7e7;
         color: #000;
     }
-
+    .project-title {
+        text-align: center;
+        padding: 1rem 0;
+        font-size: 3em;
+        margin-bottom: 10rem;
+    }
     .projects .project .project-no {
         font-size: 2em;
         text-align: center;
@@ -141,6 +158,17 @@
         width: 60%;
         text-align: left;
     }
+    .projects .project .tags {
+        display: flex;
+        font-family: "ProMono" !important;
+    }
+    .projects .project .tag {
+        padding: 0.25em 0.5em;
+        font-size: 0.75em;
+        border: 1px solid;
+        margin: 0.25em;
+        background-color: #000000;
+    }
 
     .projects .project .project-category-pane {
         display: flex;
@@ -151,7 +179,6 @@
         font-weight: bold;
         background-color: #ffffff3f;
         margin-right: 0.5em;
-        border-radius: 0.25em;
     }
 
     .project-links {
@@ -162,7 +189,6 @@
         color: white;
         background-color: #000000;
         padding: 0.25em 0.5em;
-        border-radius: 0.75em;
         border: 1px solid #676767;
     }
 
@@ -170,7 +196,6 @@
         color: black;
         background-color: #fff;
         padding: 0.25em 0.5em;
-        border-radius: 0.75em;
         border: 1px solid #676767;
     }
 
@@ -178,6 +203,9 @@
         width: 1em;
     }
 
+    .projects .project * {
+        cursor: default;
+    }
     .projects .project:hover .project-img {
         transform: scale(1.05);
         overflow: hidden;
@@ -192,18 +220,31 @@
         margin-right: auto;
         height: 17.5em;
         transition: 0.2s all;
-        border-radius: 0.75em;
     }
-
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
         .projects .project {
             flex-direction: column;
-            flex-direction: column-reverse;
+
             margin: 2em 0;
         }
-
+        .projects .project:hover .project-img {
+            transform: scale(1.02);
+        }
+        .projects .project .project-img {
+            width: 95%;
+            padding: 0;
+            margin: 2.5%;
+            height: fit-content;
+        }
+        .projects .project .project-content {
+            margin: 0 5%;
+            width: 95%;
+        }
         .projects .project .project-no {
             display: none;
+        }
+        .projects .project .tags {
+            margin: 2.5% 0;
         }
     }
 </style>
