@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<div class="loader" style="display: none;">
+<div class="loader">
     <div class="scanline"></div>
     <pre class="code"><span class="blink">█</span></pre>
     <div class="terminal glitch">
@@ -30,7 +30,7 @@
     .loader {
         position: fixed;
         top: 0;
-        color: red;
+        color: green;
         left: 0;
         width: 100%;
         height: 100%;
@@ -73,12 +73,14 @@
 
     .hydra {
         box-shadow:
-            0 0 2px red,
-            inset 0 0 2px red;
+            0 0 2px green,
+            inset 0 0 2px green;
         padding: 2vw;
-        border: 0.2vw solid #ff6666;
+        border: 0.2vw solid green;
         grid-row: 2/2;
         grid-column: 2/2;
+        width: fit-content;
+        margin: 0 auto;
     }
 
     .scanline {
@@ -163,6 +165,12 @@
         padding-top: 1vw;
     }
 
+    .caption {
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+        padding: 0.5rem;
+    }
     @keyframes scanline {
         0.01% {
             transform: translatey(-100%);

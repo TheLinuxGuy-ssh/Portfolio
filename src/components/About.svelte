@@ -200,36 +200,34 @@
 </section>
 <section class="about-real" id="about">
   <div class="about-change" class:appear={isBored} id="change-is-real">
-    <pre><code>
-<pre><code>
+    <!-- <pre><code>
 #!/usr/bin/env developer
 
 <span class="off-white">role=</span><span class="double-quotes"
-              >"Full-stack developer"</span
-            >
+          >"Full-stack developer"</span
+        >
 <span class="off-white">stack=</span><span class="light-blue">(</span><span
-              class="double-quotes">"React" "Node.js" "TypeScript"</span
-            ><span class="light-blue">)</span>
+          class="double-quotes">"React" "Node.js" "TypeScript"</span
+        ><span class="light-blue">)</span>
 
 <span class="off-blue">function</span> <span class="off-white">build</span><span
-              class="light-blue"
-              >() &#123; </span>
+          class="light-blue"
+          >() &#123; </span>
   <span class="special-orange">echo</span> <span class="double-quotes"
-              >"Creating fast, scalable web applications"</span
-            >
+          >"Creating fast, scalable web applications"</span
+        >
 <span class="light-blue">&#125;</span>
 
 <span class="off-blue">function</span> <span class="off-white">focus</span><span
-              class="light-blue">() &#123;</span
-            >
+          class="light-blue">() &#123;</span
+        >
   <span class="special-orange">echo</span> <span class="double-quotes"
-              >"Clean architecture and performance"</span
-            >
+          >"Clean architecture and performance"</span
+        >
 <span class="light-blue">&#125;</span>
 
 current_interest="Backend systems & developer tools"
-</code></pre>
-    </code></pre>
+</code></pre> -->
   </div>
   <div class="about-content" class:bored={isBored} id="content">
     <div class="pccase" data-aos="fade-right" data-aos-delay="0.5">
