@@ -28,11 +28,11 @@
   });
 </script>
 
-<link rel="stylesheet" href="/src/app.css" />
-<link rel="stylesheet" href="/src/assets/css/normalize.css" />
-<link rel="stylesheet" href="/src/assets/css/links.css" />
-<link rel="stylesheet" href="/src/assets/css/locomotive.css" />
-<link rel="stylesheet" href="/src/assets/css/style.css" />
+<link rel="stylesheet" href="./app.css" />
+<link rel="stylesheet" href="/css/normalize.css" />
+<link rel="stylesheet" href="/css/links.css" />
+<link rel="stylesheet" href="/css/locomotive.css" />
+<link rel="stylesheet" href="/css/style.css" />
 
 <Loader />
 <Nav />
