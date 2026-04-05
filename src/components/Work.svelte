@@ -1,5 +1,9 @@
 <script>
     import { projects } from "../assets/projects.json";
+    import { onMount } from "svelte";
+    import linkArrow from "/images/svg/arrow-right-top.svg?enhanced";
+    import githubLogo from "/images/general/github.png?enhanced"
+    import boot from "/audio/boot.mp3"
     const statusMap = {
         0: { label: "Deprecated", class: "deprecated" },
         1: { label: "Ongoing", class: "ongoing" },
@@ -7,9 +11,56 @@
         3: { label: "Paused", class: "paused" },
         4: { label: "Maintained", class: "maintained" },
     };
-</script>
+    onMount(() => {
+        const trailer = document.getElementById("trailer");
 
+const animateTrailer = (e, interacting) => {
+  const x = e.clientX - trailer.offsetWidth / 2,
+        y = e.clientY - trailer.offsetHeight / 2;
+  
+
+  const keyframes = {
+    transform: `translate(${x}px, ${y}px) scale(${interacting ? 8 : 1})`,
+    background: `#000000`
+  }
+  
+  trailer.animate(keyframes, { 
+    duration: 300, 
+    fill: "forwards" 
+  });
+}
+
+const getTrailerClass = type => {
+  switch(type) {
+    case "video":
+      return "fa-solid fa-play";
+    default:
+      return "fa-solid fa-arrow-up-right"; 
+  }
+}
+
+window.onmousemove = e => {
+  const interactable = e.target.closest(".interactable"),
+        interacting = interactable !== null;
+  
+  const icon = document.getElementById("trailer-icon");
+  
+  animateTrailer(e, interacting);
+  
+  trailer.dataset.type = interacting ? interactable.dataset.type : "";
+  
+  if(interacting) {
+    icon.className = getTrailerClass(interactable.dataset.type);
+    trailer.classList.add("hovered")
+  }
+}
+    }
+)
+</script>
 <div class="projects">
+<div id="trailer">
+  <img id="trailer-icon" src={linkArrow} alt="">
+</div>
     <h1 class="project-title">What I’ve been up to.</h1>
     {#each Object.entries(projects) as [key, project], index (key)}
         {@const status = statusMap[project.status] || {
@@ -17,12 +68,9 @@
             class: "",
         }}
         <div class="project">
-            <a href={project.url} target="_blank">
-                <img
-                    src={"/images/projects/" + project.name + ".gif"}
-                    class="project-img"
-                    alt={project.name}
-                />
+            <a href={project.url} class="interactable" aria-label="project" target="_blank">
+                <video class="project-vid" preload="metadeta" src={"/images/projects/" + project.name + ".mp4"} muted autoplay loop playsinline>
+                </video>
             </a>
             <div class="project-content">
                 <h2 class="project-name">
@@ -41,7 +89,7 @@
                             target="_blank"
                         >
                             <img
-                                src="/images/general/github.png"
+                                src={githubLogo}
                                 alt=""
                             /> Github
                         </a>
@@ -160,6 +208,8 @@
     }
     .projects .project .tags {
         display: flex;
+        width: 100%;
+        flex-wrap: wrap;
         font-family: "ProMono" !important;
     }
     .projects .project .tag {
@@ -206,7 +256,7 @@
     .projects .project * {
         cursor: default;
     }
-    .projects .project:hover .project-img {
+    .projects .project:hover .project-vid {
         transform: scale(1.05);
         overflow: hidden;
     }
@@ -215,7 +265,7 @@
         width: 100%;
     }
 
-    .projects .project .project-img {
+    .projects .project .project-vid {
         margin: 1.5em 2em;
         margin-right: auto;
         height: 17.5em;
@@ -227,17 +277,17 @@
 
             margin: 2em 0;
         }
-        .projects .project:hover .project-img {
+        .projects .project:hover .project-vid {
             transform: scale(1.02);
         }
-        .projects .project .project-img {
+        .projects .project .project-vid {
             width: 95%;
             padding: 0;
-            margin: 2.5%;
-            height: fit-content;
+            margin: 0.5em 2.5%;
+            height: auto;
         }
         .projects .project .project-content {
-            margin: 0 5%;
+            margin: 1em 5%;
             width: 95%;
         }
         .projects .project .project-no {

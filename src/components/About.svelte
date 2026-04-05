@@ -1,8 +1,15 @@
 <script>
   import { mount, onMount } from "svelte";
-  let isBored;
+  import boot from "/audio/boot.mp3";
+  let isBored=false;
+  let paused=true;
+  function Bored(){
+    isBored=true;
+    paused=false;
+    console.log("done boi");
+  }
 </script>
-
+<audio src={boot} bind:paused></audio>
 <section class="about">
   <div class="bg">
     <div></div>
@@ -229,10 +236,13 @@
 current_interest="Backend systems & developer tools"
 </code></pre> -->
   </div>
-  <div class="about-content" class:bored={isBored} id="content">
+  <div class="about-content" id="content">
     <div class="pccase" data-aos="fade-right" data-aos-delay="0.5">
       <div class="screen oldscreeneffect">
-        <div class="screentext">
+      <div class="desktop" class:netboot={isBored}>
+        <h1 class="tlg-link">TLG-LINK</h1>
+      </div>
+        <div class="screentext" class:bored={isBored}>
           <p class="sctext">Booting</p>
           <hr />
           <p class="sctext">
@@ -252,7 +262,7 @@ current_interest="Backend systems & developer tools"
           <p class="sc-text change-text">
             Bored yet? Same. Let’s
             <button
-              on:click={() => (isBored = true)}
+              on:click={() => Bored()}
               class="change-is-necessary">change</button
             >
             that.
@@ -264,6 +274,23 @@ current_interest="Backend systems & developer tools"
 </section>
 
 <style>
+.desktop {
+  opacity: 0;
+  position: absolute;
+  color: #00fe1a;
+  text-align: center;
+  z-index: -1;
+}
+.tlg-link {
+  height: 1em;
+  overflow: hidden;
+  animation: 5s booting forwards;
+}
+
+.desktop.netboot {
+  opacity: 1;
+  z-index: 10;
+}
   .off-white {
     color: #bebbb5;
   }
@@ -548,6 +575,7 @@ current_interest="Backend systems & developer tools"
     text-shadow: 0px 0px 10px #ffffff;
     opacity: 0.6;
     font-size: 1.25rem;
+    transition: 0.2s opacity;
   }
 
   .sc-highlight {
