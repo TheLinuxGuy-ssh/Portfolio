@@ -10,7 +10,7 @@
     console.log("done boi");
   }
 </script>
-<audio src={boot} bind:paused></audio>
+<audio src={boot} preload="metadeta" bind:paused></audio>
 <section class="about">
   <div class="bg">
     <div></div>
@@ -284,6 +284,24 @@ current_interest="Backend systems & developer tools"
   display: none;
   width: 100%;
   height: 20em;
+  animation: 5s bootflash;
+}
+@keyframes bootflash {
+  0%{
+    background-color: #fff;
+  }
+  1%{
+    background-color: #000;
+  }
+  98% {
+    background-color: #000;
+  }
+  99% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #000;
+  }
 }
 .tlg-link {
   width: 20em;
