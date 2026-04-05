@@ -1,7 +1,31 @@
 <script>
   import { mount, onMount } from "svelte";
+  import { Terminal } from 'svelte-bash';
   import boot from "/audio/boot.mp3";
   import tlgLink from "/tlglink.mp4";
+  
+    const fileSystem = {
+      'readme.md': `thelinuxguy-ssh@github
+-----------------
+OS: Arch (Primary) · Windows[VM] (for no privacy) · OSX[VM] (for feeling dumb)            
+Role: Server Administrator · Web Developer
+Desktop Environment: Hyprland · GNOME               
+Shell: ZSH
+Editor: Neovim · VSCode   
+Theme: Matrix Dark
+
+Lang: JS · TS · BASH       
+FW: Svelte(basics) · React · Node
+Stack: Nginx · MySQL
+
+Projects: TheSpartanRage · DarwinX · Start-Page · Unite.Do
+Mode: Building · Learning · Privacy
+Music: Soundtracks · Phonk · Soul
+      `,
+      'secrets': {
+         'config': 'console.log("Hi")'
+      }
+    };
   let isBored=false;
   let paused=true;
   function Bored(){
@@ -9,6 +33,26 @@
     paused=false;
     console.log("done boi");
   }
+  const commands = {
+      help: () => "about \n home",
+      fetch: () => `thelinuxguy-ssh@github
+-----------------
+OS: Arch (Primary) · Windows[VM] (for no privacy) · OSX[VM] (for feeling dumb)            
+Role: Server Administrator · Web Developer
+Desktop Environment: Hyprland · GNOME               
+Shell: ZSH
+Editor: Neovim · VSCode   
+Theme: Matrix Dark
+
+Lang: JS · TS · BASH       
+FW: Svelte(basics) · React · Node
+Stack: Nginx · MySQL
+
+Projects: TheSpartanRage · DarwinX · Start-Page · Unite.Do
+Mode: Building · Learning · Privacy
+Music: Soundtracks · Phonk · Soul
+      `
+}
 </script>
 <audio src={boot} preload="metadeta" bind:paused></audio>
 <section class="about">
@@ -241,14 +285,34 @@ current_interest="Backend systems & developer tools"
     <div class="pccase" data-aos="fade-right" data-aos-delay="0.5">
       <div class="screen oldscreeneffect">
       <div class="desktop" class:netboot={isBored}>
-        <video class="tlg-link" src={tlgLink} bind:paused muted></video>
+      <div class="tlg-link">
+        <video class="tlg-link-vid" src={tlgLink} bind:paused muted playsinline></video>
+      </div>
+        <Terminal
+    structure={fileSystem}
+    class={'tlg-terminal'}
+    commands={commands}
+    user="TLG"
+    autofocus
+    theme={{
+      background: 'transparent',
+      foreground: '#00fe1a',
+      prompt: '#fff',
+    }}
+    welcomeMessage={`Type 'help' for known commands`}
+     typewriter={true}
+    syntaxHighlight={true}
+    ghostCompletion={true}
+/>
       </div>
         <div class="screentext" class:bored={isBored}>
           <p class="sctext">Booting</p>
           <hr />
           <p class="sctext">
+            <span class="about-title">
             ▄▀█ █▄▄ █▀█ █░█ ▀█▀   █▀▄▀█ █▀▀<br />
             █▀█ █▄█ █▄█ █▄█ ░█░   █░▀░█ ██▄<br />
+            </span>
             <br />A passionate Tech Enthusiast who is a well experienced Server
             Administrator, Web Developer, Designer with a great sense of humour.
             A mind which works just like electrical current in terms of coding,
@@ -281,14 +345,36 @@ current_interest="Backend systems & developer tools"
   text-align: center;
   z-index: -1;
   justify-content: center;
+  align-items: center;
   display: none;
   width: 100%;
-  height: 20em;
+  border-radius: 2rem;
+  height: 27.5em;
   animation: 5s bootflash;
+}
+
+.about-title {
+  font-size: 1rem;
+}
+.tlg-link {
+    display: flex;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 2em;
+  justify-content: center;
+  z-index: 11;
+  animation: 5s bootflash forwards;
+  background-color: #000;
+}
+.tlg-link-vid {
+  width: 20em;
 }
 @keyframes bootflash {
   0%{
     background-color: #fff;
+    display: flex;
   }
   1%{
     background-color: #000;
@@ -298,22 +384,19 @@ current_interest="Backend systems & developer tools"
   }
   99% {
     background-color: #fff;
+    display: flex;
   }
   100% {
     background-color: #000;
+    display: none;
   }
-}
-.tlg-link {
-  width: 20em;
-  display: flex;
-  overflow: hidden;
-  animation: 5s booting forwards;
 }
 
 .desktop.netboot {
   opacity: 1;
   z-index: 10;
-  display: flex;
+  display: block;
+  position: relative;
 }
   .off-white {
     color: #bebbb5;
@@ -411,6 +494,12 @@ current_interest="Backend systems & developer tools"
     .caption {
       text-align: center;
       margin: 0 1em;
+    }
+  }
+  @media screen and (max-width: 768px) {
+     .about-title {
+      font-size: 2.75vw;
+      line-height: 2vw;
     }
   }
   .terminal {

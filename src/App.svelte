@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import LocomotiveScroll from "locomotive-scroll";
+  import "./app.css";
   import {
     Header,
     Hero,
@@ -21,14 +22,10 @@
         wheelMultiplier: 1,
       },
     });
-
-    // Access Lenis directly for more control
-    console.log(scroll.lenisInstance.direction); // Get direction
-    console.log(scroll.lenisInstance.velocity); // Get speed
   });
 </script>
 
-<link rel="stylesheet" href="./app.css" />
+<link rel="stylesheet" href="/css/app.css" />
 <link rel="stylesheet" href="/css/normalize.css" />
 <link rel="stylesheet" href="/css/links.css" />
 <link rel="stylesheet" href="/css/locomotive.css" />

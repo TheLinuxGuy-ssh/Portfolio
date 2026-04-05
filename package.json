@@ -16,6 +16,7 @@
   "dependencies": {
     "@sveltejs/enhanced-img": "^0.10.4",
     "jquery": "^4.0.0",
-    "locomotive-scroll": "^5.0.1"
+    "locomotive-scroll": "^5.0.1",
+    "svelte-bash": "^1.2.0"
   }
 }

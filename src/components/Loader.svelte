@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<div class="loader" style="display: none">
+<div class="loader" style="display: none;">
     <div class="scanline"></div>
     <pre class="code"><span class="blink">█</span></pre>
     <div class="terminal glitch">
