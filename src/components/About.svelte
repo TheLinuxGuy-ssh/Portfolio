@@ -1,6 +1,7 @@
 <script>
   import { mount, onMount } from "svelte";
   import boot from "/audio/boot.mp3";
+  import tlgLink from "/tlglink.mp4";
   let isBored=false;
   let paused=true;
   function Bored(){
@@ -240,7 +241,7 @@ current_interest="Backend systems & developer tools"
     <div class="pccase" data-aos="fade-right" data-aos-delay="0.5">
       <div class="screen oldscreeneffect">
       <div class="desktop" class:netboot={isBored}>
-        <h1 class="tlg-link">TLG-LINK</h1>
+        <video class="tlg-link" src={tlgLink} bind:paused muted></video>
       </div>
         <div class="screentext" class:bored={isBored}>
           <p class="sctext">Booting</p>
@@ -276,13 +277,17 @@ current_interest="Backend systems & developer tools"
 <style>
 .desktop {
   opacity: 0;
-  position: absolute;
   color: #00fe1a;
   text-align: center;
   z-index: -1;
+  justify-content: center;
+  display: none;
+  width: 100%;
+  height: 20em;
 }
 .tlg-link {
-  height: 1em;
+  width: 20em;
+  display: flex;
   overflow: hidden;
   animation: 5s booting forwards;
 }
@@ -290,6 +295,7 @@ current_interest="Backend systems & developer tools"
 .desktop.netboot {
   opacity: 1;
   z-index: 10;
+  display: flex;
 }
   .off-white {
     color: #bebbb5;
@@ -620,5 +626,6 @@ current_interest="Backend systems & developer tools"
 
   .bored {
     opacity: 0 !important;
+    display: none !important;
   }
 </style>
