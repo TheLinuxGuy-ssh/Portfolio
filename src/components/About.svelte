@@ -23,7 +23,7 @@ Mode: Building · Learning · Privacy
 Music: Soundtracks · Phonk · Soul
       `,
       'secrets': {
-         'config': 'console.log("Hi")'
+         'github_token': 'You really thought this was it?'
       }
     };
   let isBored=false;
@@ -34,7 +34,7 @@ Music: Soundtracks · Phonk · Soul
     console.log("done boi");
   }
   const commands = {
-      help: () => "about \n home",
+      help: () => "Available commands: fetch, clear, ls, cat, cd, pwd, help, history, mkdir, touch, rm, alias",
       fetch: () => `thelinuxguy-ssh@github
 -----------------
 OS: Arch (Primary) · Windows[VM] (for no privacy) · OSX[VM] (for feeling dumb)            
@@ -303,6 +303,9 @@ current_interest="Backend systems & developer tools"
      typewriter={true}
     syntaxHighlight={true}
     ghostCompletion={true}
+    bootplay={[
+      { command: "fetch" }
+    ]}
 />
       </div>
         <div class="screentext" class:bored={isBored}>
