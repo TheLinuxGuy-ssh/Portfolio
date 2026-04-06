@@ -67,25 +67,12 @@
             class: "",
         }}
         <div class="project">
-            {#if project.url != null}
-                <a
-                    href={project.url}
-                    class="interactable"
-                    aria-label="project"
-                    target="_blank"
-                >
-                    <video
-                        class="project-vid"
-                        preload="metadeta"
-                        src={"/images/projects/" + project.name + ".mp4"}
-                        muted
-                        autoplay
-                        loop
-                        playsinline
-                    >
-                    </video>
-                </a>
-            {:else}
+            <a
+                href={project.url || null}
+                class:interactable={project.url != null}
+                aria-label="project"
+                target="_blank"
+            >
                 <video
                     class="project-vid"
                     preload="metadeta"
@@ -96,7 +83,7 @@
                     playsinline
                 >
                 </video>
-            {/if}
+            </a>
             <div class="project-content">
                 <h2 class="project-name">
                     {project.name}
@@ -141,7 +128,8 @@
     }
 
     .project-desc {
-        padding: 0.5em 0;
+        padding-top: 0.75em;
+        font-family: HermitBold;
     }
 
     .status-btn {
@@ -204,6 +192,7 @@
         text-align: center;
         padding: 1rem 0;
         font-size: 3em;
+        font-family: Pro;
         margin-bottom: 10rem;
     }
     .projects .project .project-no {
@@ -279,8 +268,8 @@
         cursor: default;
     }
     .projects .project:hover .project-vid {
-        transform: scale(1.05);
         overflow: hidden;
+        transform: scale(1.05);
     }
 
     .projects .project:hover .project-image img {

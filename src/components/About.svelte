@@ -294,7 +294,7 @@ current_interest="Backend systems & developer tools"
             <span class="sc-highlight">Precision-Driven</span><b>.</b><br /><br
             />Copyright (c) 2026<br />
           </p>
-          <p class="sc-text change-text">
+          <p class="sctext change-text">
             Bored yet? Same. Let’s
             <button on:click={() => Bored()} class="change-is-necessary"
               >change</button
@@ -688,6 +688,7 @@ current_interest="Backend systems & developer tools"
     font-size: 1rem;
     line-height: 1.5;
     margin: 1em 0 0 0;
+    font-family: HermitBold;
   }
 
   .about-real {
