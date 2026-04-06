@@ -50,7 +50,7 @@
     color: #fff;
     text-align: center;
     border-radius: 1em;
-    font-family: "Pro";
+    font-family: Pro, Arial;
   }
 
   @media screen and (max-width: 1024px) {

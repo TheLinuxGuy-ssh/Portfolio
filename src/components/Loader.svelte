@@ -141,13 +141,7 @@
     }
 
     p {
-        font-family:
-            SFMono-Regular,
-            Consolas,
-            Liberation Mono,
-            Menlo,
-            Courier,
-            monospace;
+        font-family: monospace;
         font-size: inherit;
         line-height: 1.5;
         margin: 0;

@@ -445,7 +445,7 @@ current_interest="Backend systems & developer tools"
     flex-wrap: wrap;
     justify-content: center;
     margin: 0;
-    font-family: Pro;
+    font-family: Pro, Arial;
     overflow: hidden;
     font-size: calc(var(--_size) * 0.022);
     --_factor: min(1000px, 100vh);
@@ -471,7 +471,7 @@ current_interest="Backend systems & developer tools"
     bottom: 1em;
     right: 1em;
 
-    font-family: ProMono;
+    font-family: ProMono, Arial;
   }
   .change-text {
     text-align: center;
@@ -552,7 +552,7 @@ current_interest="Backend systems & developer tools"
     translate: 0 12em;
     max-width: 28em;
     text-align: center;
-    font-family: Pro;
+    font-family: Pro, Arial;
   }
 
   .about p span {
@@ -560,7 +560,7 @@ current_interest="Backend systems & developer tools"
     display: inline-block;
     -webkit-text-fill-color: #619c54;
     font-weight: 1000;
-    font-family: Pro;
+    font-family: Pro, Arial;
   }
 
   .about .bg {
@@ -742,7 +742,6 @@ current_interest="Backend systems & developer tools"
     bottom: 1px;
     border-style: none;
     border-image: none;
-    font-family: "VT323";
     font-size: 15pt;
   }
 

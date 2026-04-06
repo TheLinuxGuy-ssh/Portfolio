@@ -107,7 +107,7 @@
 		background-color: var(--color-neutral-100);
 		opacity: 0;
 		color: #fff;
-		font-family: Pro;
+		font-family: Pro, Arial;
 		white-space: nowrap;
 		border-radius: 0.25em;
 		padding: 0.4em 0.5em;

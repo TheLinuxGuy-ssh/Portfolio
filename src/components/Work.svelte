@@ -2,8 +2,8 @@
     import { projects } from "../assets/projects.json";
     import { onMount } from "svelte";
     import linkArrow from "/images/svg/arrow-right-top.svg?enhanced";
-    import githubLogo from "/images/general/github.png?enhanced"
-    import boot from "/audio/boot.mp3"
+    import githubLogo from "/images/general/github.png?enhanced";
+    import boot from "/audio/boot.mp3";
     const statusMap = {
         0: { label: "Deprecated", class: "deprecated" },
         1: { label: "Ongoing", class: "ongoing" },
@@ -14,53 +14,52 @@
     onMount(() => {
         const trailer = document.getElementById("trailer");
 
-const animateTrailer = (e, interacting) => {
-  const x = e.clientX - trailer.offsetWidth / 2,
-        y = e.clientY - trailer.offsetHeight / 2;
-  
+        const animateTrailer = (e, interacting) => {
+            const x = e.clientX - trailer.offsetWidth / 2,
+                y = e.clientY - trailer.offsetHeight / 2;
 
-  const keyframes = {
-    transform: `translate(${x}px, ${y}px) scale(${interacting ? 8 : 1})`,
-    background: `#000000`
-  }
-  
-  trailer.animate(keyframes, { 
-    duration: 300, 
-    fill: "forwards" 
-  });
-}
+            const keyframes = {
+                transform: `translate(${x}px, ${y}px) scale(${interacting ? 8 : 1})`,
+                background: `#000000`,
+            };
 
-const getTrailerClass = type => {
-  switch(type) {
-    case "video":
-      return "fa-solid fa-play";
-    default:
-      return "fa-solid fa-arrow-up-right"; 
-  }
-}
+            trailer.animate(keyframes, {
+                duration: 300,
+                fill: "forwards",
+            });
+        };
 
-window.onmousemove = e => {
-  const interactable = e.target.closest(".interactable"),
-        interacting = interactable !== null;
-  
-  const icon = document.getElementById("trailer-icon");
-  
-  animateTrailer(e, interacting);
-  
-  trailer.dataset.type = interacting ? interactable.dataset.type : "";
-  
-  if(interacting) {
-    icon.className = getTrailerClass(interactable.dataset.type);
-    trailer.classList.add("hovered")
-  }
-}
-    }
-)
+        const getTrailerClass = (type) => {
+            switch (type) {
+                case "video":
+                    return "fa-solid fa-play";
+                default:
+                    return "fa-solid fa-arrow-up-right";
+            }
+        };
+
+        window.onmousemove = (e) => {
+            const interactable = e.target.closest(".interactable"),
+                interacting = interactable !== null;
+
+            const icon = document.getElementById("trailer-icon");
+
+            animateTrailer(e, interacting);
+
+            trailer.dataset.type = interacting ? interactable.dataset.type : "";
+
+            if (interacting) {
+                icon.className = getTrailerClass(interactable.dataset.type);
+                trailer.classList.add("hovered");
+            }
+        };
+    });
 </script>
+
 <div class="projects">
-<div id="trailer">
-  <img id="trailer-icon" src={linkArrow} alt="">
-</div>
+    <div id="trailer">
+        <img id="trailer-icon" src={linkArrow} alt="" />
+    </div>
     <h1 class="project-title">What I’ve been up to.</h1>
     {#each Object.entries(projects) as [key, project], index (key)}
         {@const status = statusMap[project.status] || {
@@ -68,8 +67,21 @@ window.onmousemove = e => {
             class: "",
         }}
         <div class="project">
-            <a href={project.url} class="interactable" aria-label="project" target="_blank">
-                <video class="project-vid" preload="metadeta" src={"/images/projects/" + project.name + ".mp4"} muted autoplay loop playsinline>
+            <a
+                href={project.url}
+                class="interactable"
+                aria-label="project"
+                target="_blank"
+            >
+                <video
+                    class="project-vid"
+                    preload="metadeta"
+                    src={"/images/projects/" + project.name + ".mp4"}
+                    muted
+                    autoplay
+                    loop
+                    playsinline
+                >
                 </video>
             </a>
             <div class="project-content">
@@ -88,10 +100,7 @@ window.onmousemove = e => {
                                 project.github}
                             target="_blank"
                         >
-                            <img
-                                src={githubLogo}
-                                alt=""
-                            /> Github
+                            <img src={githubLogo} alt="" /> Github
                         </a>
                     {/if}
                     {#if project.url != null}
@@ -163,7 +172,7 @@ window.onmousemove = e => {
         display: flex;
         justify-content: end;
         align-items: center;
-        font-family: Pro;
+        font-family: Pro, Arial;
         transition: 0.2s all;
         text-decoration: none;
         color: #fff;
@@ -198,7 +207,7 @@ window.onmousemove = e => {
     .projects .project .project-content .project-heading {
         margin-top: 0.2em;
         text-transform: uppercase;
-        font-family: HermitBold;
+        font-family: HermitBold, Arial;
     }
 
     .projects .project .project-content {
@@ -210,7 +219,7 @@ window.onmousemove = e => {
         display: flex;
         width: 100%;
         flex-wrap: wrap;
-        font-family: "ProMono" !important;
+        font-family: "ProMono", Arial !important;
     }
     .projects .project .tag {
         padding: 0.25em 0.5em;

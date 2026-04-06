@@ -1,16 +1,19 @@
 @font-face {
 	font-family: HermitBold;
-	src: url(/fonts/Hermit/HurmitNerdFont-Bold.woff2);
+	src: url(/fonts/Hermit/HurmitNerdFont-Bold.woff2) format('woff2');
+	font-display: swap;
 }
 
 @font-face {
 	font-family: Pro;
-	src: url(/fonts/ProFont/ProFontIIxNerdFont-Regular.woff2);
+	src: url(/fonts/ProFont/ProFontIIxNerdFont-Regular.woff2) format('woff2');
+	font-display: swap;
 }
 
 @font-face {
 	font-family: ProMono;
-	src: url(/fonts/ProFont/ProFontIIxNerdFontMono-Regular.woff2);
+	src: url(/fonts/ProFont/ProFontIIxNerdFontMono-Regular.woff2) format('woff2');
+	font-display: swap;
 }
 
 * {

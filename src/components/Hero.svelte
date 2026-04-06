@@ -18,7 +18,6 @@
   </div>
 </section>
 
-
 <style>
   .hero {
     height: 100vh;
@@ -65,7 +64,7 @@
   .hero-title {
     color: white;
     font-size: 6vw;
-    font-family: Pro;
+    font-family: Pro, Arial;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.75);
     user-select: none;
     text-align: center;
@@ -75,7 +74,7 @@
     font-weight: 100;
     font-size: 28px;
     color: #fafafa;
-    font-family: Pro;
+    font-family: Pro, Arial;
     text-align: center;
   }
   @media screen and (max-width: 1024px) {

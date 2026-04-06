@@ -28,7 +28,7 @@
     -moz-text-stroke-color: white;
     font-size: 3em;
     margin-top: 20%;
-    font-family: ProMono;
+    font-family: ProMono, Arial;
   }
 
   .footer-links {
@@ -59,7 +59,7 @@
     bottom: 0.4em;
     width: fit-content;
     height: 2.5em;
-    font-family: Pro;
+    font-family: Pro, Arial;
     background-color: #000;
     border-radius: 0.2em;
     padding: 0 0.75em;
@@ -82,7 +82,7 @@
     padding: 1em;
     text-decoration: none;
     text-transform: uppercase;
-    font-family: Pro;
+    font-family: Pro, Arial;
     color: #fff;
     transition: 0.2s;
   }
