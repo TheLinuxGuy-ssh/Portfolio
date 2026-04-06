@@ -1,7 +1,7 @@
 import LocomotiveScroll from "locomotive-scroll";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import AOS from 'aos';
 
 const container = document.querySelector("[data-scroll-container]");
 
