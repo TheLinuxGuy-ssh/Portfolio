@@ -1,3 +1,19 @@
+  import LocomotiveScroll from "locomotive-scroll";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
+  const container = document.querySelector("[data-scroll-container]");
+
+ const scroll = new LocomotiveScroll({
+    lenisOptions: {
+        orientation: 'vertical',
+        lerp: 0.1,
+        wheelMultiplier: 1,
+    },
+});
+
+
 // ——————————————————————————————————————————————————
 // TextScramble
 // ——————————————————————————————————————————————————

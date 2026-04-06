@@ -1,11 +1,11 @@
 <script>
   import { mount, onMount } from "svelte";
-  import { Terminal } from 'svelte-bash';
+  import { Terminal } from "svelte-bash";
   import boot from "/audio/boot.mp3";
   import tlgLink from "/tlglink.mp4";
-  
-    const fileSystem = {
-      'readme.md': `thelinuxguy-ssh@github
+
+  const fileSystem = {
+    "readme.md": `thelinuxguy-ssh@github
 -----------------
 OS: Arch (Primary) · Windows[VM] (for no privacy) · OSX[VM] (for feeling dumb)            
 Role: Server Administrator · Web Developer
@@ -22,20 +22,21 @@ Projects: TheSpartanRage · DarwinX · Start-Page · Unite.Do
 Mode: Building · Learning · Privacy
 Music: Soundtracks · Phonk · Soul
       `,
-      'secrets': {
-         'github_token': 'You really thought this was it?'
-      }
-    };
-  let isBored=false;
-  let paused=true;
-  function Bored(){
-    isBored=true;
-    paused=false;
+    secrets: {
+      github_token: "You really thought this was it?",
+    },
+  };
+  let isBored = false;
+  let paused = true;
+  function Bored() {
+    isBored = true;
+    paused = false;
     console.log("done boi");
   }
   const commands = {
-      help: () => "Available commands: fetch, clear, ls, cat, cd, pwd, help, history, mkdir, touch, rm, alias",
-      fetch: () => `thelinuxguy-ssh@github
+    help: () =>
+      "Available commands: fetch, clear, ls, cat, cd, pwd, help, history, mkdir, touch, rm, alias",
+    fetch: () => `thelinuxguy-ssh@github
 -----------------
 OS: Arch (Primary) · Windows[VM] (for no privacy) · OSX[VM] (for feeling dumb)            
 Role: Server Administrator · Web Developer
@@ -51,9 +52,10 @@ Stack: Nginx · MySQL
 Projects: TheSpartanRage · DarwinX · Start-Page · Unite.Do
 Mode: Building · Learning · Privacy
 Music: Soundtracks · Phonk · Soul
-      `
-}
+      `,
+  };
 </script>
+
 <audio src={boot} preload="metadeta" bind:paused></audio>
 <section class="about">
   <div class="bg">
@@ -284,37 +286,41 @@ current_interest="Backend systems & developer tools"
   <div class="about-content" id="content">
     <div class="pccase" data-aos="fade-right" data-aos-delay="0.5">
       <div class="screen oldscreeneffect">
-      <div class="desktop" class:netboot={isBored}>
-      <div class="tlg-link">
-        <video class="tlg-link-vid" src={tlgLink} bind:paused muted playsinline></video>
-      </div>
-        <Terminal
-    structure={fileSystem}
-    class={'tlg-terminal'}
-    commands={commands}
-    user="TLG"
-    autofocus
-    theme={{
-      background: 'transparent',
-      foreground: '#00fe1a',
-      prompt: '#fff',
-    }}
-    welcomeMessage={`Type 'help' for known commands`}
-     typewriter={true}
-    syntaxHighlight={true}
-    ghostCompletion={true}
-    bootplay={[
-      { command: "fetch" }
-    ]}
-/>
-      </div>
+        <div class="desktop" class:netboot={isBored}>
+          <div class="tlg-link">
+            <video
+              class="tlg-link-vid"
+              src={tlgLink}
+              bind:paused
+              muted
+              playsinline
+            ></video>
+          </div>
+          <Terminal
+            structure={fileSystem}
+            class={"tlg-terminal"}
+            {commands}
+            user="TLG"
+            autofocus
+            theme={{
+              background: "transparent",
+              foreground: "#00fe1a",
+              prompt: "#fff",
+            }}
+            welcomeMessage={`Type 'help' for known commands`}
+            typewriter={true}
+            syntaxHighlight={true}
+            ghostCompletion={true}
+            bootplay={[{ command: "fetch" }]}
+          />
+        </div>
         <div class="screentext" class:bored={isBored}>
           <p class="sctext">Booting</p>
           <hr />
           <p class="sctext">
             <span class="about-title">
-            ▄▀█ █▄▄ █▀█ █░█ ▀█▀   █▀▄▀█ █▀▀<br />
-            █▀█ █▄█ █▄█ █▄█ ░█░   █░▀░█ ██▄<br />
+              ▄▀█ █▄▄ █▀█ █░█ ▀█▀   █▀▄▀█ █▀▀<br />
+              █▀█ █▄█ █▄█ █▄█ ░█░   █░▀░█ ██▄<br />
             </span>
             <br />A passionate Tech Enthusiast who is a well experienced Server
             Administrator, Web Developer, Designer with a great sense of humour.
@@ -329,9 +335,8 @@ current_interest="Backend systems & developer tools"
           </p>
           <p class="sc-text change-text">
             Bored yet? Same. Let’s
-            <button
-              on:click={() => Bored()}
-              class="change-is-necessary">change</button
+            <button on:click={() => Bored()} class="change-is-necessary"
+              >change</button
             >
             that.
           </p>
@@ -342,65 +347,82 @@ current_interest="Backend systems & developer tools"
 </section>
 
 <style>
-.desktop {
-  opacity: 0;
-  color: #00fe1a;
-  text-align: center;
-  z-index: -1;
-  justify-content: center;
-  align-items: center;
-  display: none;
-  width: 100%;
-  border-radius: 2rem;
-  height: 27.5em;
-  animation: 5s bootflash;
-}
-
-.about-title {
-  font-size: 1rem;
-}
-.tlg-link {
-    display: flex;
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  border-radius: 2em;
-  justify-content: center;
-  z-index: 11;
-  animation: 5s bootflash forwards;
-  background-color: #000;
-}
-.tlg-link-vid {
-  width: 20em;
-}
-@keyframes bootflash {
-  0%{
-    background-color: #fff;
-    display: flex;
-  }
-  1%{
-    background-color: #000;
-  }
-  98% {
-    background-color: #000;
-  }
-  99% {
-    background-color: #fff;
-    display: flex;
-  }
-  100% {
-    background-color: #000;
+  .desktop {
+    opacity: 0;
+    color: #00fe1a;
+    text-align: center;
+    z-index: -1;
+    justify-content: center;
+    align-items: center;
     display: none;
+    width: 100%;
+    border-radius: 2rem;
+    height: 27.5em;
+    animation: 5s bootflash;
   }
-}
 
-.desktop.netboot {
-  opacity: 1;
-  z-index: 10;
-  display: block;
-  position: relative;
-}
+  .about-title {
+    font-size: 1rem;
+  }
+  .server {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+  .tlg-link {
+    display: flex;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 2em;
+    justify-content: center;
+    z-index: 11;
+    animation: 5s bootflash forwards;
+    background-color: #000;
+  }
+  .tlg-link-vid {
+    width: 20em;
+  }
+  @keyframes bootflash {
+    0% {
+      background-color: #fff;
+      display: flex;
+    }
+    1% {
+      background-color: #000;
+    }
+    12% {
+      background-color: #000;
+    }
+    13% {
+      background-color: #00fe1a;
+    }
+    16% {
+      background-color: #00fe1a;
+    }
+    17% {
+      background-color: #000;
+    }
+    98% {
+      background-color: #000;
+    }
+    99% {
+      background-color: #fff;
+      display: flex;
+    }
+    100% {
+      background-color: #000;
+      display: none;
+    }
+  }
+
+  .desktop.netboot {
+    opacity: 1;
+    z-index: 10;
+    display: block;
+    position: relative;
+  }
   .off-white {
     color: #bebbb5;
   }
@@ -500,7 +522,7 @@ current_interest="Backend systems & developer tools"
     }
   }
   @media screen and (max-width: 768px) {
-     .about-title {
+    .about-title {
       font-size: 2.75vw;
       line-height: 2vw;
     }

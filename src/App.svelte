@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import LocomotiveScroll from "locomotive-scroll";
   import "./app.css";
   import {
     Header,
@@ -15,13 +14,6 @@
   } from "./components/";
   onMount(async () => {
     await import("/src/assets/js/script.js");
-    const scroll = new LocomotiveScroll({
-      lenisOptions: {
-        orientation: "vertical",
-        lerp: 0.1,
-        wheelMultiplier: 1,
-      },
-    });
   });
 </script>
 
