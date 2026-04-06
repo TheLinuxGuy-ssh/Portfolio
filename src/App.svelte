@@ -11,6 +11,7 @@
     Work,
     Footer,
     Miscellaneous,
+    Widget,
   } from "./components/";
   onMount(async () => {
     await import("/src/assets/js/script.js");

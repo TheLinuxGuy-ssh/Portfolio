@@ -3,8 +3,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AOS from 'aos';
 
-const container = document.querySelector("[data-scroll-container]");
-
 const scroll = new LocomotiveScroll({
   lenisOptions: {
     orientation: 'vertical',
