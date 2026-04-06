@@ -13,7 +13,7 @@
         );
 
         status = active?.NowPlayingItem
-            ? `${active.NowPlayingItem.Name} - ${active.NowPlayingItem.Artist}`
+            ? `${active.NowPlayingItem.Name} - ${active.NowPlayingItem.AlbumArtist}`
             : "Nothing playing";
     });
 </script>
