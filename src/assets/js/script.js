@@ -14,10 +14,6 @@ const scroll = new LocomotiveScroll({
 });
 
 
-// ——————————————————————————————————————————————————
-// TextScramble
-// ——————————————————————————————————————————————————
-
 class TextScramble {
   constructor(el) {
     this.el = el;
@@ -93,53 +89,6 @@ const next = () => {
 
 next();
 
-
-
-
-const commands = String.raw`samurai@internal-cdprojektred.com/:~ cd HAX
-samurai@internal-cdprojektred.com/HAX/:~ ls`;
-
-const beep = String.raw`
-
-
-          _____                    _____                    _____                    _____          
-         /\    \                  /\    \                  /\    \                  /\    \         
-        /::\    \                /::\    \                /::\    \                /::\    \        
-       /::::\    \              /::::\    \              /::::\    \              /::::\    \       
-      /::::::\    \            /::::::\    \            /::::::\    \            /::::::\    \      
-     /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \     
-    /:::/__\:::\    \        /:::/__\:::\    \        /:::/__\:::\    \        /:::/__\:::\    \    
-   /::::\   \:::\    \      /::::\   \:::\    \      /::::\   \:::\    \      /::::\   \:::\    \   
-  /::::::\   \:::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \  
- /:::/\:::\   \:::\ ___\  /:::/\:::\   \:::\    \  /:::/\:::\   \:::\    \  /:::/\:::\   \:::\____\ 
-/:::/__\:::\   \:::|    |/:::/__\:::\   \:::\____\/:::/__\:::\   \:::\____\/:::/  \:::\   \:::|    |
-\:::\   \:::\  /:::|____|\:::\   \:::\   \::/    /\:::\   \:::\   \::/    /\::/    \:::\  /:::|____|
- \:::\   \:::\/:::/    /  \:::\   \:::\   \/____/  \:::\   \:::\   \/____/  \/_____/\:::\/:::/    / 
-  \:::\   \::::::/    /    \:::\   \:::\    \       \:::\   \:::\    \               \::::::/    /  
-   \:::\   \::::/    /      \:::\   \:::\____\       \:::\   \:::\____\               \::::/    /   
-    \:::\  /:::/    /        \:::\   \::/    /        \:::\   \::/    /                \::/____/    
-     \:::\/:::/    /          \:::\   \/____/          \:::\   \/____/                  ~~          
-      \::::::/    /            \:::\    \               \:::\    \                                  
-       \::::/    /              \:::\____\               \:::\____\                                 
-        \::/____/                \::/    /                \::/    /                                 
-         ~~                       \/____/                  \/____/                                  
-
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #`;
-
-const samurai = String.raw`
-
-             ..    ,,,,,,    ,,,,,,      ,,,,, .,,,,     ,,,,, .,,,,,,,,,,,,,    .,,,,,,    ,,,,,  
- #############/   #######.   #######    ###### /####,    (#### /##############   #######.   #####  
- #####((((((((/   ########   ########  ####### /####,    (#### /####*   /#####  *########   #####  
- #####((((*      #########.  ################# /####,    (#### /####*   ######  #########.  #####  
- ############.   #### (####  ################# /####,    (#### /############## *#### #####  (*,..  
- .############  #####  ####. ################# /####,    (##(( *,.    .,*/((##  ####/ #####  ####( 
-   /##########*,####,  (###( (,.    .,*/( ##### #####     ####( (###########   #####  *####  ####( 
-            (### ####   (#### ##### .###* ##### ######(/######, (####. #####(  ####/   ##### ####( 
-            /###.###,    ####.#####  ###  ####( .#############  (####.  #####.(####    /#### ####(
-`;
-
 let blink = document.querySelector('.blink');
 const code = document.querySelector('.code');
 
@@ -186,8 +135,6 @@ const DrawCommands = async commands => {
   }
 }
 
-
-// Start the code
 (async () => {
   await DrawCommands("/:~ ssh anonymous@codeplanet-core -p 22");
   await Delay(1000);
@@ -197,16 +144,13 @@ const DrawCommands = async commands => {
 })();
 
 
-// Function to hide the loader and start animation
 function hideLoaderAndStartAnimation() {
-  // Wait for the loader to disappear
   setTimeout(function () {
     document.querySelector('.body').classList.remove('paused'); // Remove 'paused' class to resume animation
     AOS.init();
-  }, 12000); // Simulate loader disappearance after 2 seconds
+  }, 12000);
 }
 
-// Call this function when the page is ready or after a certain event
 window.onload = hideLoaderAndStartAnimation;
 
 
@@ -383,10 +327,10 @@ window.addEventListener('scroll', function () {
 
 
 
-var design = document.querySelector(".designer-btn");
-var comp = document.querySelector(".transition-comp")
-design.addEventListener("click", function () {
-  comp.classList.add("transition");
-  setTimeout(function () { window.location = "./design" }, 1500);
-})
+// var design = document.querySelector(".designer-btn");
+// var comp = document.querySelector(".transition-comp")
+// design.addEventListener("click", function () {
+//   comp.classList.add("transition");
+//   setTimeout(function () { window.location = "./design" }, 1500);
+// })
 

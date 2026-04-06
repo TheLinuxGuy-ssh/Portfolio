@@ -58,7 +58,7 @@
 		margin-bottom: 0;
 		padding-left: 0;
 		display: flex;
-		font-size: 1.4vw;
+		font-size: 1.2em;
 		height: 3em;
 		transition: 0.2s ease-in-out;
 	}

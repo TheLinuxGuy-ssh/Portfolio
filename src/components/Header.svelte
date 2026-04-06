@@ -3,7 +3,7 @@
 </script>
 
 <div class="head-logo" id="logo">
-  <a href="#hero">
+  <a href="#hero" aria-label="Go to Start">
     <img src={logo} alt="" />
   </a>
 </div>
