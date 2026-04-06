@@ -62,23 +62,20 @@ Music: Soundtracks · Phonk · Soul
     <div></div>
     <div></div>
   </div>
-  <div class="header-text" aria-hidden="true" data-scroll>
-    <div class="revolutionising" style="font-size: 5.75vw">Revolutionising</div>
-    <br /><span
+  <div class="header-text" aria-hidden="true">
+    <div class="header-spacing revolutionising" style="font-size: 5.75vw">
+      Revolutionising
+    </div>
+    <div
       class="glow-filter"
       data-text="The Internet"
-      style="filter: hue-rotate(90deg);">The Internet</span
-    ><br /><br />
-    <div
-      data-scroll
-      data-scroll-speed="7"
-      data-scroll-direction="horizontal"
-      class="server"
-      style="font-size: 5.75vw;"
+      style="filter: hue-rotate(90deg);"
     >
+      The Internet
+    </div>
+    <div class="header-spacing server" style="font-size: 5.75vw;">
       One Server At A Time.
     </div>
-    <br />
   </div>
   <svg
     class="filters"
@@ -376,6 +373,9 @@ current_interest="Backend systems & developer tools"
       background-color: #000;
       display: none;
     }
+  }
+  .header-spacing {
+    margin: 0.5em 0;
   }
 
   .desktop.netboot {
