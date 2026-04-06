@@ -19,7 +19,7 @@
 </script>
 
 <div class="widget">
-    <div class="playing">Current Listening:</div>
+    <div class="playing">Currently Listening:</div>
     <div class="master-wrapper">
         <div class="marquee-wrapper">
             <span class="marquee-content">{status}</span>
