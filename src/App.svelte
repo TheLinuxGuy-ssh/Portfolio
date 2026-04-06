@@ -32,4 +32,5 @@
   <About />
   <Work />
   <Footer />
+  <Widget />
 </main>
