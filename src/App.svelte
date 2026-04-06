@@ -17,7 +17,6 @@
   });
 </script>
 
-<link rel="stylesheet" href="/css/app.css" />
 <link rel="stylesheet" href="/css/normalize.css" />
 <link rel="stylesheet" href="/css/links.css" />
 <link rel="stylesheet" href="/css/locomotive.css" />
