@@ -67,12 +67,25 @@
             class: "",
         }}
         <div class="project">
-            <a
-                href={project.url}
-                class="interactable"
-                aria-label="project"
-                target="_blank"
-            >
+            {#if project.url != null}
+                <a
+                    href={project.url}
+                    class="interactable"
+                    aria-label="project"
+                    target="_blank"
+                >
+                    <video
+                        class="project-vid"
+                        preload="metadeta"
+                        src={"/images/projects/" + project.name + ".mp4"}
+                        muted
+                        autoplay
+                        loop
+                        playsinline
+                    >
+                    </video>
+                </a>
+            {:else}
                 <video
                     class="project-vid"
                     preload="metadeta"
@@ -83,7 +96,7 @@
                     playsinline
                 >
                 </video>
-            </a>
+            {/if}
             <div class="project-content">
                 <h2 class="project-name">
                     {project.name}
