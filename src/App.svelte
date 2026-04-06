@@ -13,7 +13,11 @@
     Miscellaneous,
     Widget,
   } from "./components/";
+  import { injectSpeedInsights } from "@vercel/speed-insights";
+  
   onMount(async () => {
+    // Initialize Vercel Speed Insights
+    injectSpeedInsights();
     await import("/src/assets/js/script.js");
   });
 </script>
