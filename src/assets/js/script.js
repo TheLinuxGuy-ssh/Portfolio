@@ -136,7 +136,7 @@ const DrawCommands = async commands => {
 }
 
 (async () => {
-  await DrawCommands("/:~ ssh anonymous@codeplanet-core -p 22");
+  await DrawCommands("/:~ ssh anonymous@starwalk-core -p 22");
   await Delay(1000);
   RenderString("\n    Welcome :) \n \n");
   await Delay(1000);
@@ -152,29 +152,6 @@ function hideLoaderAndStartAnimation() {
 }
 
 window.onload = hideLoaderAndStartAnimation;
-
-
-
-var b = document.getElementsByTagName("body")[0];
-
-b.addEventListener("mousemove", function (event) {
-  parallaxed(event);
-
-});
-
-
-
-
-function parallaxed(e) {
-  var amountMovedX = (e.clientX * 0.3 / 8);
-  var amountMovedY = (e.clientY * 0.3 / 8);
-  var x = document.getElementsByClassName("parallaxed");
-  var i;
-  for (i = 0; i < x.length; i++) {
-    x[i].style.transform = 'translate(' + amountMovedX + 'px,' + amountMovedY + 'px)'
-  }
-}
-
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -324,13 +301,3 @@ window.addEventListener('scroll', function () {
   if (scrollpos >= scrollChange) { add_class_on_scroll(), add_class_on_scrol() }
   else { remove_class_on_scroll(), remove_class_on_scrol() }
 })
-
-
-
-// var design = document.querySelector(".designer-btn");
-// var comp = document.querySelector(".transition-comp")
-// design.addEventListener("click", function () {
-//   comp.classList.add("transition");
-//   setTimeout(function () { window.location = "./design" }, 1500);
-// })
-
