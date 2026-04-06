@@ -67,8 +67,13 @@
             class: "",
         }}
         <div class="project">
-            {#if project.url != "" || project.url != null}
-                <a href={project.url} aria-label="project" target="_blank">
+            {#if project.url != null}
+                <a
+                    href={project.url || null}
+                    class:interactable={project.url != null}
+                    aria-label="project"
+                    target="_blank"
+                >
                     <video
                         class="project-vid"
                         preload="metadeta"
