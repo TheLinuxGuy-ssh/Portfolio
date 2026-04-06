@@ -1,29 +1,31 @@
 @font-face {
-    font-family: HermitBold;
-    src: url(/fonts/Hermit/HurmitNerdFont-Bold.otf);
+	font-family: HermitBold;
+	src: url(/fonts/Hermit/HurmitNerdFont-Bold.woff2);
 }
 
 @font-face {
-    font-family: Pro;
-    src: url(/fonts/ProFont/ProFontIIxNerdFont-Regular.ttf);
+	font-family: Pro;
+	src: url(/fonts/ProFont/ProFontIIxNerdFont-Regular.woff2);
 }
 
 @font-face {
-    font-family: ProMono;
-    src: url(/fonts/ProFont/ProFontIIxNerdFontMono-Regular.ttf);
+	font-family: ProMono;
+	src: url(/fonts/ProFont/ProFontIIxNerdFontMono-Regular.woff2);
 }
+
 * {
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
 }
+
 html {
 	scroll-behavior: smooth;
 
 }
 
 body {
-    background-color: #000000;
+	background-color: #000000;
 	position: relative;
 	overflow-x: hidden;
 }
@@ -41,41 +43,43 @@ body {
 
 
 
-.svelte-bash-terminal  {
-  border: 0 !important;
+.svelte-bash-terminal {
+	border: 0 !important;
 }
+
 #trailer {
 	height: 10px;
 	width: 10px;
 	background-color: #fff;
 	box-shadow: 0 0 0px 0.2px #fff;
 	color: #fff;
-	
+
 	position: fixed;
 	left: 0px;
 	top: 0px;
 	z-index: 10000;
-	
+
 	pointer-events: none;
 	opacity: 1;
 	transition: opacity 500ms ease;
-	
+
 	display: grid;
 	place-items: center;
 }
 
-body:hover > #trailer {
-  opacity: 1;
+body:hover>#trailer {
+	opacity: 1;
 }
-#trailer:not([data-type=""]) > #trailer-icon {
-  opacity: 1;
+
+#trailer:not([data-type=""])>#trailer-icon {
+	opacity: 1;
 }
 
 #trailer #trailer-icon {
-  width: 6px;
-  height: 6px;
-  line-height: 4px;
-  opacity: 0;
-  transition: opacity 400ms ease;
-  filter: invert(1);
+	width: 6px;
+	height: 6px;
+	line-height: 4px;
+	opacity: 0;
+	transition: opacity 400ms ease;
+	filter: invert(1);
 }

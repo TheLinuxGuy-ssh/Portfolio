@@ -1,16 +1,16 @@
-  import LocomotiveScroll from "locomotive-scroll";
+import LocomotiveScroll from "locomotive-scroll";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
-  const container = document.querySelector("[data-scroll-container]");
+const container = document.querySelector("[data-scroll-container]");
 
- const scroll = new LocomotiveScroll({
-    lenisOptions: {
-        orientation: 'vertical',
-        lerp: 0.1,
-        wheelMultiplier: 1,
-    },
+const scroll = new LocomotiveScroll({
+  lenisOptions: {
+    orientation: 'vertical',
+    lerp: 0.1,
+    wheelMultiplier: 1,
+  },
 });
 
 
@@ -19,78 +19,79 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // ——————————————————————————————————————————————————
 
 class TextScramble {
-    constructor(el) {
-      this.el = el;
-      this.chars = '!<>-_\\/[]{}—=+*^?#________';
-      this.update = this.update.bind(this);
+  constructor(el) {
+    this.el = el;
+    this.chars = '!<>-_\\/[]{}—=+*^?#________';
+    this.update = this.update.bind(this);
+  }
+  setText(newText) {
+    const oldText = this.el.innerText;
+    const length = Math.max(oldText.length, newText.length);
+    const promise = new Promise(resolve => this.resolve = resolve);
+    this.queue = [];
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || '';
+      const to = newText[i] || '';
+      const start = Math.floor(Math.random() * 40);
+      const end = start + Math.floor(Math.random() * 40);
+      this.queue.push({ from, to, start, end });
     }
-    setText(newText) {
-      const oldText = this.el.innerText;
-      const length = Math.max(oldText.length, newText.length);
-      const promise = new Promise(resolve => this.resolve = resolve);
-      this.queue = [];
-      for (let i = 0; i < length; i++) {
-        const from = oldText[i] || '';
-        const to = newText[i] || '';
-        const start = Math.floor(Math.random() * 40);
-        const end = start + Math.floor(Math.random() * 40);
-        this.queue.push({ from, to, start, end });
-      }
-      cancelAnimationFrame(this.frameRequest);
-      this.frame = 0;
-      this.update();
-      return promise;
-    }
-    update() {
-      let output = '';
-      let complete = 0;
-      for (let i = 0, n = this.queue.length; i < n; i++) {
-        let { from, to, start, end, char } = this.queue[i];
-        if (this.frame >= end) {
-          complete++;
-          output += to;
-        } else if (this.frame >= start) {
-          if (!char || Math.random() < 0.28) {
-            char = this.randomChar();
-            this.queue[i].char = char;
-          }
-          output += `<span class="dud">${char}</span>`;
-        } else {
-          output += from;
+    cancelAnimationFrame(this.frameRequest);
+    this.frame = 0;
+    this.update();
+    return promise;
+  }
+  update() {
+    let output = '';
+    let complete = 0;
+    for (let i = 0, n = this.queue.length; i < n; i++) {
+      let { from, to, start, end, char } = this.queue[i];
+      if (this.frame >= end) {
+        complete++;
+        output += to;
+      } else if (this.frame >= start) {
+        if (!char || Math.random() < 0.28) {
+          char = this.randomChar();
+          this.queue[i].char = char;
         }
-      }
-      this.el.innerHTML = output;
-      if (complete === this.queue.length) {
-        this.resolve();
+        output += `<span class="dud">${char}</span>`;
       } else {
-        this.frameRequest = requestAnimationFrame(this.update);
-        this.frame++;
+        output += from;
       }
     }
-    randomChar() {
-      return this.chars[Math.floor(Math.random() * this.chars.length)];
-    }}
-  
-  const phrases = [
+    this.el.innerHTML = output;
+    if (complete === this.queue.length) {
+      this.resolve();
+    } else {
+      this.frameRequest = requestAnimationFrame(this.update);
+      this.frame++;
+    }
+  }
+  randomChar() {
+    return this.chars[Math.floor(Math.random() * this.chars.length)];
+  }
+}
+
+const phrases = [
   'Linux Enthusiast',
   'Server Admin',
   'Web Developer',
   'Designer',
   'Programmer'];
-  
-  
-  const el = document.querySelector('.hero-desc');
-  const fx = new TextScramble(el);
-  
-  let counter = 0;
-  const next = () => {
-    fx.setText(phrases[counter]).then(() => {
-      setTimeout(next, 800);
-    });
-    counter = (counter + 1) % phrases.length;
-  };
-  
-  next();
+
+
+const el = document.querySelector('.hero-desc');
+const fx = new TextScramble(el);
+
+let counter = 0;
+const next = () => {
+  fx.setText(phrases[counter]).then(() => {
+    setTimeout(next, 800);
+  });
+  counter = (counter + 1) % phrases.length;
+};
+
+next();
 
 
 
@@ -143,54 +144,54 @@ let blink = document.querySelector('.blink');
 const code = document.querySelector('.code');
 
 const RandomNumber = (min, max) => {
-	return Math.floor(Math.random() * max) + min
+  return Math.floor(Math.random() * max) + min
 };
 
 const Delay = (time) => {
-	return new Promise((resolve) => setTimeout(resolve, time))
+  return new Promise((resolve) => setTimeout(resolve, time))
 };
 
 const ResetTerminal = () => {
-	code.innerHTML = '<span class="blink">█</span>';
-	blink = document.querySelector('.blink');
+  code.innerHTML = '<span class="blink">█</span>';
+  blink = document.querySelector('.blink');
 };
 
 const RenderString = characters => {
-	blink.insertAdjacentHTML('beforeBegin', characters);
+  blink.insertAdjacentHTML('beforeBegin', characters);
 };
 
 const TypeString = async characters => {
-	for(const character of characters.split('')) {
-		await Delay(RandomNumber(20, 70));
-		RenderString(character);
-	}
+  for (const character of characters.split('')) {
+    await Delay(RandomNumber(20, 70));
+    RenderString(character);
+  }
 }
 
-const DrawLines = async ( characters, min = 50, max = 500 ) => {
-	for(const line of characters.split('\n')) {
-		await Delay(RandomNumber(min, max));
-		RenderString(`${line}\n`);
-	}
+const DrawLines = async (characters, min = 50, max = 500) => {
+  for (const line of characters.split('\n')) {
+    await Delay(RandomNumber(min, max));
+    RenderString(`${line}\n`);
+  }
 }
 
 const DrawCommands = async commands => {
-	for( const line of commands.split('\n')){
-		// Seperate the directory and the command
-		const [currentDir, command] = line.split(':~ ');
+  for (const line of commands.split('\n')) {
+    // Seperate the directory and the command
+    const [currentDir, command] = line.split(':~ ');
 
-		// Print the directory, type the command and finish with new line
-		RenderString(`${currentDir}:~ `);
-		await TypeString(command);
-		RenderString('\n');
-	}
+    // Print the directory, type the command and finish with new line
+    RenderString(`${currentDir}:~ `);
+    await TypeString(command);
+    RenderString('\n');
+  }
 }
 
 
 // Start the code
-(async()=> {
-	await DrawCommands("/:~ ssh anonymous@codeplanet-core -p 22");
-	await Delay(1000);
-	RenderString("\n    Welcome :) \n \n");
+(async () => {
+  await DrawCommands("/:~ ssh anonymous@codeplanet-core -p 22");
+  await Delay(1000);
+  RenderString("\n    Welcome :) \n \n");
   await Delay(1000);
   await DrawCommands("/:~ systemctl start gdm.service");
 })();
@@ -199,7 +200,7 @@ const DrawCommands = async commands => {
 // Function to hide the loader and start animation
 function hideLoaderAndStartAnimation() {
   // Wait for the loader to disappear
-  setTimeout(function() {
+  setTimeout(function () {
     document.querySelector('.body').classList.remove('paused'); // Remove 'paused' class to resume animation
     AOS.init();
   }, 12000); // Simulate loader disappearance after 2 seconds
@@ -210,9 +211,9 @@ window.onload = hideLoaderAndStartAnimation;
 
 
 
-var b = document.getElementsByTagName("body")[0];  
+var b = document.getElementsByTagName("body")[0];
 
-b.addEventListener("mousemove", function(event) {
+b.addEventListener("mousemove", function (event) {
   parallaxed(event);
 
 });
@@ -221,13 +222,13 @@ b.addEventListener("mousemove", function(event) {
 
 
 function parallaxed(e) {
-      var amountMovedX = (e.clientX * 0.3 / 8);
-      var amountMovedY = (e.clientY * 0.3 / 8);
-      var x = document.getElementsByClassName("parallaxed");
-      var i;
-      for (i = 0; i < x.length; i++) {
-        x[i].style.transform='translate(' + amountMovedX + 'px,' + amountMovedY + 'px)'
-      }
+  var amountMovedX = (e.clientX * 0.3 / 8);
+  var amountMovedY = (e.clientY * 0.3 / 8);
+  var x = document.getElementsByClassName("parallaxed");
+  var i;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.transform = 'translate(' + amountMovedX + 'px,' + amountMovedY + 'px)'
+  }
 }
 
 
@@ -242,7 +243,7 @@ mm.add({
   isMobile: `(max-width: ${breakPoint - 1}px)`
 }, (context) => {
 
-let tl = gsap.timeline({
+  let tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".about",
       scrub: 1,
@@ -253,12 +254,12 @@ let tl = gsap.timeline({
     smoothChildTiming: true
   });
   gsap.set(".revolutionising", { x: '-20%' });  // Set initial position for element1
-gsap.set(".server", { x: '40%' });  // Set initial position for element2
+  gsap.set(".server", { x: '40%' });  // Set initial position for element2
 
-  
-  tl.to(".revolutionising", { 
+
+  tl.to(".revolutionising", {
     x: '50%'
-  }).to(".server", { 
+  }).to(".server", {
     x: '-30%'
   }, 0);
 
@@ -273,42 +274,42 @@ gsap.set(".server", { x: '40%' });  // Set initial position for element2
   });
 
   gsap.set(".bg", { y: '-40%' });  // Set initial position for element1
-  t2.to(".bg", { 
+  t2.to(".bg", {
     y: '7.5%'
   });
 
   const t0 = gsap.timeline({
     scrollTrigger: {
-    trigger: ".hero",
+      trigger: ".hero",
       scrub: 1,
-    end: "100%",
-    start: "center"
-  },
+      end: "100%",
+      start: "center"
+    },
 
-  smoothChildTiming: true
+    smoothChildTiming: true
   });
-  
+
 
 
   const t00 = gsap.timeline({
     scrollTrigger: {
-    trigger: ".about-real",
+      trigger: ".about-real",
       scrub: 1,
-    end: "10vh",
-    start: "top bottom"
-  },
+      end: "10vh",
+      start: "top bottom"
+    },
 
-  smoothChildTiming: true
+    smoothChildTiming: true
   });
-  
-// Select the logo
-const logo = document.getElementById("logo");
 
-// Define the total scrollable height of the document
-const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+  // Select the logo
+  const logo = document.getElementById("logo");
 
-// Listen to the scroll event
-window.addEventListener("scroll", () => {
+  // Define the total scrollable height of the document
+  const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+  // Listen to the scroll event
+  window.addEventListener("scroll", () => {
     // Calculate the current scroll position as a percentage of total scrollable height
     const scrollPercentage = window.scrollY / totalHeight;
 
@@ -317,10 +318,10 @@ window.addEventListener("scroll", () => {
 
     // Update the logo's rotation using GSAP
     gsap.to(logo, { rotation: rotation });
-});
+  });
 
 
-  
+
   // optionally return a cleanup function
   return () => console.log("cleanup");
 });
@@ -366,27 +367,26 @@ const header = document.querySelector(".nav-wrap")
 const head = document.querySelector("#logo")
 const pod = document.querySelector(".pod")
 const scrollChange = 1
-let scrollpos=0
+let scrollpos = 0
 const globe = 350
 const add_class_on_scroll = () => header.classList.add("scrolled")
 const add_class_on_scrol = () => head.classList.add("scrolled")
 const remove_class_on_scrol = () => head.classList.remove("scrolled")
 const remove_class_on_scroll = () => header.classList.remove("scrolled")
 
-window.addEventListener('scroll', function() { 
-scrollpos = window.scrollY;
+window.addEventListener('scroll', function () {
+  scrollpos = window.scrollY;
 
-if (scrollpos >= scrollChange) { add_class_on_scroll(), add_class_on_scrol() }
-else { remove_class_on_scroll(), remove_class_on_scrol() }
+  if (scrollpos >= scrollChange) { add_class_on_scroll(), add_class_on_scrol() }
+  else { remove_class_on_scroll(), remove_class_on_scrol() }
 })
 
 
 
 var design = document.querySelector(".designer-btn");
 var comp = document.querySelector(".transition-comp")
-design.addEventListener("click", function() {
-    comp.classList.add("transition");
-    setTimeout( function() { window.location = "./design" }, 1500 );
+design.addEventListener("click", function () {
+  comp.classList.add("transition");
+  setTimeout(function () { window.location = "./design" }, 1500);
 })
 
-    
