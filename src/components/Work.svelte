@@ -67,23 +67,33 @@
             class: "",
         }}
         <div class="project">
-            <a
-                href={project.url || null}
-                class:interactable={project.url != null}
-                aria-label="project"
-                target="_blank"
-            >
-                <video
-                    class="project-vid"
-                    preload="metadeta"
-                    src={"/images/projects/" + project.name + ".mp4"}
-                    muted
-                    autoplay
-                    loop
-                    playsinline
-                >
-                </video>
-            </a>
+            {#if project.url != "" || project.url != null}
+                <a href={project.url} aria-label="project" target="_blank">
+                    <video
+                        class="project-vid"
+                        preload="metadeta"
+                        src={"/images/projects/" + project.name + ".mp4"}
+                        muted
+                        autoplay
+                        loop
+                        playsinline
+                    >
+                    </video>
+                </a>
+            {:else}
+                <div>
+                    <video
+                        class="project-vid"
+                        preload="metadeta"
+                        src={"/images/projects/" + project.name + ".mp4"}
+                        muted
+                        autoplay
+                        loop
+                        playsinline
+                    >
+                    </video>
+                </div>
+            {/if}
             <div class="project-content">
                 <h2 class="project-name">
                     {project.name}
