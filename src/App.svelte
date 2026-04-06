@@ -13,8 +13,6 @@
     Miscellaneous,
     Widget,
   } from "./components/";
-  import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
-  injectSpeedInsights();
   onMount(async () => {
     await import("/src/assets/js/script.js");
   });
