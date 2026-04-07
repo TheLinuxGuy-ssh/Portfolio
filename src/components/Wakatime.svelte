@@ -6,7 +6,6 @@
     onMount(async () => {
         const res = await fetch("/api/wakatime");
         const data = await res.json();
-
         weeklyHours = data.total;
     });
 </script>

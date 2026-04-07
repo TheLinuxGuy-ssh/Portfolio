@@ -180,7 +180,7 @@
     }
 
     .projects {
-        margin: 20em 5vw;
+        margin: 20vw 5vw;
         color: #fff;
     }
 

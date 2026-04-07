@@ -692,7 +692,7 @@ current_interest="Backend systems & developer tools"
   }
 
   .about-real {
-    margin: 15em 0;
+    margin: 17vw 0;
   }
 
   .about-real input {

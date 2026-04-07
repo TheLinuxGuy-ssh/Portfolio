@@ -7,6 +7,7 @@
     Loader,
     Nav,
     About,
+    Desktop,
     Skills,
     Work,
     Footer,
@@ -39,6 +40,7 @@
   <Hero />
   <Wakatime />
   <About />
+  <Desktop />
   <Work />
   <Footer />
   <Widget />

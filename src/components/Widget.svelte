@@ -3,7 +3,7 @@
     import Marquee from "svelte-neomarquee";
 
     let status = "Loading...";
-    let type = "Listening";
+    let type = "Idle";
     let play = true;
     let tmp = "";
 

@@ -71,7 +71,9 @@ const phrases = [
   'Server Admin',
   'Web Developer',
   'Designer',
-  'Programmer'];
+  'Programmer',
+  'Typewhiz'
+];
 
 
 const el = document.querySelector('.hero-desc');
