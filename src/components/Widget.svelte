@@ -16,6 +16,7 @@
         status = active?.NowPlayingItem
             ? `${active.NowPlayingItem.Name} - ${active?.NowPlayingItem.AlbumArtist || ""}`
             : "Nothing playing";
+        console.log(active.NowPlayingItem.Type);
     });
 </script>
 
