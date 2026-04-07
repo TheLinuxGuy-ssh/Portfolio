@@ -1,7 +1,8 @@
 <script>
     import { onMount } from "svelte";
     let status = "Loading...";
-
+    import Marquee from "svelte-neomarquee";
+    let play = true;
     onMount(async () => {
         const res = await fetch("/api/jelly");
         const sessions = await res.json();
@@ -21,10 +22,10 @@
 <div class="widget">
     <div class="playing">Currently Listening:</div>
     <div class="master-wrapper">
-        <div class="marquee-wrapper">
+        <Marquee bind:play speed={30} direction={"left"}>
             <span class="marquee-content">{status}</span>
             <span class="marquee-content">{status}</span>
-        </div>
+        </Marquee>
     </div>
 </div>
 
@@ -51,26 +52,7 @@
             0 0 0.1em 0.1em rgba(190, 238, 175, 0.2),
             0 0 1em 0.4em rgba(190, 238, 175, 0.3);
     }
-    .marquee-wrapper {
-        display: flex;
-        margin: 0 1rem;
-        width: max-content;
-        animation: scroll 10s linear infinite;
-        color: #fff;
-        will-change: transform;
-    }
-
     .marquee-content {
-        flex-shrink: 0;
-        padding-right: 2rem; /* spacing between repeats */
-    }
-
-    @keyframes scroll {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(-80%);
-        }
+        margin: 0 1em;
     }
 </style>
