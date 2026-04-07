@@ -202,5 +202,9 @@
     .footer-links .social-btn {
       margin: 1em 0;
     }
+    .icon-Container svg {
+      transition-duration: 1.5s;
+      animation: arrow 1s linear infinite;
+    }
   }
 </style>
