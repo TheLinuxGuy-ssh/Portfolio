@@ -22,7 +22,7 @@
         } else if (active.NowPlayingItem.Type == "Audio") {
             type = "Listening:";
         } else if (active.NowPlayingItem.Type == "Episode") {
-            type = "Episode";
+            type = "Binging: ";
         }
     });
 </script>
