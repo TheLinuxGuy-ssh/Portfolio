@@ -17,15 +17,17 @@
                 s.NowPlayingItem,
         );
 
-        if (active.NowPlayingItem.Type == "Movie") {
-            type = "Watching:";
-            tmp = "Movie";
-        } else if (active.NowPlayingItem.Type == "Audio") {
-            type = "Listening:";
-            tmp = active.NowPlayingItem.AlbumArtist;
-        } else if (active.NowPlayingItem.Type == "Episode") {
-            type = "Binging: ";
-            tmp = active.NowPlayingItem.SeriesName;
+        if (active?.NowPlayingItem) {
+            if (active.NowPlayingItem.Type == "Movie") {
+                type = "Watching:";
+                tmp = "Movie";
+            } else if (active.NowPlayingItem.Type == "Audio") {
+                type = "Listening:";
+                tmp = active.NowPlayingItem.AlbumArtist;
+            } else if (active.NowPlayingItem.Type == "Episode") {
+                type = "Binging: ";
+                tmp = active.NowPlayingItem.SeriesName;
+            }
         }
         status = active?.NowPlayingItem
             ? `${active.NowPlayingItem.Name} - ${tmp || ""}`
