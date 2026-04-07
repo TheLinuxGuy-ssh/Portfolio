@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     let status = "Loading...";
+    let type = "Listening";
     import Marquee from "svelte-neomarquee";
     let play = true;
     onMount(async () => {
@@ -16,12 +17,18 @@
         status = active?.NowPlayingItem
             ? `${active.NowPlayingItem.Name} - ${active?.NowPlayingItem.AlbumArtist || ""}`
             : "Nothing playing";
-        console.log(active.NowPlayingItem.Type);
+        if (active.NowPlayingItem.Type == "Movie") {
+            type = "Watching:";
+        } else if (active.NowPlayingItem.Type == "Audio") {
+            type = "Listening:";
+        } else if (active.NowPlayingItem.Type == "Episode") {
+            type = "Episode";
+        }
     });
 </script>
 
 <div class="widget">
-    <div class="playing">Currently Listening:</div>
+    <div class="playing">Currently {type}</div>
     <div class="master-wrapper">
         <Marquee bind:play speed={30} direction={"left"}>
             <span class="marquee-content">{status}</span>
