@@ -12,10 +12,11 @@
     Footer,
     Miscellaneous,
     Widget,
+    Wakatime,
   } from "./components/";
   import { injectSpeedInsights } from "@vercel/speed-insights";
   import { inject } from "@vercel/analytics";
-  
+
   onMount(async () => {
     // Initialize Vercel Speed Insights
     injectSpeedInsights();
@@ -36,6 +37,7 @@
 <main class="mega-container" data-scroll-container>
   <Header />
   <Hero />
+  <Wakatime />
   <About />
   <Work />
   <Footer />
