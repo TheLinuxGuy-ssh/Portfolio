@@ -70,7 +70,7 @@
             transform: translateX(0);
         }
         to {
-            transform: translateX(-50%);
+            transform: translateX(-80%);
         }
     }
 </style>
