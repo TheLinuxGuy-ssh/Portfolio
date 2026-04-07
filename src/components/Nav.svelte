@@ -76,6 +76,7 @@
 		transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 		display: flex;
 		position: relative;
+		outline: 0;
 	}
 
 	.nav-item:hover {

@@ -198,6 +198,9 @@
       flex-direction: column;
       align-items: center;
     }
+    .footer .work-together {
+      font-size: 2em;
+    }
 
     .footer-links .social-btn {
       margin: 1em 0;
