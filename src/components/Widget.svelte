@@ -19,7 +19,7 @@
 
         if (active.NowPlayingItem.Type == "Movie") {
             type = "Watching:";
-            tmp = "";
+            tmp = "Movie";
         } else if (active.NowPlayingItem.Type == "Audio") {
             type = "Listening:";
             tmp = active.NowPlayingItem.AlbumArtist;
