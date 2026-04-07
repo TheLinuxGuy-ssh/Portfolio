@@ -3,12 +3,7 @@
     <h1 style="text-align: center; backdrop-filter: blur(0px);">Let's Talk.</h1>
   </div>
   <div class="footer-links">
-    <a
-      target="_blank"
-      href="mailto:mail@linuxguy.tech"
-      data-scroll
-      data-scroll-speed="1.2"
-    >
+    <a target="_blank" href="mailto:mail@linuxguy.tech" data-scroll>
       <button class="Btn-Container">
         <span class="text">mail@linuxguy.tech</span>
         <span class="icon-Container">
