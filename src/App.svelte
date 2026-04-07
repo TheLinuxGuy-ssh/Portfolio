@@ -14,10 +14,13 @@
     Widget,
   } from "./components/";
   import { injectSpeedInsights } from "@vercel/speed-insights";
+  import { inject } from "@vercel/analytics";
   
   onMount(async () => {
     // Initialize Vercel Speed Insights
     injectSpeedInsights();
+    // Initialize Vercel Web Analytics
+    inject();
     await import("/src/assets/js/script.js");
   });
 </script>
