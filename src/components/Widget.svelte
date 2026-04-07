@@ -57,6 +57,7 @@
         width: max-content;
         animation: scroll 10s linear infinite;
         color: #fff;
+        will-change: transform;
     }
 
     .marquee-content {
