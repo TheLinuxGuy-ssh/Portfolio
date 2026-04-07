@@ -12,11 +12,12 @@
 </script>
 
 <div class="wakatime-widget">
-    <span class="coded">Weekly Coded</span>: {weeklyHours}
+    <span class="coded">Weekly Coding</span>: {weeklyHours}
 </div>
 
 <style>
     .wakatime-widget {
+        width: max-content;
         position: absolute;
         top: 0;
         font-family: HermitBold;
