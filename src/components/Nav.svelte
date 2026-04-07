@@ -34,7 +34,15 @@
 		align-items: center;
 		display: flex;
 		position: fixed;
+		bottom: 0.95em;
+		left: 50%;
+		transform: translateX(-50%);
 		z-index: 99999999 !important;
+	}
+	@media screen and (max-width: 1024px) {
+		.bottom-nav {
+			left: 5em;
+		}
 	}
 
 	.nav-wrap {
@@ -44,8 +52,6 @@
 		align-items: flex-end;
 		display: flex;
 		transition: 0.4s ease-in-out;
-		position: fixed;
-		inset: 10vh 0 10vh;
 	}
 	/* .nav-wrap.scrolled {
 	inset: 1em;
@@ -53,7 +59,7 @@
 
 	.nav-list {
 		flex-flow: row;
-		justify-content: center;
+		justify-content: left;
 		align-items: center;
 		margin-bottom: 0;
 		padding-left: 0;
