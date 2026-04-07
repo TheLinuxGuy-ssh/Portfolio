@@ -1,9 +1,12 @@
 <script>
     import { onMount } from "svelte";
+    import Marquee from "svelte-neomarquee";
+
     let status = "Loading...";
     let type = "Listening";
-    import Marquee from "svelte-neomarquee";
     let play = true;
+    let tmp = "";
+
     onMount(async () => {
         const res = await fetch("/api/jelly");
         const sessions = await res.json();
@@ -14,16 +17,19 @@
                 s.NowPlayingItem,
         );
 
-        status = active?.NowPlayingItem
-            ? `${active.NowPlayingItem.Name} - ${active?.NowPlayingItem.AlbumArtist || ""}`
-            : "Nothing playing";
         if (active.NowPlayingItem.Type == "Movie") {
             type = "Watching:";
+            tmp = "";
         } else if (active.NowPlayingItem.Type == "Audio") {
             type = "Listening:";
+            tmp = active.NowPlayingItem.AlbumArtist;
         } else if (active.NowPlayingItem.Type == "Episode") {
             type = "Binging: ";
+            tmp = active.NowPlayingItem.SeriesName;
         }
+        status = active?.NowPlayingItem
+            ? `${active.NowPlayingItem.Name} - ${tmp || ""}`
+            : "Nothing playing";
     });
 </script>
 
