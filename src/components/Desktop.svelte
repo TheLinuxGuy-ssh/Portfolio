@@ -1,5 +1,5 @@
 <script>
-    import screen from "/images/Desktop.mp4";
+    import screen from "/Desktop.mp4";
     let paused = false;
 </script>
 
