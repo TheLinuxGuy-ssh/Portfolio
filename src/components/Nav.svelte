@@ -1,5 +1,6 @@
 <script>
 	import github from "/images/general/github.webp?enhanced";
+	import monkey from "/images/monkeytype.png?enhanced";
 </script>
 
 <section class="bottom-nav">
@@ -20,6 +21,23 @@
 					>
 					<div class="nav-item__tooltip">
 						<div>Github</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a
+						href="https://monkeytype.com/profile/TheLinuxGuy-ssh"
+						class="nav-item__link"
+						target="_blank"
+						><img
+							src={monkey}
+							loading="eager"
+							alt="Monkeytype Icon"
+							class="image"
+							style="border-radius: 0.1em"
+						/></a
+					>
+					<div class="nav-item__tooltip">
+						<div>Monkeytype</div>
 					</div>
 				</li>
 			</ul>
