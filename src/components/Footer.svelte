@@ -103,7 +103,7 @@
     -moz-text-stroke-color: white;
     font-size: 3em;
     margin-top: 20%;
-    font-family: ProMono, Arial;
+    font-family: Pro, Arial;
   }
 
   .footer-links {

@@ -236,7 +236,7 @@
         display: flex;
         width: 100%;
         flex-wrap: wrap;
-        font-family: "ProMono", Arial !important;
+        font-family: "Pro", Arial !important;
     }
     .projects .project .tag {
         padding: 0.25em 0.5em;
