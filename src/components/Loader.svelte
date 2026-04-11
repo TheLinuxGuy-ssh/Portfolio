@@ -46,31 +46,6 @@
         animation: glitch 1.5s linear infinite;
     }
 
-    .glitch--clone {
-        opacity: 0.2;
-    }
-
-    .glitch--clone .hydra {
-        filter: blur(2px);
-        opacity: 0.8;
-    }
-
-    .glitch--top {
-        animation: glitch--top 1s linear infinite;
-    }
-
-    .glitch--top .hydra {
-        transform: translate(4vw, 4vw);
-    }
-
-    .glitch--bottom {
-        animation: glitch--bottom 0.75s linear infinite;
-    }
-
-    .glitch--bottom .hydra {
-        transform: translate(-1vw, -1vw);
-    }
-
     .hydra {
         box-shadow:
             0 0 2px green,
@@ -129,11 +104,6 @@
         animation: scanline 8s linear infinite;
         pointer-events: none;
         z-index: -2;
-    }
-
-    .loading-bar--unloaded {
-        color: #fff;
-        text-shadow: 0 0 5px #fff;
     }
 
     .hidden {

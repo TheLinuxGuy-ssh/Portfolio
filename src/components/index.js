@@ -1,7 +1,6 @@
 export { default as Header } from './Header.svelte'
 export { default as Hero } from './Hero.svelte'
 export { default as About } from './About.svelte'
-export { default as Loader } from './Loader.svelte'
 export { default as Nav } from './Nav.svelte'
 export { default as Skills } from './Skills.svelte'
 export { default as Desktop } from './Desktop.svelte'

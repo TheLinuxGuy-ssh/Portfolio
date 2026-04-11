@@ -31,7 +31,7 @@ Music: Soundtracks · Phonk · Soul
   function Bored() {
     isBored = true;
     paused = false;
-    console.log("done boi");
+    console.log("can't belive this guy got bored already. lol");
   }
   const commands = {
     help: () =>
@@ -384,7 +384,7 @@ current_interest="Backend systems & developer tools"
     display: block;
     position: relative;
   }
-  .off-white {
+  /* .off-white {
     color: #bebbb5;
   }
   .double-quotes {
@@ -398,7 +398,7 @@ current_interest="Backend systems & developer tools"
   }
   .special-orange {
     color: #d5a087;
-  }
+  } */
   .about {
     height: 100vh;
     display: flex;
@@ -422,18 +422,6 @@ current_interest="Backend systems & developer tools"
     margin-bottom: -2.5em;
   }
 
-  .about canvas {
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .about .caption {
-    position: fixed;
-    bottom: 1em;
-    right: 1em;
-
-    font-family: ProMono, Arial;
-  }
   .change-text {
     text-align: center;
     margin-bottom: 1em !important;
@@ -476,54 +464,12 @@ current_interest="Backend systems & developer tools"
     display: flex;
     justify-content: center;
   }
-  @media screen and (max-width: 1024px) {
-    .caption {
-      text-align: center;
-      margin: 0 1em;
-    }
-  }
   @media screen and (max-width: 768px) {
     .about-title {
       font-size: 2.75vw;
       line-height: 2vw;
     }
   }
-  .terminal {
-    grid-row: 1;
-    grid-column: 1;
-    display: grid;
-    grid-gap: 3vw;
-    padding: 3vw;
-    grid-template-rows: 1fr auto 1fr;
-    grid-template-columns: 1fr auto 1fr;
-  }
-
-  .about p {
-    position: absolute;
-    color: #868b88;
-    font-weight: 600;
-    background: linear-gradient(0deg, #b3b3e7 0%, #99c0f7 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: fit-content;
-    translate: 0 12em;
-    max-width: 28em;
-    text-align: center;
-    font-family: Pro, Arial;
-  }
-
-  .about p span {
-    position: relative;
-    display: inline-block;
-    -webkit-text-fill-color: #619c54;
-    font-weight: 1000;
-    font-family: Pro, Arial;
-  }
-
   .about .bg {
     width: 100%;
     height: 100vh;
@@ -682,6 +628,8 @@ current_interest="Backend systems & developer tools"
     font-weight: bold;
     text-decoration: underline;
     color: #c9ffcf;
+    user-select: text;
+    cursor: default;
   }
 
   .sctext {
@@ -689,26 +637,12 @@ current_interest="Backend systems & developer tools"
     line-height: 1.5;
     margin: 1em 0 0 0;
     font-family: HermitBold;
+    user-select: text;
+    cursor: default;
   }
 
   .about-real {
     margin: 17vw 0;
-  }
-
-  .about-real input {
-    opacity: 1 !important;
-    background-color: transparent;
-    position: relative;
-    width: 83%;
-    left: -20px;
-    bottom: 1px;
-    border-style: none;
-    border-image: none;
-    font-size: 15pt;
-  }
-
-  .about-real input:focus {
-    outline: none;
   }
 
   .about-content {

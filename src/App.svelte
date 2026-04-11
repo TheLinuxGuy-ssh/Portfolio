@@ -4,7 +4,6 @@
   import {
     Header,
     Hero,
-    Loader,
     Nav,
     About,
     Desktop,
@@ -31,8 +30,6 @@
 <link rel="stylesheet" href="/css/links.css" />
 <link rel="stylesheet" href="/css/locomotive.css" />
 <link rel="stylesheet" href="/css/style.css" />
-
-<Loader />
 <Nav />
 <Miscellaneous />
 <main class="mega-container" data-scroll-container>

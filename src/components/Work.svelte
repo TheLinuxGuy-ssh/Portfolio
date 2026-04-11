@@ -250,13 +250,6 @@
         display: flex;
     }
 
-    .projects .project .project-category-pane .project-category {
-        padding: 0.25em 0.5em;
-        font-weight: bold;
-        background-color: #ffffff3f;
-        margin-right: 0.5em;
-    }
-
     .project-links {
         margin: 1em 0;
     }
@@ -285,10 +278,6 @@
     .projects .project:hover .project-vid {
         overflow: hidden;
         transform: scale(1.05);
-    }
-
-    .projects .project:hover .project-image img {
-        width: 100%;
     }
 
     .projects .project .project-vid {
