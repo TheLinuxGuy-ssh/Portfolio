@@ -42,7 +42,8 @@
         <Marquee
             bind:play
             speed={30}
-            on:playpause={3}
+            on:hoverstart={() => (play = false)}
+            on:hoverend={() => (play = true)}
             style={"--gap: 2.75em"}
             direction={"left"}
         >
