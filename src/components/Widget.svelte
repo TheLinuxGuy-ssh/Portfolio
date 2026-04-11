@@ -4,7 +4,7 @@
 
     let status = "Loading...";
     let type = "Idle";
-    let play = true;
+    let play = false;
     let tmp = "";
 
     onMount(async () => {
@@ -32,13 +32,20 @@
         status = active?.NowPlayingItem
             ? `${active.NowPlayingItem.Name} - ${tmp || ""}`
             : "Nothing playing";
+        play = true;
     });
 </script>
 
 <div class="widget">
     <div class="playing">Currently {type}</div>
     <div class="master-wrapper">
-        <Marquee bind:play speed={30} direction={"left"}>
+        <Marquee
+            bind:play
+            speed={30}
+            on:playpause={3}
+            style={"--gap: 2.75em"}
+            direction={"left"}
+        >
             <span class="marquee-content">{status}</span>
             <span class="marquee-content">{status}</span>
         </Marquee>
