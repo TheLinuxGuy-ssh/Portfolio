@@ -50,7 +50,7 @@
                 },
                 {
                     "name": "CSS",
-                    "accent": "#663399"
+                    "accent": "#CC6699"
                 }
             ]
         },
@@ -96,7 +96,7 @@
                 },
                 {
                     "name": "Powershell",
-                    "accent": "#4169E1"
+                    "accent": "#8FAAFF"
                 }
             ]
         },
@@ -113,7 +113,7 @@
                 },
                 {
                     "name": "Postgres",
-                    "accent": "#336791"
+                    "accent": "#7FB8FF"
                 },
                 {
                     "name": "JS",
@@ -121,7 +121,7 @@
                 },
                 {
                     "name": "CSS",
-                    "accent": "#663399"
+                    "accent": "#CC6699"
                 }
             ]
         },
