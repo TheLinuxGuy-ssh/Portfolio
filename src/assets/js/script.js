@@ -89,69 +89,6 @@ const next = () => {
 
 next();
 
-let blink = document.querySelector('.blink');
-const code = document.querySelector('.code');
-
-const RandomNumber = (min, max) => {
-  return Math.floor(Math.random() * max) + min
-};
-
-const Delay = (time) => {
-  return new Promise((resolve) => setTimeout(resolve, time))
-};
-
-const ResetTerminal = () => {
-  code.innerHTML = '<span class="blink">█</span>';
-  blink = document.querySelector('.blink');
-};
-
-const RenderString = characters => {
-  blink.insertAdjacentHTML('beforeBegin', characters);
-};
-
-const TypeString = async characters => {
-  for (const character of characters.split('')) {
-    await Delay(RandomNumber(20, 70));
-    RenderString(character);
-  }
-}
-
-const DrawLines = async (characters, min = 50, max = 500) => {
-  for (const line of characters.split('\n')) {
-    await Delay(RandomNumber(min, max));
-    RenderString(`${line}\n`);
-  }
-}
-
-const DrawCommands = async commands => {
-  for (const line of commands.split('\n')) {
-    // Seperate the directory and the command
-    const [currentDir, command] = line.split(':~ ');
-
-    // Print the directory, type the command and finish with new line
-    RenderString(`${currentDir}:~ `);
-    await TypeString(command);
-    RenderString('\n');
-  }
-}
-
-(async () => {
-  await DrawCommands("/:~ ssh anonymous@starwalk-core -p 22");
-  await Delay(1000);
-  RenderString("\n    Welcome :) \n \n");
-  await Delay(1000);
-  await DrawCommands("/:~ systemctl start gdm.service");
-})();
-
-
-function hideLoaderAndStartAnimation() {
-  setTimeout(function () {
-    document.querySelector('.body').classList.remove('paused'); // Remove 'paused' class to resume animation
-    AOS.init();
-  }, 12000);
-}
-
-window.onload = hideLoaderAndStartAnimation;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -223,35 +160,24 @@ mm.add({
     smoothChildTiming: true
   });
 
-  // Select the logo
   const logo = document.getElementById("logo");
 
-  // Define the total scrollable height of the document
   const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-  // Listen to the scroll event
   window.addEventListener("scroll", () => {
-    // Calculate the current scroll position as a percentage of total scrollable height
     const scrollPercentage = window.scrollY / totalHeight;
-
-    // Calculate the rotation based on the scroll percentage (rotate 360 degrees over the full scroll)
     const rotation = scrollPercentage * 360;
-
-    // Update the logo's rotation using GSAP
     gsap.to(logo, { rotation: rotation });
   });
 
-
-
-  // optionally return a cleanup function
   return () => console.log("cleanup");
 });
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Select all .nav-item elements
+
   const navItems = document.querySelectorAll('.nav-item');
-  // Helper function to add/remove a class to a sibling at a given offset
+
   const toggleSiblingClass = (items, index, offset, className, add) => {
     const sibling = items[index + offset];
     if (sibling) {
@@ -262,7 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
   navItems.forEach((item, index) => {
     item.addEventListener('mouseenter', () => {
       item.classList.add('hover'); // Add .hover to current item
-      // Toggle classes for siblings
       toggleSiblingClass(navItems, index, -1, 'sibling-close', true); // Previous sibling
       toggleSiblingClass(navItems, index, 1, 'sibling-close', true);  // Next sibling
       toggleSiblingClass(navItems, index, -2, 'sibling-far', true);   // Previous-previous sibling
@@ -270,7 +195,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     item.addEventListener('mouseleave', () => {
       item.classList.remove('hover'); // Remove .hover from current item
-      // Toggle classes for siblings
       toggleSiblingClass(navItems, index, -1, 'sibling-close', false); // Previous sibling
       toggleSiblingClass(navItems, index, 1, 'sibling-close', false);  // Next sibling
       toggleSiblingClass(navItems, index, -2, 'sibling-far', false);   // Previous-previous sibling
@@ -278,26 +202,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-
-
-
-
-
-const header = document.querySelector(".nav-wrap")
-const head = document.querySelector("#logo")
-const pod = document.querySelector(".pod")
-const scrollChange = 1
-let scrollpos = 0
-const globe = 350
-const add_class_on_scroll = () => header.classList.add("scrolled")
-const add_class_on_scrol = () => head.classList.add("scrolled")
-const remove_class_on_scrol = () => head.classList.remove("scrolled")
-const remove_class_on_scroll = () => header.classList.remove("scrolled")
-
-window.addEventListener('scroll', function () {
-  scrollpos = window.scrollY;
-
-  if (scrollpos >= scrollChange) { add_class_on_scroll(), add_class_on_scrol() }
-  else { remove_class_on_scroll(), remove_class_on_scrol() }
-})
