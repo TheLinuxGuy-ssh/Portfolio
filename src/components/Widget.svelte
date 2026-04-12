@@ -8,31 +8,49 @@
     let tmp = "";
 
     onMount(async () => {
-        const res = await fetch("/api/jelly");
-        const sessions = await res.json();
+        try {
+            const res = await fetch("/api/jelly");
+            const json = await res.json();
 
-        const active = sessions.find(
-            (s) =>
-                s.UserId === "5771a9a1f3c14063b8440151bc91af2c" &&
-                s.NowPlayingItem,
-        );
-
-        if (active?.NowPlayingItem) {
-            if (active.NowPlayingItem.Type == "Movie") {
-                type = "Watching:";
-                tmp = "Movie";
-            } else if (active.NowPlayingItem.Type == "Audio") {
-                type = "Listening:";
-                tmp = active.NowPlayingItem.AlbumArtist;
-            } else if (active.NowPlayingItem.Type == "Episode") {
-                type = "Binging: ";
-                tmp = active.NowPlayingItem.SeriesName;
+            if (!res.ok) {
+                status = json.error || "API error";
+                play = false;
+                type="Offline:"
+                return;
             }
+
+            const sessions = json;
+
+            const active = sessions.find(
+                (s) =>
+                    s.UserId === "5771a9a1f3c14063b8440151bc91af2c" &&
+                    s.NowPlayingItem,
+            );
+
+            if (active?.NowPlayingItem) {
+                if (active.NowPlayingItem.Type == "Movie") {
+                    type = "Watching:";
+                    tmp = "Movie";
+                } else if (active.NowPlayingItem.Type == "Audio") {
+                    type = "Listening:";
+                    tmp = active.NowPlayingItem.AlbumArtist;
+                } else if (active.NowPlayingItem.Type == "Episode") {
+                    type = "Binging:";
+                    tmp = active.NowPlayingItem.SeriesName;
+                }
+            }
+
+            status = active?.NowPlayingItem
+                ? `${active.NowPlayingItem.Name} - ${tmp || ""}`
+                : "Nothing playing";
+
+            play = true;
+
+        } catch (err) {
+            status = "Connection failed";
+            type = "Error:";
+            play = false;
         }
-        status = active?.NowPlayingItem
-            ? `${active.NowPlayingItem.Name} - ${tmp || ""}`
-            : "Nothing playing";
-        play = true;
     });
 </script>
 
