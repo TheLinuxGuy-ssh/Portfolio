@@ -1,5 +1,4 @@
 <script>
-    import screen from "/Desktop.mp4";
     let paused = false;
 </script>
 
@@ -7,7 +6,7 @@
     <h1 class="desktop-title">Current Desktop</h1>
 
     <div class="current-desktop">
-        <video src={screen} bind:paused muted loop playsinline></video>
+        <video src="/Desktop.mp4" bind:paused muted loop playsinline></video>
     </div>
 </div>
 

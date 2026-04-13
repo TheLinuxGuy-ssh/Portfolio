@@ -17,7 +17,10 @@
      */
     "sourceMap": true,
     "esModuleInterop": true,
-    "types": ["vite/client", "svelte"],
+    "types": [
+      "vite/client",
+      "svelte"
+    ],
     "skipLibCheck": true,
     /**
      * Typecheck JS in `.svelte` and `.js` files by default.
@@ -29,5 +32,10 @@
    * Use global.d.ts instead of compilerOptions.types
    * to avoid limiting type declarations.
    */
-  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte"]
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.js",
+    "src/**/*.svelte"
+  ],
+  "extends": "./.svelte-kit/tsconfig.json"
 }

@@ -1,6 +1,6 @@
 <script>
-	import github from "/images/general/github.webp?enhanced";
-	import monkey from "/images/monkeytype.png?enhanced";
+	import github from "$lib/assets/github.webp";
+	import monkey from "$lib/assets/monkeytype.png";
 </script>
 
 <section class="bottom-nav">
@@ -12,7 +12,7 @@
 						href="https://github.com/thelinuxguy-ssh"
 						class="nav-item__link"
 						target="_blank"
-						><img
+						><enhanced:img
 							src={github}
 							loading="eager"
 							alt="Github Icon"
@@ -28,7 +28,7 @@
 						href="https://monkeytype.com/profile/TheLinuxGuy-ssh"
 						class="nav-item__link"
 						target="_blank"
-						><img
+						><enhanced:img
 							src={monkey}
 							loading="eager"
 							alt="Monkeytype Icon"

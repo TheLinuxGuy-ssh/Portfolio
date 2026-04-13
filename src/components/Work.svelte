@@ -1,9 +1,8 @@
 <script>
-    import { projects } from "../assets/projects.json";
+    import { projects } from "$lib/projects.json";
     import { onMount } from "svelte";
-    import linkArrow from "/images/svg/arrow-right-top.svg?enhanced";
-    import githubLogo from "/images/general/github.webp?enhanced";
-    import boot from "/audio/boot.mp3";
+    import linkArrow from "$lib/assets/arrow-right-top.svg";
+    import githubLogo from "$lib/assets/github.webp";
     const statusMap = {
         0: { label: "Deprecated", class: "deprecated" },
         1: { label: "Ongoing", class: "ongoing" },
@@ -58,7 +57,7 @@
 
 <div class="projects">
     <div id="trailer">
-        <img id="trailer-icon" src={linkArrow} alt="" />
+        <enhanced:img id="trailer-icon" src={linkArrow} alt="" />
     </div>
     <h1 class="project-title">What I’ve been up to.</h1>
     {#each Object.entries(projects) as [key, project], index (key)}
@@ -115,7 +114,7 @@
                                 project.github}
                             target="_blank"
                         >
-                            <img src={githubLogo} alt="" /> Github
+                            <enhanced:img src={githubLogo} alt="" /> Github
                         </a>
                     {/if}
                     {#if project.url != null}

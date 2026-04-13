@@ -169,8 +169,6 @@ mm.add({
     const rotation = scrollPercentage * 360;
     gsap.to(logo, { rotation: rotation });
   });
-
-  return () => console.log("cleanup");
 });
 
 

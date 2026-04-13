@@ -1,10 +1,10 @@
 <script>
-  import logo from "/images/general/logo.webp?enhanced";
+  import logo from "$lib/assets/logo.webp";
 </script>
 
 <div class="head-logo" id="logo">
   <a href="#hero" aria-label="Go to Start">
-    <img src={logo} alt="" />
+    <enhanced:img src={logo} alt="" />
   </a>
 </div>
 

@@ -1,8 +1,6 @@
 <script>
   import { mount, onMount } from "svelte";
   import { Terminal } from "svelte-bash";
-  import boot from "/audio/boot.mp3";
-  import tlgLink from "/tlglink.mp4";
 
   const fileSystem = {
     "readme.md": `thelinuxguy-ssh@github
@@ -56,7 +54,9 @@ Music: Soundtracks · Phonk · Soul
   };
 </script>
 
-<audio src={boot} preload="metadeta" bind:paused></audio>
+<!-- <audio preload="metadata" bind:paused>
+  <source src="/audio/boot.mp3" type="audio/mpeg" />
+</audio> -->
 <section class="about">
   <div class="bg">
     <div></div>
@@ -248,7 +248,7 @@ current_interest="Backend systems & developer tools"
           <div class="tlg-link">
             <video
               class="tlg-link-vid"
-              src={tlgLink}
+              src="/tlglink.mp4"
               bind:paused
               muted
               playsinline
