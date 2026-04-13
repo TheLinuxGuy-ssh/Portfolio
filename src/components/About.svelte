@@ -54,9 +54,9 @@ Music: Soundtracks · Phonk · Soul
   };
 </script>
 
-<!-- <audio preload="metadata" bind:paused>
+<audio preload="metadata" bind:paused>
   <source src="/audio/boot.mp3" type="audio/mpeg" />
-</audio> -->
+</audio>
 <section class="about">
   <div class="bg">
     <div></div>
