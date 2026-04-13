@@ -43,7 +43,6 @@ declare module '$env/static/private' {
 	export const VERCEL_OIDC_TOKEN: string;
 	export const SHELL: string;
 	export const npm_command: string;
-	export const USER_ZDOTDIR: string;
 	export const npm_config_userconfig: string;
 	export const COLORTERM: string;
 	export const CSF_MDTVTexturesDirectory: string;
@@ -80,7 +79,6 @@ declare module '$env/static/private' {
 	export const CSF_StandardLiteDefaults: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const MOTD_SHOWN: string;
-	export const VSCODE_INJECTION: string;
 	export const HOME: string;
 	export const LANG: string;
 	export const _JAVA_AWT_WM_NONREPARENTING: string;
@@ -97,7 +95,6 @@ declare module '$env/static/private' {
 	export const CSF_XmlOcafResource: string;
 	export const npm_lifecycle_script: string;
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
-	export const VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 	export const CSF_SHMessage: string;
 	export const npm_config_npm_version: string;
 	export const XDG_SESSION_CLASS: string;
@@ -105,7 +102,6 @@ declare module '$env/static/private' {
 	export const npm_package_name: string;
 	export const VSCODE_NONCE: string;
 	export const npm_config_prefix: string;
-	export const ZDOTDIR: string;
 	export const USER: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const __TERMINAL_WAKATIME_PWD: string;
@@ -241,7 +237,6 @@ declare module '$env/dynamic/private' {
 		VERCEL_OIDC_TOKEN: string;
 		SHELL: string;
 		npm_command: string;
-		USER_ZDOTDIR: string;
 		npm_config_userconfig: string;
 		COLORTERM: string;
 		CSF_MDTVTexturesDirectory: string;
@@ -278,7 +273,6 @@ declare module '$env/dynamic/private' {
 		CSF_StandardLiteDefaults: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
 		MOTD_SHOWN: string;
-		VSCODE_INJECTION: string;
 		HOME: string;
 		LANG: string;
 		_JAVA_AWT_WM_NONREPARENTING: string;
@@ -295,7 +289,6 @@ declare module '$env/dynamic/private' {
 		CSF_XmlOcafResource: string;
 		npm_lifecycle_script: string;
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
-		VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 		CSF_SHMessage: string;
 		npm_config_npm_version: string;
 		XDG_SESSION_CLASS: string;
@@ -303,7 +296,6 @@ declare module '$env/dynamic/private' {
 		npm_package_name: string;
 		VSCODE_NONCE: string;
 		npm_config_prefix: string;
-		ZDOTDIR: string;
 		USER: string;
 		VSCODE_GIT_IPC_HANDLE: string;
 		__TERMINAL_WAKATIME_PWD: string;
