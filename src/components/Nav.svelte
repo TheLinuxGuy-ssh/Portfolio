@@ -12,6 +12,7 @@
 						href="https://github.com/thelinuxguy-ssh"
 						class="nav-item__link"
 						target="_blank"
+						rel="me"
 						><enhanced:img
 							src={github}
 							loading="eager"
@@ -28,6 +29,7 @@
 						href="https://monkeytype.com/profile/TheLinuxGuy-ssh"
 						class="nav-item__link"
 						target="_blank"
+						rel="me"
 						><enhanced:img
 							src={monkey}
 							loading="eager"
