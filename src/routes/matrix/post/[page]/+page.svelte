@@ -183,7 +183,7 @@
         background-color: rgba(var(--c), 1);
     }
 
-    .scroll .rectangle:not(:first-child) {
+    .scroll:hover .rectangle:not(:first-child) {
         opacity: 1;
         transform: translateY(0);
     }
