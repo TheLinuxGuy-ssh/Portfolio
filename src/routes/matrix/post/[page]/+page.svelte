@@ -1,22 +1,32 @@
 <script>
     import { onMount, onDestroy } from "svelte";
-    import { page } from "$app/state";
+    import { browser } from "$app/environment";
+    import { page } from "$app/stores";
     import { posts } from "$lib/content.json";
 
-    let { params } = page;
-    let post = posts.find((item) => `${item.id}` === `${params.page}`);
-
-    let content = post.content;
     let top = 0;
     let bottom = 0;
     let showScroll = false;
 
+    $: params = $page.params;
+    $: post = posts.find((item) => `${item.id}` === `${params.page}`);
+    $: content = post?.content || "";
+
     function updateScroller() {
+        if (!browser) return;
+
         const scrollY = window.scrollY;
         const viewportHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
 
         const maxScroll = documentHeight - viewportHeight;
+
+        if (maxScroll <= 0) {
+            top = 0;
+            bottom = 0;
+            showScroll = false;
+            return;
+        }
 
         top = Math.round((scrollY / maxScroll) * 100);
         bottom = Math.round(
@@ -27,14 +37,19 @@
     }
 
     onMount(() => {
-        window.addEventListener("scroll", updateScroller);
-        window.addEventListener("resize", updateScroller);
-        updateScroller();
-    });
+        if (!browser) return;
 
-    onDestroy(() => {
-        window.removeEventListener("scroll", updateScroller);
-        window.removeEventListener("resize", updateScroller);
+        const handler = () => updateScroller();
+
+        window.addEventListener("scroll", handler);
+        window.addEventListener("resize", handler);
+
+        updateScroller();
+
+        return () => {
+            window.removeEventListener("scroll", handler);
+            window.removeEventListener("resize", handler);
+        };
     });
 </script>
 
