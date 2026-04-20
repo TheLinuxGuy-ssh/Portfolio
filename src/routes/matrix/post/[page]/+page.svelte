@@ -329,6 +329,10 @@
         .ruler {
             left: 0rem !important;
         }
+        .scroll .rectangle:not(:first-child) {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .ruler {
