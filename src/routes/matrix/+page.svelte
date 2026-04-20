@@ -1,7 +1,7 @@
 <script>
     import { onMount, onDestroy } from "svelte";
     import { browser } from "$app/environment";
-    import { posts } from "./content.json";
+    import { posts } from "$lib/content.json";
 
     let asciiEl;
 

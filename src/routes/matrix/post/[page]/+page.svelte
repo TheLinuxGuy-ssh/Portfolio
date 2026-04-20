@@ -1,7 +1,7 @@
 <script>
     import { onMount, onDestroy } from "svelte";
     import { page } from "$app/state";
-    import { posts } from "../../content.json";
+    import { posts } from "$lib/content.json";
 
     let { params } = page;
     let post = posts.find((item) => `${item.id}` === `${params.page}`);
