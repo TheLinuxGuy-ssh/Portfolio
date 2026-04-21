@@ -182,10 +182,10 @@
         flex-direction: column;
         align-items: center;
         font-size: 1.2rem;
-        gap: 1rem;
+        gap: 0.2rem;
         position: fixed;
-        bottom: 3rem;
-        right: 3rem;
+        bottom: 1rem;
+        right: 1rem;
         cursor: pointer;
         transition: all ease 0.3s;
     }
@@ -347,6 +347,52 @@
         }
         h1 {
             font-size: 3.5em;
+        }
+        .rectangle:nth-child(1) {
+            width: 60px;
+            height: 10px;
+        }
+        .rectangle:nth-child(2) {
+            width: 47.5px;
+            height: 7px;
+            transition-delay: 0.05s;
+            background-color: rgba(var(--c), 0.9);
+        }
+        .rectangle:nth-child(3) {
+            width: 32px;
+            height: 5px;
+            transition-delay: 0.1s;
+            background-color: rgba(var(--c), 0.8);
+        }
+        .rectangle:nth-child(4) {
+            width: 22px;
+            height: 4px;
+            transition-delay: 0.15s;
+            background-color: rgba(var(--c), 0.7);
+        }
+        .rectangle:nth-child(5) {
+            width: 18px;
+            height: 3px;
+            transition-delay: 0.2s;
+            background-color: rgba(var(--c), 0.6);
+        }
+        .rectangle:nth-child(6) {
+            width: 14px;
+            height: 2px;
+            transition-delay: 0.25s;
+            background-color: rgba(var(--c), 0.5);
+        }
+        .rectangle:nth-child(7) {
+            width: 10px;
+            height: 1.5px;
+            transition-delay: 0.3s;
+            background-color: rgba(var(--c), 0.4);
+        }
+        .rectangle:nth-child(8) {
+            width: 8px;
+            height: 1px;
+            transition-delay: 0.35s;
+            background-color: rgba(var(--c), 0.3);
         }
         .one,
         .two {
