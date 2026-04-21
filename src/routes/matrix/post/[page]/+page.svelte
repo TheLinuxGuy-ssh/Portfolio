@@ -339,8 +339,14 @@
             width: 100%;
             margin: 0 0rem;
         }
+        article {
+            margin: 10rem 1.75rem !important;
+        }
         * {
-            font-size: 2.5vw;
+            font-size: 2.75vw;
+        }
+        h1 {
+            font-size: 3.5em;
         }
         .one,
         .two {
