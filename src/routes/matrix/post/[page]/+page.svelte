@@ -69,6 +69,12 @@
     <meta name="revisit-after" content="14 days" />
     <meta name="author" content="TheLinuxGuy" />
     <title>TheLinuxGuy | Tech Enthusiast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jura:wght@400&display=swap"
+        rel="stylesheet"
+    />
 </svelte:head>
 
 <div class="container">
@@ -131,8 +137,6 @@
 </div>
 
 <style>
-    @import url("https://fonts.googleapis.com/css?family=Inter:400|Jura:400");
-
     * {
         box-sizing: border-box;
         scroll-behavior: smooth;
