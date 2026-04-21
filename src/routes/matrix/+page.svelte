@@ -306,7 +306,7 @@
         max-width: 320px;
         background-color: rgb(22, 22, 22);
         transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 2px solid #04ff9f;
+        border: 1px solid #04ff9f;
         margin: 1em;
         box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.081);
     }
@@ -314,7 +314,7 @@
     .card:hover {
         box-shadow:
             0 0 0.1em 0.1em rgba(190, 238, 175, 0.2),
-            0 0 1em 0.4em rgba(190, 238, 175, 0.3);
+            0 0 1em 0.1em rgba(190, 238, 175, 0.3);
     }
 
     .date-time-container {

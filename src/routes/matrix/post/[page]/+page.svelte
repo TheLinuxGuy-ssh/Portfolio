@@ -3,6 +3,7 @@
     import { browser } from "$app/environment";
     import { page } from "$app/stores";
     import { posts } from "$lib/content.json";
+    import leftArrow from "$lib/assets/left-arrow.webp";
 
     let top = 0;
     let bottom = 0;
@@ -109,7 +110,9 @@
             <span></span>
         </div>
     </div>
-
+    <a href="../" class="back-btn"
+        ><enhanced:img src={leftArrow} class="back-img" alt="" />Back</a
+    >
     <main id="main">
         <div class="line top"></div>
 
@@ -146,7 +149,23 @@
         --c: 4, 255, 159;
         --t: 204, 204, 204;
     }
-
+    .back-btn {
+        position: fixed;
+        top: 0.5rem;
+        left: 0.5rem;
+        color: #fff;
+        border: 1px;
+        box-shadow:
+            0 0 0.1em 0.1em rgba(190, 238, 175, 0.2),
+            0 0 1em 0.1em rgba(190, 238, 175, 0.3);
+        padding: 0.25rem 0.75rem;
+        font-size: 1.25em;
+    }
+    .back-img {
+        width: 0.75em;
+        height: 0.75em;
+        filter: invert(1);
+    }
     .container {
         background-color: rgb(4, 255, 159);
         color: rgb(204, 204, 204);
@@ -185,7 +204,7 @@
         gap: 0.2rem;
         position: fixed;
         bottom: 1rem;
-        right: 1rem;
+        left: 1rem;
         cursor: pointer;
         transition: all ease 0.3s;
     }
@@ -199,7 +218,7 @@
     .container {
         display: flex;
         flex-direction: column-reverse;
-        align-items: flex-end;
+        align-items: flex-start;
         gap: 0.5rem;
     }
 
@@ -400,7 +419,7 @@
         }
 
         .ruler {
-            left: 0rem !important;
+            right: 0rem !important;
         }
         .scroll .rectangle:not(:first-child) {
             opacity: 1;
@@ -412,7 +431,7 @@
         width: 2rem;
         height: 100%;
         position: absolute;
-        left: 4rem;
+        right: 4rem;
         display: flex;
         flex-direction: column;
         align-items: center;
