@@ -53,6 +53,24 @@
     });
 </script>
 
+<svelte:head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/general/logo.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content={post.title} />
+    <meta name="description" content={post.preview} />
+    <meta
+        name="keywords"
+        content="Artificial Intelligence, Ai, AI, humans, history"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="14 days" />
+    <meta name="author" content="TheLinuxGuy" />
+    <title>TheLinuxGuy | Tech Enthusiast</title>
+</svelte:head>
+
 <div class="container">
     <div class="ruler">
         <div class="mask one">{top}%</div>
@@ -307,8 +325,7 @@
         margin: 10rem 4rem;
     }
 
-    a,
-    .important {
+    a {
         color: rgb(var(--c));
         text-decoration: none;
     }
