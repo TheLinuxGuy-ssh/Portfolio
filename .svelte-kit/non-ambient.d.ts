@@ -29,19 +29,18 @@ declare module "$app/types" {
 	type MatcherParam<M> = M extends (param : string) => param is (infer U extends string) ? U : string;
 
 	export interface AppTypes {
-		RouteId(): "/" | "/hyprfect" | "/matrix" | "/matrix/post" | "/matrix/post/[page]";
+		RouteId(): "/" | "/matrix" | "/matrix/post" | "/matrix/post/[page]";
 		RouteParams(): {
 			"/matrix/post/[page]": { page: string }
 		};
 		LayoutParams(): {
 			"/": { page?: string };
-			"/hyprfect": Record<string, never>;
 			"/matrix": { page?: string };
 			"/matrix/post": { page?: string };
 			"/matrix/post/[page]": { page: string }
 		};
-		Pathname(): "/" | "/hyprfect" | "/matrix" | `/matrix/post/${string}` & {};
+		Pathname(): "/" | "/matrix" | `/matrix/post/${string}` & {};
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/Desktop.mp4" | "/audio/boot.mp3" | "/css/links.css" | "/css/locomotive.css" | "/css/normalize.css" | "/css/style.css" | "/fonts/Hermit/Hermit-Light.woff2" | "/fonts/Hermit/LICENSE" | "/fonts/ProFont/LICENSE" | "/fonts/ProFont/ProFont.woff2" | "/images/general/logo.webp" | "/images/projects/Cosma2k24.mp4" | "/images/projects/DarwinX.mp4" | "/images/projects/DigiPod.mp4" | "/images/projects/Hyprfect.mp4" | "/images/projects/Start Page.mp4" | "/images/projects/Tagged.mp4" | "/images/projects/The Spartan Rage.mp4" | "/images/projects/Unite.Do.mp4" | "/images/svg/mail.svg" | "/svelte.svg" | "/tlglink.mp4" | "/vite.svg" | string & {};
+		Asset(): "/Desktop.mp4" | "/audio/boot.mp3" | "/css/links.css" | "/css/locomotive.css" | "/css/normalize.css" | "/css/style.css" | "/fonts/Hermit/Hermit-Light.woff2" | "/fonts/Hermit/LICENSE" | "/fonts/ProFont/LICENSE" | "/fonts/ProFont/ProFont.woff2" | "/hyprfect" | "/images/general/logo.webp" | "/images/projects/Cosma2k24.mp4" | "/images/projects/DarwinX.mp4" | "/images/projects/DigiPod.mp4" | "/images/projects/Hyprfect.mp4" | "/images/projects/Start Page.mp4" | "/images/projects/Tagged.mp4" | "/images/projects/The Spartan Rage.mp4" | "/images/projects/Unite.Do.mp4" | "/images/svg/mail.svg" | "/svelte.svg" | "/tlglink.mp4" | "/vite.svg" | string & {};
 	}
 }

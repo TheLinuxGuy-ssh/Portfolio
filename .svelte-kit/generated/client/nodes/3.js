@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/hyprfect/+page.svelte";
+export { default as component } from "../../../../src/routes/matrix/+page.svelte";
