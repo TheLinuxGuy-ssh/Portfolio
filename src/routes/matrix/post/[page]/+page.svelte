@@ -156,8 +156,8 @@
         color: #fff;
         border: 1px;
         box-shadow:
-            0 0 0.1em 0.1em rgba(190, 238, 175, 0.2),
-            0 0 1em 0.1em rgba(190, 238, 175, 0.3);
+            0 0 0.1em 0em rgba(190, 238, 175, 0.2),
+            0 0 1em 0em rgba(190, 238, 175, 0.3);
         padding: 0.25rem 0.75rem;
         font-size: 1.25em;
     }
