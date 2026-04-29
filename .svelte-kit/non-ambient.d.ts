@@ -41,6 +41,6 @@ declare module "$app/types" {
 		};
 		Pathname(): "/" | "/matrix" | `/matrix/post/${string}` & {};
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/Desktop.mp4" | "/audio/boot.mp3" | "/css/links.css" | "/css/locomotive.css" | "/css/normalize.css" | "/css/style.css" | "/fonts/Hermit/Hermit-Light.woff2" | "/fonts/Hermit/LICENSE" | "/fonts/ProFont/LICENSE" | "/fonts/ProFont/ProFont.woff2" | "/hyprfect" | "/images/general/logo.webp" | "/images/projects/Cosma2k24.mp4" | "/images/projects/DarwinX.mp4" | "/images/projects/DigiPod.mp4" | "/images/projects/Hyprfect.mp4" | "/images/projects/Start Page.mp4" | "/images/projects/Tagged.mp4" | "/images/projects/The Spartan Rage.mp4" | "/images/projects/Unite.Do.mp4" | "/images/svg/mail.svg" | "/svelte.svg" | "/tlglink.mp4" | "/vite.svg" | string & {};
+		Asset(): "/Desktop.mp4" | "/audio/boot.mp3" | "/css/links.css" | "/css/locomotive.css" | "/css/normalize.css" | "/css/style.css" | "/fonts/Hermit/Hermit-Light.woff2" | "/fonts/Hermit/LICENSE" | "/fonts/ProFont/LICENSE" | "/fonts/ProFont/ProFont.woff2" | "/hyprfect.sh" | "/images/general/logo.webp" | "/images/projects/Cosma2k24.mp4" | "/images/projects/DarwinX.mp4" | "/images/projects/DigiPod.mp4" | "/images/projects/Hyprfect.mp4" | "/images/projects/Start Page.mp4" | "/images/projects/Tagged.mp4" | "/images/projects/The Spartan Rage.mp4" | "/images/projects/Unite.Do.mp4" | "/images/svg/mail.svg" | "/svelte.svg" | "/tlglink.mp4" | "/vite.svg" | string & {};
 	}
 }
