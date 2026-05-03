@@ -67,12 +67,13 @@ class TextScramble {
 }
 
 const phrases = [
+  'Founder&CEO @ SkillHive',
   'Linux Enthusiast',
   'Server Admin',
   'Web Developer',
   'Designer',
   'Programmer',
-  'Typewhiz'
+  'Typewhiz',
 ];
 
 
