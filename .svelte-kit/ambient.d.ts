@@ -57,6 +57,7 @@ declare module '$env/static/private' {
 	export const NODE: string;
 	export const CSF_LANGUAGE: string;
 	export const CSF_MIGRATION_TYPES: string;
+	export const GRADLE_HOME: string;
 	export const P9K_TTY: string;
 	export const COLOR: string;
 	export const npm_config_local_prefix: string;
@@ -97,6 +98,7 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 	export const VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 	export const CSF_SHMessage: string;
+	export const CLAUDE_CODE_SSE_PORT: string;
 	export const npm_config_npm_version: string;
 	export const XDG_SESSION_CLASS: string;
 	export const TERM: string;
@@ -252,6 +254,7 @@ declare module '$env/dynamic/private' {
 		NODE: string;
 		CSF_LANGUAGE: string;
 		CSF_MIGRATION_TYPES: string;
+		GRADLE_HOME: string;
 		P9K_TTY: string;
 		COLOR: string;
 		npm_config_local_prefix: string;
@@ -292,6 +295,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 		VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 		CSF_SHMessage: string;
+		CLAUDE_CODE_SSE_PORT: string;
 		npm_config_npm_version: string;
 		XDG_SESSION_CLASS: string;
 		TERM: string;
