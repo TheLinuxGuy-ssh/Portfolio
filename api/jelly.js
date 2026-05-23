@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export default async function handler(req, res) {
     try {
         const url = process.env.JELLY_URL;
@@ -7,25 +5,6 @@ export default async function handler(req, res) {
 
         if (!url || !key) {
             return res.status(500).json({ error: "Missing env vars" });
-        }
-
-        const { streamId } = req.query;
-        if (streamId) {
-            const parts = url.split('/Sessions');
-            const domain = parts[0];
-            const audioStreamUrl = `${domain}/Audio/${streamId}/stream?static=true&api_key=${key}`;
-
-            const audioResponse = await axios({
-                method: 'get',
-                url: audioStreamUrl,
-                responseType: 'stream'
-            });
-
-            res.setHeader("Content-Type", audioResponse.headers['content-type'] || "audio/mpeg");
-            res.setHeader("Accept-Ranges", "bytes");
-
-            audioResponse.data.pipe(res);
-            return;
         }
 
         const response = await fetch(url, {
@@ -39,7 +18,15 @@ export default async function handler(req, res) {
         }
 
         const data = await response.json();
-        return res.status(200).json(data);
+        
+        const parts = url.split('/Sessions');
+        const jfBaseUrl = parts[0];
+
+        return res.status(200).json({
+            sessions: data,
+            serverUrl: jfBaseUrl,
+            token: key
+        });
 
     } catch (err) {
         console.error("Function error:", err);

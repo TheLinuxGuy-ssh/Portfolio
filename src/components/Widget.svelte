@@ -24,7 +24,9 @@
         return;
       }
 
-      const sessions = json;
+      const sessions = json.sessions;
+      const serverUrl = json.serverUrl;
+      const token = json.token;
 
       const active = sessions.find(
         (s) =>
@@ -41,7 +43,7 @@
 
           if (active.NowPlayingItem.Id !== currentTrackId) {
             currentTrackId = active.NowPlayingItem.Id;
-            streamUrl = `/api/jelly?streamId=${active.NowPlayingItem.Id}`;
+            streamUrl = `${serverUrl}/Audio/${active.NowPlayingItem.Id}/stream?static=true&api_key=${token}`;
           }
         } else if (active.NowPlayingItem.Type == "Episode") {
           type = "Binging:";
@@ -108,7 +110,7 @@
   </div>
 
   {#if streamUrl && type === "Listening:"}
-    <audio bind:this={audioPlayer} src={streamUrl} preload="metadata">
+    <audio bind:this={audioPlayer} src={streamUrl} preload="auto">
       <track kind="captions" />
     </audio>
   {/if}
