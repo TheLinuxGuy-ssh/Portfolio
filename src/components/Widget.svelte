@@ -12,8 +12,8 @@
   let streamUrl = "";
   let intervalId;
 
-  const JELLYFIN_BASE = "https://entertainment.linuxguy.tech";
-  const JELLYFIN_TOKEN = "94cc7cc3affa405f9a0b1d823f790499";
+  const JELLYFIN_BASE = "https://your-jellyfin-instance.com";
+  const JELLYFIN_TOKEN = "YOUR_JELLYFIN_API_KEY";
 
   async function checkStatus() {
     try {
@@ -71,7 +71,7 @@
 
           if (active.PlayState?.PositionTicks !== undefined) {
             const serverSeconds = active.PlayState.PositionTicks / 10000000;
-            if (Math.abs(audioPlayer.currentTime - serverSeconds) > 2) {
+            if (Math.abs(audioPlayer.currentTime - serverSeconds) > 3) {
               audioPlayer.currentTime = serverSeconds;
             }
           }
@@ -111,7 +111,7 @@
   </div>
 
   {#if streamUrl && type === "Listening:"}
-    <audio bind:this={audioPlayer} src={streamUrl} preload="auto">
+    <audio bind:this={audioPlayer} src={streamUrl} preload="none">
       <track kind="captions" />
     </audio>
   {/if}
