@@ -6,7 +6,7 @@
   let type = "Idle";
   let play = false;
   let tmp = "";
-
+  let volume = 0.5;
   let audioPlayer;
   let currentTrackId = "";
   let streamUrl = "";
@@ -124,7 +124,12 @@
   </div>
 
   {#if streamUrl && type === "Listening:"}
-    <audio bind:this={audioPlayer} src={streamUrl} preload="metadata">
+    <audio
+      bind:this={audioPlayer}
+      src={streamUrl}
+      bind:volume
+      preload="metadata"
+    >
       <track kind="captions" />
     </audio>
   {/if}
