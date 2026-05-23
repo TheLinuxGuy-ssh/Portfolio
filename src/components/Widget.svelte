@@ -12,9 +12,6 @@
   let streamUrl = "";
   let intervalId;
 
-  const JELLYFIN_BASE = "https://entertainment.linuxguy.tech";
-  const JELLYFIN_TOKEN = "94cc7cc3affa405f9a0b1d823f790499";
-
   async function checkStatus() {
     try {
       const res = await fetch("/api/jelly");
@@ -44,7 +41,7 @@
 
           if (active.NowPlayingItem.Id !== currentTrackId) {
             currentTrackId = active.NowPlayingItem.Id;
-            streamUrl = `${JELLYFIN_BASE}/Audio/${active.NowPlayingItem.Id}/stream?static=true&api_key=${JELLYFIN_TOKEN}`;
+            streamUrl = `/api/jelly?streamId=${active.NowPlayingItem.Id}`;
           }
         } else if (active.NowPlayingItem.Type == "Episode") {
           type = "Binging:";
