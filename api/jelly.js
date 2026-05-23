@@ -18,7 +18,6 @@ export default async function handler(req, res) {
         }
 
         const data = await response.json();
-        
         const parts = url.split('/Sessions');
         const jfBaseUrl = parts[0];
 

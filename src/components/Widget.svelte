@@ -11,6 +11,7 @@
   let currentTrackId = "";
   let streamUrl = "";
   let intervalId;
+  let currentIntervalTime = 5000;
 
   async function checkStatus() {
     try {
@@ -33,6 +34,8 @@
           s.UserId === "713b523feca84f72b89f94af1f1472a2" && s.NowPlayingItem,
       );
 
+      let nextIntervalTime = 5000;
+
       if (active?.NowPlayingItem) {
         if (active.NowPlayingItem.Type == "Movie") {
           type = "Watching:";
@@ -44,6 +47,7 @@
           if (active.NowPlayingItem.Id !== currentTrackId) {
             currentTrackId = active.NowPlayingItem.Id;
             streamUrl = `${serverUrl}/Audio/${active.NowPlayingItem.Id}/stream?static=true&api_key=${token}`;
+            nextIntervalTime = 1500;
           }
         } else if (active.NowPlayingItem.Type == "Episode") {
           type = "Binging:";
@@ -61,20 +65,30 @@
       play = true;
 
       if (active?.PlayState?.IsPaused) {
-        if (audioPlayer && !audioPlayer.paused) audioPlayer.pause();
+        if (audioPlayer && !audioPlayer.paused) {
+          audioPlayer.pause();
+          nextIntervalTime = 1500;
+        }
       } else {
         if (audioPlayer && streamUrl) {
           if (audioPlayer.paused) {
             audioPlayer.play().catch(() => {});
+            nextIntervalTime = 1500;
           }
 
           if (active.PlayState?.PositionTicks !== undefined) {
             const serverSeconds = active.PlayState.PositionTicks / 10000000;
-            if (Math.abs(audioPlayer.currentTime - serverSeconds) > 3) {
+            if (Math.abs(audioPlayer.currentTime - serverSeconds) > 2) {
               audioPlayer.currentTime = serverSeconds;
             }
           }
         }
+      }
+
+      if (nextIntervalTime !== currentIntervalTime) {
+        currentIntervalTime = nextIntervalTime;
+        clearInterval(intervalId);
+        intervalId = setInterval(checkStatus, currentIntervalTime);
       }
     } catch (err) {
       status = "Connection failed";
@@ -85,7 +99,7 @@
 
   onMount(async () => {
     await checkStatus();
-    intervalId = setInterval(checkStatus, 5000);
+    intervalId = setInterval(checkStatus, currentIntervalTime);
   });
 
   onDestroy(() => {
@@ -110,7 +124,7 @@
   </div>
 
   {#if streamUrl && type === "Listening:"}
-    <audio bind:this={audioPlayer} src={streamUrl} preload="auto">
+    <audio bind:this={audioPlayer} src={streamUrl} preload="metadata">
       <track kind="captions" />
     </audio>
   {/if}
