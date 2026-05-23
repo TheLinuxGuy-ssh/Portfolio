@@ -6,12 +6,14 @@
   let type = "Idle";
   let play = false;
   let tmp = "";
-  const secretKey = "94cc7cc3affa405f9a0b1d823f790499";
 
   let audioPlayer;
   let currentTrackId = "";
   let streamUrl = "";
   let intervalId;
+
+  const JELLYFIN_BASE = "https://entertainment.linuxguy.tech";
+  const JELLYFIN_TOKEN = "94cc7cc3affa405f9a0b1d823f790499";
 
   async function checkStatus() {
     try {
@@ -42,8 +44,7 @@
 
           if (active.NowPlayingItem.Id !== currentTrackId) {
             currentTrackId = active.NowPlayingItem.Id;
-            const fallbackBase = "https://entertainment.linuxguy.tech";
-            streamUrl = `${fallbackBase}/Audio/${active.NowPlayingItem.Id}/stream?static=true&api_key=${secretKey}`;
+            streamUrl = `${JELLYFIN_BASE}/Audio/${active.NowPlayingItem.Id}/stream?static=true&api_key=${JELLYFIN_TOKEN}`;
           }
         } else if (active.NowPlayingItem.Type == "Episode") {
           type = "Binging:";
@@ -63,8 +64,17 @@
       if (active?.PlayState?.IsPaused) {
         if (audioPlayer && !audioPlayer.paused) audioPlayer.pause();
       } else {
-        if (audioPlayer && audioPlayer.paused && streamUrl) {
-          audioPlayer.play().catch(() => {});
+        if (audioPlayer && streamUrl) {
+          if (audioPlayer.paused) {
+            audioPlayer.play().catch(() => {});
+          }
+
+          if (active.PlayState?.PositionTicks !== undefined) {
+            const serverSeconds = active.PlayState.PositionTicks / 10000000;
+            if (Math.abs(audioPlayer.currentTime - serverSeconds) > 2) {
+              audioPlayer.currentTime = serverSeconds;
+            }
+          }
         }
       }
     } catch (err) {
@@ -101,11 +111,9 @@
   </div>
 
   {#if streamUrl && type === "Listening:"}
-    <div class="audio-container">
-      <audio bind:this={audioPlayer} src={streamUrl} controls preload="auto">
-        <track kind="captions" />
-      </audio>
-    </div>
+    <audio bind:this={audioPlayer} src={streamUrl} preload="auto">
+      <track kind="captions" />
+    </audio>
   {/if}
 </div>
 
@@ -134,13 +142,5 @@
   }
   .marquee-content {
     margin: 0 1em;
-  }
-  .audio-container {
-    margin-top: 0.5em;
-    width: 100%;
-  }
-  audio {
-    width: 100%;
-    height: 28px;
   }
 </style>
