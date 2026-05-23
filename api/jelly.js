@@ -10,7 +10,7 @@ export default async function handler(req, res) {
         const { streamId } = req.query;
         if (streamId) {
             const baseUrl = url.split('/Sessions')[0];
-            const audioStreamUrl = `${baseUrl}/Audio/${streamId}/universal?api_key=${key}`;
+            const audioStreamUrl = `${baseUrl}/Audio/${streamId}/stream?api_key=${key}`;
 
             const audioResponse = await fetch(audioStreamUrl);
             if (!audioResponse.ok) {
