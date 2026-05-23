@@ -12,8 +12,8 @@
   let streamUrl = "";
   let intervalId;
 
-  const JELLYFIN_BASE = "https://your-jellyfin-instance.com";
-  const JELLYFIN_TOKEN = "YOUR_JELLYFIN_API_KEY";
+  const JELLYFIN_BASE = "https://entertainment.linuxguy.tech";
+  const JELLYFIN_TOKEN = "94cc7cc3affa405f9a0b1d823f790499";
 
   async function checkStatus() {
     try {
