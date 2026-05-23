@@ -108,7 +108,7 @@
   </div>
 
   {#if streamUrl && type === "Listening:"}
-    <audio bind:this={audioPlayer} src={streamUrl} preload="none">
+    <audio bind:this={audioPlayer} src={streamUrl} preload="metadata">
       <track kind="captions" />
     </audio>
   {/if}

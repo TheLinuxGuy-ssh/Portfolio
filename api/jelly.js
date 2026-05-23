@@ -1,4 +1,4 @@
-import { Readable } from 'stream';
+import axios from 'axios';
 
 export default async function handler(req, res) {
     try {
@@ -15,20 +15,17 @@ export default async function handler(req, res) {
             const domain = parts[0];
             const audioStreamUrl = `${domain}/Audio/${streamId}/stream?static=true&api_key=${key}`;
 
-            const audioResponse = await fetch(audioStreamUrl);
-            if (!audioResponse.ok) {
-                return res.status(audioResponse.status).json({ error: "Failed to fetch audio stream" });
-            }
+            const audioResponse = await axios({
+                method: 'get',
+                url: audioStreamUrl,
+                responseType: 'stream'
+            });
 
-            res.setHeader("Content-Type", "audio/mpeg");
+            res.setHeader("Content-Type", audioResponse.headers['content-type'] || "audio/mpeg");
             res.setHeader("Accept-Ranges", "bytes");
 
-            if (audioResponse.body instanceof Readable) {
-                return audioResponse.body.pipe(res);
-            } else if (audioResponse.body) {
-                const nodeStream = Readable.fromWeb(audioResponse.body);
-                return nodeStream.pipe(res);
-            }
+            audioResponse.data.pipe(res);
+            return;
         }
 
         const response = await fetch(url, {
