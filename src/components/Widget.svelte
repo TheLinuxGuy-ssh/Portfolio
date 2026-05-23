@@ -6,6 +6,7 @@
   let type = "Idle";
   let play = false;
   let tmp = "";
+  const secretKey = "94cc7cc3affa405f9a0b1d823f790499";
 
   let audioPlayer;
   let currentTrackId = "";
@@ -41,7 +42,8 @@
 
           if (active.NowPlayingItem.Id !== currentTrackId) {
             currentTrackId = active.NowPlayingItem.Id;
-            streamUrl = `/api/jelly?streamId=${active.NowPlayingItem.Id}`;
+            const fallbackBase = "https://entertainment.linuxguy.tech";
+            streamUrl = `${fallbackBase}/Audio/${active.NowPlayingItem.Id}/stream?static=true&api_key=${secretKey}`;
           }
         } else if (active.NowPlayingItem.Type == "Episode") {
           type = "Binging:";

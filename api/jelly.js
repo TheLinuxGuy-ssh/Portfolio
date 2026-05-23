@@ -7,33 +7,6 @@ export default async function handler(req, res) {
             return res.status(500).json({ error: "Missing env vars" });
         }
 
-        const { streamId } = req.query;
-        if (streamId) {
-            const baseUrl = url.split('/Sessions')[0];
-            const audioStreamUrl = `${baseUrl}/Audio/${streamId}/stream?api_key=${key}`;
-
-            const audioResponse = await fetch(audioStreamUrl);
-            if (!audioResponse.ok) {
-                return res.status(audioResponse.status).json({ error: "Failed to fetch audio stream" });
-            }
-
-            res.setHeader("Content-Type", audioResponse.headers.get("content-type") || "audio/mpeg");
-            res.setHeader("Accept-Ranges", "bytes");
-
-            const body = audioResponse.body;
-            if (body && typeof body.pipe === 'function') {
-                return body.pipe(res);
-            } else if (body) {
-                const reader = body.getReader();
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
-                    res.write(value);
-                }
-                return res.end();
-            }
-        }
-
         const response = await fetch(url, {
             headers: {
                 Authorization: `MediaBrowser Token="${key}"`,
