@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import Marquee from "svelte-neomarquee";
 
   let status = "Loading...";
@@ -7,7 +7,12 @@
   let play = false;
   let tmp = "";
 
-  onMount(async () => {
+  let audioPlayer;
+  let currentTrackId = "";
+  let streamUrl = "";
+  let intervalId;
+
+  async function checkStatus() {
     try {
       const res = await fetch("/api/jelly");
       const json = await res.json();
@@ -33,10 +38,18 @@
         } else if (active.NowPlayingItem.Type == "Audio") {
           type = "Listening:";
           tmp = active.NowPlayingItem.AlbumArtist;
+
+          if (active.NowPlayingItem.Id !== currentTrackId) {
+            currentTrackId = active.NowPlayingItem.Id;
+            streamUrl = `/api/jelly?streamId=${active.NowPlayingItem.Id}`;
+          }
         } else if (active.NowPlayingItem.Type == "Episode") {
           type = "Binging:";
           tmp = active.NowPlayingItem.SeriesName;
         }
+      } else {
+        streamUrl = "";
+        currentTrackId = "";
       }
 
       status = active?.NowPlayingItem
@@ -44,11 +57,28 @@
         : "Nothing playing";
 
       play = true;
+
+      if (active?.PlayState?.IsPaused) {
+        if (audioPlayer && !audioPlayer.paused) audioPlayer.pause();
+      } else {
+        if (audioPlayer && audioPlayer.paused && streamUrl) {
+          audioPlayer.play().catch(() => {});
+        }
+      }
     } catch (err) {
       status = "Connection failed";
       type = "Error:";
       play = false;
     }
+  }
+
+  onMount(async () => {
+    await checkStatus();
+    intervalId = setInterval(checkStatus, 5000);
+  });
+
+  onDestroy(() => {
+    if (intervalId) clearInterval(intervalId);
   });
 </script>
 
@@ -67,6 +97,14 @@
       <span class="marquee-content">{status}</span>
     </Marquee>
   </div>
+
+  {#if streamUrl && type === "Listening:"}
+    <div class="audio-container">
+      <audio bind:this={audioPlayer} src={streamUrl} controls preload="auto">
+        <track kind="captions" />
+      </audio>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -94,5 +132,13 @@
   }
   .marquee-content {
     margin: 0 1em;
+  }
+  .audio-container {
+    margin-top: 0.5em;
+    width: 100%;
+  }
+  audio {
+    width: 100%;
+    height: 28px;
   }
 </style>
