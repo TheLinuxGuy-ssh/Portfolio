@@ -11,15 +11,16 @@ export default async function handler(req, res) {
 
         const { streamId } = req.query;
         if (streamId) {
-            const baseUrl = url.split('/Sessions')[0];
-            const audioStreamUrl = `${baseUrl}/Audio/${streamId}/stream?static=true&api_key=${key}`;
+            const parts = url.split('/Sessions');
+            const domain = parts[0];
+            const audioStreamUrl = `${domain}/Audio/${streamId}/stream?static=true&api_key=${key}`;
 
             const audioResponse = await fetch(audioStreamUrl);
             if (!audioResponse.ok) {
                 return res.status(audioResponse.status).json({ error: "Failed to fetch audio stream" });
             }
 
-            res.setHeader("Content-Type", audioResponse.headers.get("content-type") || "audio/mpeg");
+            res.setHeader("Content-Type", "audio/mpeg");
             res.setHeader("Accept-Ranges", "bytes");
 
             if (audioResponse.body instanceof Readable) {

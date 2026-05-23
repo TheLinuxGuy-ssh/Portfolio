@@ -6,6 +6,7 @@
   let type = "Idle";
   let play = false;
   let tmp = "";
+
   let audioPlayer;
   let currentTrackId = "";
   let streamUrl = "";
