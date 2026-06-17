@@ -3,9 +3,9 @@
     <h1 style="text-align: center; backdrop-filter: blur(0px);">Let's Talk.</h1>
   </div>
   <div class="footer-links">
-    <a target="_blank" href="mailto:mail@linuxguy.tech" data-scroll>
+    <a target="_blank" href="mailto:mr.linux.0@protonmail.com" data-scroll>
       <button class="Btn-Container">
-        <span class="text">mail@linuxguy.tech</span>
+        <span class="text">mr.linux.0@protonmail.com</span>
         <span class="icon-Container">
           <svg
             width="16"
