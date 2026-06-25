@@ -123,7 +123,7 @@
     </Marquee>
   </div>
 
-  <!-- {#if streamUrl && type === "Listening:"}
+  {#if streamUrl && type === "Listening:"}
     <audio
       bind:this={audioPlayer}
       src={streamUrl}
@@ -132,7 +132,7 @@
     >
       <track kind="captions" />
     </audio>
-  {/if} -->
+  {/if}
 </div>
 
 <style>
