@@ -34,9 +34,9 @@ declare module "$app/types" {
 			"/matrix/post/[page]": { page: string }
 		};
 		LayoutParams(): {
-			"/": { page?: string };
-			"/matrix": { page?: string };
-			"/matrix/post": { page?: string };
+			"/": { page?: string | undefined };
+			"/matrix": { page?: string | undefined };
+			"/matrix/post": { page?: string | undefined };
 			"/matrix/post/[page]": { page: string }
 		};
 		Pathname(): "/" | "/matrix" | `/matrix/post/${string}` & {};

@@ -1,6 +1,30 @@
 {
     "projects": [
         {
+            "name": "SkillHiive Waitlist",
+            "desc": "A website to gather the waitlist for my upcoming startup SkillHiive",
+            "url": "https://skillhiive.com",
+            "status": "1",
+            "tags": [
+                {
+                    "name": "React",
+                    "accent": "#61DBFB"
+                },
+                {
+                    "name": "JS",
+                    "accent": "#F7DF1E"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                },
+                {
+                    "name": "Postgres",
+                    "accent": "#7FB8FF"
+                }
+            ]
+        },
+        {
             "name": "Hyprfect",
             "desc": "Hyprland configuration for a clean, minimal arch linux setup!",
             "github": "hyprfect",
@@ -55,6 +79,42 @@
             ]
         },
         {
+            "name": "ESP32 Irrigation Automation",
+            "desc": "This project provides a soil moisture monitoring system using an ESP32 and a soil moisture sensor. The system reads moisture levels from the sensor and displays the readings",
+            "github": "esp32irrigation",
+            "status": "2",
+            "tags": [ 
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                },
+                {
+                    "name": "Adruino",
+                    "accent": "#478cbf"
+                }
+            ]
+        },
+        {
+            "name": "Marine Consultancy Group",
+            "desc": "Marine Consultancy Services (MCS) is a design-driven marine consultancy firm supporting shipyards, vessel owners, and government agencies across India, Bangladesh, Sri Lanka, and Southeast Asia",
+            "url": "https://www.shipconsultant.org",
+            "status": "2",
+            "tags": [
+                {
+                    "name": "Three.js",
+                    "accent": "#F05023"
+                },
+                                {
+                    "name": "JS",
+                    "accent": "#F7DF1E"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                }
+            ]
+        },
+        {
             "name": "Tagged",
             "desc": "Co-op game where two players play tag to win!",
             "url": "https://thelinuxguy-ssh.github.io/Tagged",
@@ -68,10 +128,63 @@
             ]
         },
         {
-            "name": "Start Page",
+            "name": "Global Insulation",
+            "desc": "An insulation company which supplies insulation material all over Victoria, Austrailiazz",
+            "url": "https://www.globalinsulation.com.au",
+            "status": "2",
+            "tags": [
+                                {
+                    "name": "JS",
+                    "accent": "#F7DF1E"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                },
+                {
+                    "name": "Three.js",
+                    "accent": "#F05023"
+                }
+            ]
+        },
+        {
+            "name": "TLG Start Page",
             "desc": "Your Personal Browser Start Page from the Future! ",
-            "url": "https://thelinuxguy-ssh.github.io/tlg-start-page",
+            "url": "https://tlg-start-page.vercel.app/",
             "github": "tlg-start-page",
+            "status": "2",
+            "tags": [
+                {
+                    "name": "Next.js",
+                    "accent": "#0070F3"
+                },
+                {
+                    "name": "Docker",
+                    "accent": "#0db7ed"
+                },
+                {
+                    "name": "JS",
+                    "accent": "#F7DF1E"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                },
+                {
+                    "name": "Bash",
+                    "accent": "#ED1C24"
+                },
+                {
+                    "name": "Powershell",
+                    "accent": "#8FAAFF"
+                }
+            ]
+        },
+        {
+            "name": "TLG Links",
+            "desc": "A fork for TLG Start Page for specifically routing people through a set of personalised links in a presentable format ",
+            "url": "https://tlg-links.vercel.app/",
+            "github": "tlg-links",
             "status": "2",
             "tags": [
                 {
@@ -104,7 +217,7 @@
             "name": "Unite.Do",
             "desc": "A Task management Web app for team management",
             "url": "https://unite-do.vercel.app",
-            "github": "unite-do",
+            "github": "unite.do",
             "status": "3",
             "tags": [
                 {
@@ -146,9 +259,61 @@
             ]
         },
         {
-            "name": "Cosma2k24",
+            "name": "COSMA2k24",
             "desc": "A website for an inter-school Tech Event",
             "url": "https://thelinuxguy-ssh.github.io/cosma2k24/",
+            "status": "2",
+            "tags": [
+                {
+                    "name": "JS",
+                    "accent": "#F7DF1E"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                },
+                {
+                    "name": "Three.js",
+                    "accent": "#F05023"
+                }
+            ]
+        },
+        {
+            "name": "Mahaveer International School",
+            "desc": "A website for Mahaveer International school, situated in north-west outskirt of historical city of Meerut",
+            "url": "https://mismeerut.com/",
+            "status": "2",
+            "tags": [
+                {
+                    "name": "JS",
+                    "accent": "#F7DF1E"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                }
+            ]
+        },
+        {
+            "name": "JP Academy",
+            "desc": "A website for a school which is a part of the JP Educational Trust Society laying it's foundation in the educational field",
+            "url": "https://jpacademy.in",
+            "status": "2",
+            "tags": [
+                {
+                    "name": "JS",
+                    "accent": "#F7DF1E"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                }
+            ]
+        },
+        {
+            "name": "COSMA 2023",
+            "desc": "A website for an inter-school Tech Event",
+            "url": "https://thelinuxguy-ssh.github.io/cosma/",
             "status": "2",
             "tags": [
                 {

@@ -2,7 +2,7 @@
 <svelte:options runes={true} />
 <script>
 	import { setContext, onMount, tick } from 'svelte';
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 
 	// stores
 	let { stores, page, constructors, components = [], form, data_0 = null, data_1 = null } = $props();
