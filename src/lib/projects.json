@@ -1,5 +1,34 @@
 {
     "projects": [
+                {
+            "name": "Sosh Media",
+            "desc": "A Creative Agency built for brands that actually have something to say.",
+            "status": "1",
+            "tags": [
+                {
+                    "name": "Three.js",
+                    "accent": "#F05023"
+                },
+                                {
+                    "name": "JS",
+                    "accent": "#F7DF1E"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Web Development",
+                    "accent": "#7FB8FF"
+                },
+                {
+                    "name": "3D",
+                    "accent": "#7FB8FF"
+                }
+            ]
+        },
         {
             "name": "SkillHiive Web",
             "desc": "Upcoming Web App for SkillHiive",
