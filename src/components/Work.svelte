@@ -308,7 +308,7 @@
         margin-right: auto;
         height: 17.5em;
         transition: 0.2s all;
-        box-shadow: 0 0 1px 0 rgba(190, 238, 175, 0.365);
+        box-shadow: 0 0 1px 0 rgba(190, 238, 175, 0.502);
     }
     @media screen and (max-width: 1024px) {
         .projects .project {
