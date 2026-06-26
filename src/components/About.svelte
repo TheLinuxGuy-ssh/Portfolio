@@ -74,7 +74,7 @@ Music: Soundtracks · Phonk · Soul
       The Internet
     </div>
     <div class="header-spacing server" style="font-size: 5.75vw;">
-      One Server At A Time.
+      One <span class="header-main-text">Server</span> At A Time.
     </div>
   </div>
   <svg
@@ -460,6 +460,17 @@ current_interest="Backend systems & developer tools"
     top: 50%;
     transform: translateY(-50%);
   }
+  .dud {
+  color: #757575;
+  opacity: 0.5;
+}
+ .header-main-text {
+  display: inline-block;
+  vertical-align: bottom; 
+  overflow: hidden;      
+  white-space: nowrap; 
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+}
   .pccase {
     display: flex;
     justify-content: center;

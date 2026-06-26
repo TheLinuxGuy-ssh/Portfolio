@@ -13,28 +13,50 @@ const scroll = new LocomotiveScroll({
 
 
 class TextScramble {
-  constructor(el) {
+  constructor(el, options = { animateWidth: false }) {
     this.el = el;
+    this.options = options;
     this.chars = '!<>-_\\/[]{}—=+*^?#________';
     this.update = this.update.bind(this);
+    
+    if (this.options.animateWidth) {
+      this.el.classList.add('scramble-animate-width');
+    }
   }
+
+  calculateTargetWidth(text) {
+    const computedStyle = window.getComputedStyle(this.el);
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    context.font = `${computedStyle.fontWeight} ${computedStyle.fontSize} ${computedStyle.fontFamily}`;
+    return Math.ceil(context.measureText(text).width);
+  }
+
   setText(newText) {
     const oldText = this.el.innerText;
+    
+    if (this.options.animateWidth) {
+      this.el.style.width = `${this.calculateTargetWidth(newText)}px`;
+    }
+
     const length = Math.max(oldText.length, newText.length);
     const promise = new Promise(resolve => this.resolve = resolve);
     this.queue = [];
+    
     for (let i = 0; i < length; i++) {
       const from = oldText[i] || '';
       const to = newText[i] || '';
-      const start = Math.floor(Math.random() * 40);
-      const end = start + Math.floor(Math.random() * 40);
+      const start = Math.floor(Math.random() * 18);
+      const end = start + Math.floor(Math.random() * 18);
       this.queue.push({ from, to, start, end });
     }
+    
     cancelAnimationFrame(this.frameRequest);
     this.frame = 0;
     this.update();
     return promise;
   }
+
   update() {
     let output = '';
     let complete = 0;
@@ -61,34 +83,37 @@ class TextScramble {
       this.frame++;
     }
   }
+
   randomChar() {
     return this.chars[Math.floor(Math.random() * this.chars.length)];
   }
 }
 
-const phrases = [
-  'Founder&CEO @ SkillHive',
-  'Linux Enthusiast',
-  'Server Admin',
-  'Web Developer',
-  'Designer',
-  'Programmer',
-  'Typewhiz',
-];
-
+const phrases = ['Founder&CEO @ SkillHive', 'Linux Enthusiast', 'Server Admin', 'Web Developer', 'Designer', 'Programmer', 'Typewhiz'];
+const tag = ['Server', 'Website', 'App', 'Game'];
 
 const el = document.querySelector('.hero-desc');
-const fx = new TextScramble(el);
+const el2 = document.querySelector('.header-main-text');
+
+const fx = new TextScramble(el); 
+const fx2 = new TextScramble(el2, { animateWidth: true }); 
 
 let counter = 0;
 const next = () => {
-  fx.setText(phrases[counter]).then(() => {
-    setTimeout(next, 800);
-  });
+  fx.setText(phrases[counter]).then(() => { setTimeout(next, 800); });
   counter = (counter + 1) % phrases.length;
 };
 
-next();
+let counter2 = 0;
+const next2 = () => {
+  fx2.setText(tag[counter2]).then(() => { setTimeout(next2, 800); });
+  counter2 = (counter2 + 1) % tag.length;
+};
+
+next(); 
+next2();
+
+
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -98,7 +123,7 @@ let breakPoint = 800;
 let mm = gsap.matchMedia();
 
 mm.add({
-  isDesktop: `(min-width: ${breakPoint}px)`, // <- when ANY of these are true, the function below gets invoked
+  isDesktop: `(min-width: ${breakPoint}px)`,
   isMobile: `(max-width: ${breakPoint - 1}px)`
 }, (context) => {
 
@@ -112,8 +137,8 @@ mm.add({
 
     smoothChildTiming: true
   });
-  gsap.set(".revolutionising", { x: '-20%' });  // Set initial position for element1
-  gsap.set(".server", { x: '40%' });  // Set initial position for element2
+  gsap.set(".revolutionising", { x: '-20%' });  
+  gsap.set(".server", { x: '40%' }); 
 
 
   tl.to(".revolutionising", {
@@ -132,7 +157,7 @@ mm.add({
     smoothChildTiming: true
   });
 
-  gsap.set(".bg", { y: '-40%' });  // Set initial position for element1
+  gsap.set(".bg", { y: '-40%' }); 
   t2.to(".bg", {
     y: '7.5%'
   });
@@ -183,21 +208,20 @@ document.addEventListener("DOMContentLoaded", () => {
       sibling.classList.toggle(className, add);
     }
   };
-  // Event listeners to toggle classes on hover
   navItems.forEach((item, index) => {
     item.addEventListener('mouseenter', () => {
-      item.classList.add('hover'); // Add .hover to current item
-      toggleSiblingClass(navItems, index, -1, 'sibling-close', true); // Previous sibling
-      toggleSiblingClass(navItems, index, 1, 'sibling-close', true);  // Next sibling
-      toggleSiblingClass(navItems, index, -2, 'sibling-far', true);   // Previous-previous sibling
-      toggleSiblingClass(navItems, index, 2, 'sibling-far', true);    // Next-next sibling
+      item.classList.add('hover');
+      toggleSiblingClass(navItems, index, -1, 'sibling-close', true); 
+      toggleSiblingClass(navItems, index, 1, 'sibling-close', true);  
+      toggleSiblingClass(navItems, index, -2, 'sibling-far', true);   
+      toggleSiblingClass(navItems, index, 2, 'sibling-far', true);    
     });
     item.addEventListener('mouseleave', () => {
-      item.classList.remove('hover'); // Remove .hover from current item
-      toggleSiblingClass(navItems, index, -1, 'sibling-close', false); // Previous sibling
-      toggleSiblingClass(navItems, index, 1, 'sibling-close', false);  // Next sibling
-      toggleSiblingClass(navItems, index, -2, 'sibling-far', false);   // Previous-previous sibling
-      toggleSiblingClass(navItems, index, 2, 'sibling-far', false);    // Next-next sibling
+      item.classList.remove('hover'); 
+      toggleSiblingClass(navItems, index, -1, 'sibling-close', false); 
+      toggleSiblingClass(navItems, index, 1, 'sibling-close', false);  
+      toggleSiblingClass(navItems, index, -2, 'sibling-far', false);   
+      toggleSiblingClass(navItems, index, 2, 'sibling-far', false);    
     });
   });
 });
