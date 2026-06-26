@@ -1,9 +1,8 @@
 {
     "projects": [
         {
-            "name": "SkillHiive Waitlist",
-            "desc": "A website to gather the waitlist for my upcoming startup SkillHiive",
-            "url": "https://skillhiive.com",
+            "name": "SkillHiive Web",
+            "desc": "Upcoming Web App for SkillHiive",
             "status": "1",
             "tags": [
                 {
@@ -20,6 +19,50 @@
                 },
                 {
                     "name": "Postgres",
+                    "accent": "#7FB8FF"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Web App Development",
+                    "accent": "#7FB8FF"
+                },
+                {
+                    "name": "Server Administration",
+                    "accent": "#7FB8FF"
+                },
+                {
+                    "name": "devOPs",
+                    "accent": "#7FB8FF"
+                }
+            ]
+        },
+        {
+            "name": "SkillHiive Waitlist",
+            "desc": "A website to gather the waitlist for my upcoming startup SkillHiive",
+            "url": "https://skillhiive.com",
+            "status": "2",
+            "tags": [
+                {
+                    "name": "React",
+                    "accent": "#61DBFB"
+                },
+                {
+                    "name": "JS",
+                    "accent": "#F7DF1E"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                },
+                {
+                    "name": "Postgres",
+                    "accent": "#7FB8FF"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Web App Development",
                     "accent": "#7FB8FF"
                 }
             ]
@@ -42,6 +85,16 @@
                     "name": "GLSL",
                     "accent": "#50C878"
                 }
+            ],
+            "skills": [
+                {
+                    "name": "LINUX RICING",
+                    "accent": "#7FB8FF"
+                },
+                {
+                    "name": "SCRIPTING",
+                    "accent": "#7FB8FF"
+                }
             ]
         },
         {
@@ -54,6 +107,20 @@
                 {
                     "name": "GDScript",
                     "accent": "#478cbf"
+                },
+                {
+                    "name": "Pixilart",
+                    "accent": "#FF0000"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Game Development",
+                    "accent": "#7FB8FF"
+                },
+                {
+                    "name": "PIXEL ART",
+                    "accent": "#7FB8FF"
                 }
             ]
         },
@@ -76,6 +143,16 @@
                     "name": "CSS",
                     "accent": "#CC6699"
                 }
+            ],
+            "skills": [
+                {
+                    "name": "Web App Development",
+                    "accent": "#7FB8FF"
+                },
+                {
+                    "name": "SCRIPTING",
+                    "accent": "#7FB8FF"
+                }
             ]
         },
         {
@@ -91,6 +168,20 @@
                 {
                     "name": "Adruino",
                     "accent": "#478cbf"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "IOT",
+                    "accent": "#7FB8FF"
+                },
+                {
+                    "name": "Adruino Programming",
+                    "accent": "#7FB8FF"
+                },
+                {
+                    "name": "Web Development",
+                    "accent": "#7FB8FF"
                 }
             ]
         },
@@ -112,6 +203,16 @@
                     "name": "CSS",
                     "accent": "#CC6699"
                 }
+            ],
+            "skills": [
+                {
+                    "name": "Web Development",
+                    "accent": "#7FB8FF"
+                },
+                {
+                    "name": "3D",
+                    "accent": "#7FB8FF"
+                }
             ]
         },
         {
@@ -124,6 +225,20 @@
                 {
                     "name": "GDScript",
                     "accent": "#478cbf"
+                },
+                {
+                    "name": "Pixilart",
+                    "accent": "#FF0000"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Game Development",
+                    "accent": "#7FB8FF"
+                },
+                {
+                    "name": "PIXEL ART",
+                    "accent": "#7FB8FF"
                 }
             ]
         },
@@ -144,6 +259,24 @@
                 {
                     "name": "Three.js",
                     "accent": "#F05023"
+                },
+                {
+                    "name": "Adobe Premiere Pro",
+                    "accent": "#9933FF"
+                },
+                {
+                    "name": "Adobe After Effects",
+                    "accent": "#CF96FD"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Web Development",
+                    "accent": "#7FB8FF"
+                },
+                {
+                    "name": "Web Development",
+                    "accent": "#7FB8FF"
                 }
             ]
         },
@@ -260,7 +393,7 @@
         },
         {
             "name": "COSMA2k24",
-            "desc": "A website for an inter-school Tech Event",
+            "desc": "An Inter-School Tech Event Website",
             "url": "https://thelinuxguy-ssh.github.io/cosma2k24/",
             "status": "2",
             "tags": [

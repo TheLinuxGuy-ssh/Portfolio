@@ -130,6 +130,13 @@
                         </div>
                     {/each}
                 </div>
+                <!-- <div class="skills">
+                    {#each Object.entries(project.skills || {}) as [key, skill], index (key)}
+                        <div class="skill" style:background-color={"#000000"} style:color={"rgba(190, 238, 175, 1)"}>
+                            {skill.name}
+                        </div>
+                    {/each}
+                </div> -->
             </div>
         </div>
     {/each}
@@ -236,6 +243,7 @@
         width: 100%;
         flex-wrap: wrap;
         font-family: "Pro", Arial !important;
+        margin-bottom: auto;
     }
     .projects .project .tag {
         padding: 0.25em 0.5em;
@@ -243,6 +251,22 @@
         border: 1px solid;
         margin: 0.25em;
         background-color: #000000;
+    }
+    .projects .project .skills {
+    
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        font-family: "Pro", Arial !important;
+    }
+    .projects .project .skill {
+        padding: 0.25em 0.5em;
+        font-size: 0.75em;
+        border: 1px solid;
+        margin: 0.25em;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: invert;
     }
 
     .projects .project .project-category-pane {
@@ -284,6 +308,7 @@
         margin-right: auto;
         height: 17.5em;
         transition: 0.2s all;
+        box-shadow: 0 0 1px 0 rgba(190, 238, 175, 0.365);
     }
     @media screen and (max-width: 1024px) {
         .projects .project {
@@ -308,6 +333,9 @@
             display: none;
         }
         .projects .project .tags {
+            margin: 2.5% 0;
+        }
+        .projects .project .skills {
             margin: 2.5% 0;
         }
     }
