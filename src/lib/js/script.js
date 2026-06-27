@@ -100,13 +100,13 @@ const fx2 = new TextScramble(el2, { animateWidth: true });
 
 let counter = 0;
 const next = () => {
-  fx.setText(phrases[counter]).then(() => { setTimeout(next, 800); });
+  fx.setText(phrases[counter]).then(() => { setTimeout(next, 2000); });
   counter = (counter + 1) % phrases.length;
 };
 
 let counter2 = 0;
 const next2 = () => {
-  fx2.setText(tag[counter2]).then(() => { setTimeout(next2, 800); });
+  fx2.setText(tag[counter2]).then(() => { setTimeout(next2, 2000); });
   counter2 = (counter2 + 1) % tag.length;
 };
 
