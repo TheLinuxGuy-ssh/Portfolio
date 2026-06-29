@@ -100,7 +100,7 @@
             {/if}
             <div class="project-content">
                 <h2 class="project-name">
-                    {project.name}
+                    {project.name} <span class="project-type">[{project.type}]</span>
                     <div href="" class="status-btn {status.class}">
                         {status.label}
                     </div>
@@ -215,6 +215,11 @@
         font-size: 3em;
         font-family: Pro;
         margin-bottom: 10rem;
+    }
+    .project-type {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+        color: #999999;
     }
     .projects .project .project-no {
         font-size: 2em;

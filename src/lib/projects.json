@@ -3,6 +3,7 @@
                 {
             "name": "Sosh Media",
             "desc": "A Creative Agency built for brands that actually have something to say.",
+            "type": "Website",
             "status": "1",
             "tags": [
                 {
@@ -32,6 +33,7 @@
         {
             "name": "SkillHiive Web",
             "desc": "Upcoming Web App for SkillHiive",
+            "type": "Web Application",
             "status": "1",
             "tags": [
                 {
@@ -69,6 +71,7 @@
         {
             "name": "SkillHiive Waitlist",
             "desc": "A website to gather the waitlist for my upcoming startup SkillHiive",
+            "type": "Website",
             "url": "https://skillhiive.com",
             "status": "2",
             "tags": [
@@ -99,6 +102,7 @@
         {
             "name": "Hyprfect",
             "desc": "Hyprland configuration for a clean, minimal arch linux setup!",
+            "type": "Linux Dotfiles",
             "github": "hyprfect",
             "status": "4",
             "tags": [
@@ -129,6 +133,7 @@
         {
             "name": "The Spartan Rage",
             "desc": "Kratos faces his next adventure in the egyptian mythology after his son walks on a different path.",
+            "type": "2D Game",
             "url": "https://thelinuxguy-ssh.github.io/TheSpartanRage",
             "github": "thespartanrage",
             "status": "3",
@@ -156,6 +161,7 @@
         {
             "name": "DarwinX",
             "desc": "An online experience of macOS at the cost of nothing but Internet packets",
+            "type": "Web Application",
             "url": "https://darwinx.vercel.app",
             "github": "darwinx",
             "status": "0",
@@ -187,6 +193,7 @@
         {
             "name": "ESP32 Irrigation Automation",
             "desc": "This project provides a soil moisture monitoring system using an ESP32 and a soil moisture sensor. The system reads moisture levels from the sensor and displays the readings",
+            "type": "IoT",
             "github": "esp32irrigation",
             "status": "2",
             "tags": [ 
@@ -217,6 +224,7 @@
         {
             "name": "Marine Consultancy Group",
             "desc": "Marine Consultancy Services (MCS) is a design-driven marine consultancy firm supporting shipyards, vessel owners, and government agencies across India, Bangladesh, Sri Lanka, and Southeast Asia",
+            "type": "Website",
             "url": "https://www.shipconsultant.org",
             "status": "2",
             "tags": [
@@ -247,6 +255,7 @@
         {
             "name": "Tagged",
             "desc": "Co-op game where two players play tag to win!",
+            "type": "Game",
             "url": "https://thelinuxguy-ssh.github.io/Tagged",
             "github": "Tagged",
             "status": "2",
@@ -273,7 +282,8 @@
         },
         {
             "name": "Global Insulation",
-            "desc": "An insulation company which supplies insulation material all over Victoria, Austrailiazz",
+            "desc": "An insulation company which supplies insulation material all over Victoria, Austrailia",
+            "type": "Website",
             "url": "https://www.globalinsulation.com.au",
             "status": "2",
             "tags": [
@@ -312,6 +322,7 @@
         {
             "name": "TLG Start Page",
             "desc": "Your Personal Browser Start Page from the Future! ",
+            "type": "Web Application",
             "url": "https://tlg-start-page.vercel.app/",
             "github": "tlg-start-page",
             "status": "2",
@@ -345,6 +356,7 @@
         {
             "name": "TLG Links",
             "desc": "A fork for TLG Start Page for specifically routing people through a set of personalised links in a presentable format ",
+            "type": "Web Application",
             "url": "https://tlg-links.vercel.app/",
             "github": "tlg-links",
             "status": "2",
@@ -378,6 +390,7 @@
         {
             "name": "Unite.Do",
             "desc": "A Task management Web app for team management",
+            "type": "Web Application",
             "url": "https://unite-do.vercel.app",
             "github": "unite.do",
             "status": "3",
@@ -403,6 +416,7 @@
         {
             "name": "DigiPod",
             "desc": "A Landing page for an upcoming AI tool!",
+            "type": "Website",
             "github": "DigiPod-Website",
             "status": "2",
             "tags": [
@@ -423,6 +437,7 @@
         {
             "name": "COSMA2k24",
             "desc": "An Inter-School Tech Event Website",
+            "type": "Website",
             "url": "https://thelinuxguy-ssh.github.io/cosma2k24/",
             "status": "2",
             "tags": [
@@ -443,6 +458,7 @@
         {
             "name": "Mahaveer International School",
             "desc": "A website for Mahaveer International school, situated in north-west outskirt of historical city of Meerut",
+            "type": "Website",
             "url": "https://mismeerut.com/",
             "status": "2",
             "tags": [
@@ -459,6 +475,7 @@
         {
             "name": "JP Academy",
             "desc": "A website for a school which is a part of the JP Educational Trust Society laying it's foundation in the educational field",
+            "type": "Website",
             "url": "https://jpacademy.in",
             "status": "2",
             "tags": [
@@ -475,6 +492,7 @@
         {
             "name": "COSMA 2023",
             "desc": "A website for an inter-school Tech Event",
+            "type": "Website",
             "url": "https://thelinuxguy-ssh.github.io/cosma/",
             "status": "2",
             "tags": [
