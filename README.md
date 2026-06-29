@@ -2,6 +2,8 @@
 
 Built with SvelteKit, this portfolio achieves 100/100 on all four Lighthouse metrics. Open sourced to show how these optimizations were accomplished.
 
+<img width="1408" height="763" alt="Screenshot 2026-06-29 at 6 32 15 PM" src="https://github.com/user-attachments/assets/c8800076-af02-4be8-ae86-065f3fc89a87" />
+
 ## Image Optimization
 
 Images use `@sveltejs/enhanced-img` which automatically converts to modern formats (WebP/AVIF) at build time with fallbacks. This handles responsive images, lazy loading, and prevents layout shifts by calculating dimensions ahead of time.
