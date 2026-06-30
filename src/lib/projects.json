@@ -31,9 +31,9 @@
             ]
         },
         {
-            "name": "SkillHiive Web",
-            "desc": "Upcoming Web App for SkillHiive",
-            "type": "Web Application",
+            "name": "SkillHiive Stack",
+            "desc": "Upcoming Web + Mobile Stack for SkillHiive",
+            "type": "Web + Mobile Application",
             "status": "1",
             "tags": [
                 {

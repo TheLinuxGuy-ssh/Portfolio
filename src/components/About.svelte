@@ -5,19 +5,19 @@
   const fileSystem = {
     "readme.md": `thelinuxguy-ssh@github
 -----------------
-OS: Arch (Primary) · Windows[VM] (for no privacy) · OSX[VM] (for feeling dumb)            
-Role: Server Administrator · Web Developer
-Desktop Environment: Hyprland · GNOME               
+OS: Arch (Primary) · Windows[VM] (for no privacy) · OSX[VM] (for feeling dumb)
+Role: Server Administrator · Full-Stack Developer · Freelancer
+Desktop Environment: Hyprland · GNOME
 Shell: ZSH
-Editor: Neovim · VSCode   
+Editor: Neovim · VSCodium
 Theme: Matrix Dark
 
-Lang: JS · TS · BASH       
-FW: Svelte(basics) · React · Node
-Stack: Nginx · MySQL
+Lang: JS · TS · BASH
+FW: React · React Native · Next.js · Three.js
+Stack: Nginx · Supabase · Postgres · Docker
 
-Projects: TheSpartanRage · DarwinX · Start-Page · Unite.Do
-Mode: Building · Learning · Privacy
+Projects: SkillHiive · HyprFect · DarwinX · Start-Page · Unite.Do
+Mode: Building SkillHiive · Freelancing · Privacy
 Music: Soundtracks · Phonk · Soul
       `,
     secrets: {
@@ -36,19 +36,19 @@ Music: Soundtracks · Phonk · Soul
       "Available commands: fetch, clear, ls, cat, cd, pwd, help, history, mkdir, touch, rm, alias",
     fetch: () => `thelinuxguy-ssh@github
 -----------------
-OS: Arch (Primary) · Windows[VM] (for no privacy) · OSX[VM] (for feeling dumb)            
-Role: Server Administrator · Web Developer
-Desktop Environment: Hyprland · GNOME               
+OS: Arch (Primary) · Windows[VM] (for no privacy) · OSX[VM] (for feeling dumb)
+Role: Server Administrator · Full-Stack Developer · Freelancer
+Desktop Environment: Hyprland · GNOME
 Shell: ZSH
-Editor: Neovim · VSCode   
+Editor: Neovim · VSCodium
 Theme: Matrix Dark
 
-Lang: JS · TS · BASH       
-FW: Svelte(basics) · React · Node
-Stack: Nginx · MySQL
+Lang: JS · TS · BASH
+FW: React · React Native · Next.js · Three.js
+Stack: Nginx · Supabase · Postgres · Docker
 
-Projects: TheSpartanRage · DarwinX · Start-Page · Unite.Do
-Mode: Building · Learning · Privacy
+Projects: SkillHiive · HyprFect · DarwinX · Start-Page · Unite.Do
+Mode: Building SkillHiive · Freelancing · Privacy
 Music: Soundtracks · Phonk · Soul
       `,
   };
