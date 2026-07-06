@@ -411,7 +411,7 @@ current_interest="Backend systems & developer tools"
     font-size: calc(var(--_size) * 0.022);
     --_factor: min(1000px, 100vh);
     --_size: min(var(--_factor), 100vw);
-    background-image: url("data:image/svg+xml,%3Csvg width='15.972' height='15.972' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: linear-gradient(to bottom, transparent 50%, #0000006a 80%, #000),url("data:image/svg+xml,%3Csvg width='15.972' height='15.972' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3C/g%3E%3C/svg%3E");
   }
   .about::before {
     content: "";
@@ -420,6 +420,19 @@ current_interest="Backend systems & developer tools"
     height: 100px;
     margin-top: -5em;
     margin-bottom: -2.5em;
+  }
+  .about::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 80%, #000000);
+    z-index: 0;
+  }
+  .about * {
+    z-index: 1;
   }
 
   .change-text {
