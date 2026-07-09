@@ -421,7 +421,7 @@ current_interest="Backend systems & developer tools"
     margin-top: -5em;
     margin-bottom: -2.5em;
   }
-  .about::after {
+  /* .about::after {
     content: "";
     position: absolute;
     top: 0;
@@ -430,7 +430,7 @@ current_interest="Backend systems & developer tools"
     height: 100%;
     background: linear-gradient(to bottom, transparent 80%, #000000);
     z-index: 0;
-  }
+  } */
   .about * {
     z-index: 1;
   }
