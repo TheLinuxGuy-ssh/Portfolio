@@ -60,7 +60,6 @@ Music: Soundtracks · Phonk · Soul
 <section class="about">
   <div class="bg">
     <div></div>
-    <div></div>
   </div>
   <div class="header-text" aria-hidden="true">
     <div class="header-spacing revolutionising" style="font-size: 5.75vw">
