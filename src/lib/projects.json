@@ -1,6 +1,38 @@
 {
     "projects": [
+        {
+            "name": "Kepler",
+            "desc": "A Web Application to track the International Space Station and other satellites in real time with a 3D model of the earth and the satellites orbiting it.",
+            "type": "Web Application (Contributor)",
+            "url": "https://keplerai.vercel.app",
+            "github": "kepler",
+            "status": "1",
+            "tags": [
                 {
+                    "name": "Three.js",
+                    "accent": "#F05023"
+                },
+                {
+                    "name": "JS",
+                    "accent": "#F7DF1E"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Web Development",
+                    "accent": "#7FB8FF" 
+                },
+                {
+                    "name": "3D",
+                    "accent": "#7FB8FF" 
+                }
+            ] 
+        },
+        {
             "name": "StarWalk Core",
             "desc": "A Control Panel to control everything from Servers to Containers and Certificate generation within the StarWalk Datacentre",
             "type": "Infra Control Panel",
