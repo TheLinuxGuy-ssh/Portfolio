@@ -33,22 +33,6 @@
             ] 
         },
         {
-            "name": "StarWalk Core",
-            "desc": "A Control Panel to control everything from Servers to Containers and Certificate generation within the StarWalk Datacentre",
-            "type": "Infra Control Panel",
-            "status": "1",
-            "tags": [
-                {
-                    "name": "Bash",
-                    "accent": "#73A5CA"
-                },
-                {
-                    "name": "Node.JS",
-                    "accent": "#FFEE8C"
-                }
-            ]
-        },
-        {
             "name": "Sosh Media",
             "desc": "A Creative Agency built for brands that actually have something to say.",
             "type": "Website",
