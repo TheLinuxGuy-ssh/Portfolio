@@ -1,8 +1,43 @@
+<div align="center">
+
 # TheLinuxGuy Portfolio
 
-Built with SvelteKit, this portfolio achieves 100/100 on all four Lighthouse metrics. Open sourced to show how these optimizations were accomplished.
+<video src="https://github.com/user-attachments/assets/551280bc-f150-40ed-a981-8475c70791b3">
 
-<img width="1408" height="763" alt="Screenshot 2026-06-29 at 6 32 15 PM" src="https://github.com/user-attachments/assets/c8800076-af02-4be8-ae86-065f3fc89a87" />
+**Built with SvelteKit, this portfolio achieves 100/100 on all four Lighthouse metrics. Open sourced to show how these optimizations were accomplished.**
+
+<br />
+
+
+[![Lighthouse](https://img.shields.io/badge/Lighthouse-100%2F100-ffffff?style=for-the-badge&logo=lighthouse&logoColor=white)](#core-web-vitals)
+[![SvelteKit](https://img.shields.io/badge/SvelteKit-2.57.1-ffffff?style=for-the-badge&logo=svelte&logoColor=white)](https://kit.svelte.dev/)
+[![Svelte](https://img.shields.io/badge/Svelte-5.45.2-ffffff?style=for-the-badge&logo=svelte&logoColor=white)](https://svelte.dev/)
+[![Vite](https://img.shields.io/badge/Vite-7.3.1-ffffff?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+
+[![Stars](https://img.shields.io/github/stars/thelinuxguy-ssh/portfolio?style=for-the-badge&color=ffffff&labelColor=0c0c0e)](https://github.com/thelinuxguy-ssh/portfolio/stargazers)
+[![License](https://img.shields.io/github/license/thelinuxguy-ssh/portfolio?style=for-the-badge&color=ffffff&labelColor=0c0c0e)](./LICENSE)
+
+</div>
+
+<br />
+
+---
+
+## Table of Contents
+
+- [Image Optimization](#image-optimization)
+- [Video Optimization](#video-optimization)
+- [Font Loading](#font-loading)
+- [JavaScript Loading](#javascript-loading)
+- [CSS Generation](#css-generation)
+- [Core Web Vitals](#core-web-vitals)
+- [Structure](#structure)
+- [Why This Approach](#why-this-approach)
+- [Development](#development)
+- [Building](#building)
+- [Dependencies](#dependencies)
+
+---
 
 ## Image Optimization
 
@@ -16,15 +51,19 @@ Images use `@sveltejs/enhanced-img` which automatically converts to modern forma
 <enhanced:img src={logo} alt="" />
 ```
 
-All images (logo, github icon, navigation icons) are processed through this pipeline.
+All images (logo, GitHub icon, navigation icons) are processed through this pipeline.
+
+---
 
 ## Video Optimization
 
 Videos are encoded in H.264 (MP4) with `preload="metadata"` to avoid loading the full file upfront:
 
-- Desktop.mp4: 220 KB
-- tlglink.mp4: 164 KB  
-- Project videos: Various sizes
+| File | Size |
+|---|---|
+| `Desktop.mp4` | 220 KB |
+| `tlglink.mp4` | 164 KB |
+| Project videos | Various |
 
 ```html
 <video src="/Desktop.mp4" muted loop autoplay playsinline></video>
@@ -32,11 +71,16 @@ Videos are encoded in H.264 (MP4) with `preload="metadata"` to avoid loading the
 
 H.264 was chosen over VP9 because it provides excellent compression, universal browser support, and hardware acceleration on all platforms. This saves 80% compared to animated GIFs.
 
+---
+
 ## Font Loading
 
 Two WOFF2 fonts total (34 KB):
-- Hermit-Light.woff2: 20 KB
-- ProFont.woff2: 14 KB
+
+| File | Size |
+|---|---|
+| `Hermit-Light.woff2` | 20 KB |
+| `ProFont.woff2` | 14 KB |
 
 Using `font-display: swap` prevents layout shifts by showing system fonts immediately, then swapping in the custom fonts when loaded.
 
@@ -47,6 +91,8 @@ Using `font-display: swap` prevents layout shifts by showing system fonts immedi
   font-display: swap;
 }
 ```
+
+---
 
 ## JavaScript Loading
 
@@ -60,15 +106,23 @@ onMount(async () => {
 
 This ensures the page is interactive before animations load.
 
+---
+
 ## CSS Generation
 
-Where possible, effects are built with CSS gradients instead of images. The hero section background, for example, uses pure CSS—zero image requests.
+Where possible, effects are built with CSS gradients instead of images. The hero section background, for example, uses pure CSS — zero image requests.
+
+---
 
 ## Core Web Vitals
 
-- LCP (Largest Contentful Paint): Enhanced images with explicit dimensions load quickly
-- CLS (Cumulative Layout Shift): 0.0 because font-display: swap prevents font shifts and all elements have fixed dimensions
-- FID/INP: Main thread stays clear by deferring heavy JS to onMount
+| Metric | Result | Why |
+|---|---|---|
+| **LCP** (Largest Contentful Paint) | Fast | Enhanced images with explicit dimensions load quickly |
+| **CLS** (Cumulative Layout Shift) | 0.0 | `font-display: swap` prevents font shifts, all elements have fixed dimensions |
+| **FID / INP** | Clear | Main thread stays free by deferring heavy JS to `onMount` |
+
+---
 
 ## Structure
 
@@ -77,18 +131,20 @@ src/
 ├── routes/              SvelteKit pages
 ├── components/          Svelte components (Hero, Work, About, etc.)
 ├── lib/
-│   ├── assets/         Images for enhanced:img
-│   ├── js/script.js    Lazy-loaded animations
-│   └── projects.json   Project data
-├── app.css            Global styles + fonts
-└── app.html           HTML template (uses display: contents)
+│   ├── assets/          Images for enhanced:img
+│   ├── js/script.js     Lazy-loaded animations
+│   └── projects.json    Project data
+├── app.css               Global styles + fonts
+└── app.html               HTML template (uses display: contents)
 
 static/
-├── fonts/             WOFF2 files
-├── images/            Logos and project videos
-├── css/              Normalize, links, locomotive, main styles
-└── audio/            Boot sound
+├── fonts/                WOFF2 files
+├── images/                Logos and project videos
+├── css/                  Normalize, links, locomotive, main styles
+└── audio/                 Boot sound
 ```
+
+---
 
 ## Why This Approach
 
@@ -96,12 +152,16 @@ Modern image formats reduce file sizes 30-50%. Video instead of GIF saves 80%. W
 
 Vercel's global CDN and Lighthouse monitoring made it easy to test and verify scores across different devices and connection speeds.
 
+---
+
 ## Development
 
 ```bash
 npm install
 npm run dev
 ```
+
+---
 
 ## Building
 
@@ -111,13 +171,17 @@ npm run build
 
 Produces optimized static assets. Deployed to Vercel with automatic image optimization and zero-config HTTPS.
 
+---
+
 ## Dependencies
 
-- SvelteKit 2.57.1
-- Svelte 5.45.2  
-- Vite 7.3.1
-- @sveltejs/enhanced-img 0.10.4
-- GSAP 3.14.2
-- AOS 2.3.4
-- Locomotive Scroll 5.0.1
-- @vercel/analytics and speed-insights for monitoring
+| Package | Version |
+|---|---|
+| SvelteKit | 2.57.1 |
+| Svelte | 5.45.2 |
+| Vite | 7.3.1 |
+| `@sveltejs/enhanced-img` | 0.10.4 |
+| GSAP | 3.14.2 |
+| AOS | 2.3.4 |
+| Locomotive Scroll | 5.0.1 |
+| `@vercel/analytics` + `speed-insights` | monitoring |
