@@ -1,9 +1,13 @@
 <div align="center">
 
-# TheLinuxGuy Portfolio
+# TLG Portfolio
 
 <video src="https://github.com/user-attachments/assets/551280bc-f150-40ed-a981-8475c70791b3">
 
+</div>
+
+<div align="center">
+  
 **Built with SvelteKit, this portfolio achieves 100/100 on all four Lighthouse metrics. Open sourced to show how these optimizations were accomplished.**
 
 <br />
