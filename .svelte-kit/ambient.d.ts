@@ -42,6 +42,7 @@ declare module '$env/static/private' {
 	export const TERM_PROGRAM: string;
 	export const NODE: string;
 	export const INIT_CWD: string;
+	export const _P9K_TTY: string;
 	export const NVM_CD_FLAGS: string;
 	export const TERM: string;
 	export const SHELL: string;
@@ -57,7 +58,6 @@ declare module '$env/static/private' {
 	export const COLOR: string;
 	export const npm_config_noproxy: string;
 	export const npm_config_local_prefix: string;
-	export const COPILOT_DEBUG_NONCE: string;
 	export const NVM_DIR: string;
 	export const USER: string;
 	export const COMMAND_MODE: string;
@@ -70,6 +70,7 @@ declare module '$env/static/private' {
 	export const PATH: string;
 	export const npm_package_json: string;
 	export const _: string;
+	export const LaunchInstanceID: string;
 	export const npm_config_userconfig: string;
 	export const npm_config_init_module: string;
 	export const USER_ZDOTDIR: string;
@@ -77,9 +78,12 @@ declare module '$env/static/private' {
 	export const npm_command: string;
 	export const __TERMINAL_WAKATIME_START_TIME: string;
 	export const PWD: string;
+	export const VSCODE_NONCE: string;
 	export const npm_lifecycle_event: string;
 	export const EDITOR: string;
+	export const P9K_SSH: string;
 	export const npm_package_name: string;
+	export const P9K_TTY: string;
 	export const LANG: string;
 	export const npm_config_npm_version: string;
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
@@ -92,6 +96,7 @@ declare module '$env/static/private' {
 	export const SHLVL: string;
 	export const HOME: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
+	export const npm_config_global_ignore_file: string;
 	export const HOMEBREW_PREFIX: string;
 	export const npm_config_cache: string;
 	export const LOGNAME: string;
@@ -103,7 +108,9 @@ declare module '$env/static/private' {
 	export const GIT_ASKPASS: string;
 	export const INFOPATH: string;
 	export const HOMEBREW_CELLAR: string;
+	export const _P9K_SSH_TTY: string;
 	export const OSLogRateLimit: string;
+	export const SECURITYSESSIONID: string;
 	export const npm_node_execpath: string;
 	export const npm_config_prefix: string;
 	export const COLORTERM: string;
@@ -199,6 +206,7 @@ declare module '$env/dynamic/private' {
 		TERM_PROGRAM: string;
 		NODE: string;
 		INIT_CWD: string;
+		_P9K_TTY: string;
 		NVM_CD_FLAGS: string;
 		TERM: string;
 		SHELL: string;
@@ -214,7 +222,6 @@ declare module '$env/dynamic/private' {
 		COLOR: string;
 		npm_config_noproxy: string;
 		npm_config_local_prefix: string;
-		COPILOT_DEBUG_NONCE: string;
 		NVM_DIR: string;
 		USER: string;
 		COMMAND_MODE: string;
@@ -227,6 +234,7 @@ declare module '$env/dynamic/private' {
 		PATH: string;
 		npm_package_json: string;
 		_: string;
+		LaunchInstanceID: string;
 		npm_config_userconfig: string;
 		npm_config_init_module: string;
 		USER_ZDOTDIR: string;
@@ -234,9 +242,12 @@ declare module '$env/dynamic/private' {
 		npm_command: string;
 		__TERMINAL_WAKATIME_START_TIME: string;
 		PWD: string;
+		VSCODE_NONCE: string;
 		npm_lifecycle_event: string;
 		EDITOR: string;
+		P9K_SSH: string;
 		npm_package_name: string;
+		P9K_TTY: string;
 		LANG: string;
 		npm_config_npm_version: string;
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
@@ -249,6 +260,7 @@ declare module '$env/dynamic/private' {
 		SHLVL: string;
 		HOME: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
+		npm_config_global_ignore_file: string;
 		HOMEBREW_PREFIX: string;
 		npm_config_cache: string;
 		LOGNAME: string;
@@ -260,7 +272,9 @@ declare module '$env/dynamic/private' {
 		GIT_ASKPASS: string;
 		INFOPATH: string;
 		HOMEBREW_CELLAR: string;
+		_P9K_SSH_TTY: string;
 		OSLogRateLimit: string;
+		SECURITYSESSIONID: string;
 		npm_node_execpath: string;
 		npm_config_prefix: string;
 		COLORTERM: string;
