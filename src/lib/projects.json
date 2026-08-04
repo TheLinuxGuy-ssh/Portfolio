@@ -1,12 +1,72 @@
 {
     "projects": [
         {
+            "name": "Duskmeter",
+            "desc": "Corrected sky brightness estimates from fused VIIRS satellite radiance and ground-truth observations. Quantifies LED light pollution invisible to every public map.",
+            "type": "Web Application",
+            "url": "https://duskmeter.linuxguy.tech",
+            "github": "duskmeter",
+            "status": "2",
+            "tags": [
+                {
+                    "name": "SvelteKit",
+                    "accent": "#FF3E00"
+                },
+                {
+                    "name": "TypeScript",
+                    "accent": "#3178C6"
+                },
+                {
+                    "name": "Tailwind",
+                    "accent": "#06B6D4"
+                },
+                {
+                    "name": "Three.js",
+                    "accent": "#F05023"
+                },
+                {
+                    "name": "SQLite",
+                    "accent": "#0F9BB5"
+                },
+                {
+                    "name": "Docker",
+                    "accent": "#2496ED"
+                },
+                {
+                    "name": "Leaflet",
+                    "accent": "#199900"
+                }
+            ]
+        },
+        {
+            "name": "CV",
+            "desc": "An ATS friendly CV template with single file config, built for the web and to be exported as a document on print",
+            "type": "Web Application",
+            "url": "https://cv-bbe2.vercel.app/",
+            "github": "cv",
+            "status": "2",
+            "tags": [
+                {
+                    "name": "Next.js",
+                    "accent": "#0070F3"
+                },
+                {
+                    "name": "Typescript",
+                    "accent": "#3178C6"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                }
+            ]
+        },
+        {
             "name": "Kepler",
             "desc": "A Web Application to track the International Space Station and other satellites in real time with a 3D model of the earth and the satellites orbiting it.",
             "type": "Web Application (Contributor)",
             "url": "https://keplerai.vercel.app",
             "github": "kepler",
-            "status": "1",
+            "status": "4",
             "tags": [
                 {
                     "name": "Three.js",
@@ -24,13 +84,13 @@
             "skills": [
                 {
                     "name": "Web Development",
-                    "accent": "#7FB8FF" 
+                    "accent": "#7FB8FF"
                 },
                 {
                     "name": "3D",
-                    "accent": "#7FB8FF" 
+                    "accent": "#7FB8FF"
                 }
-            ] 
+            ]
         },
         {
             "name": "Sosh Media",

@@ -14,16 +14,18 @@ export const nodes = [
 	() => import('./nodes/2'),
 	() => import('./nodes/3'),
 	() => import('./nodes/4'),
-	() => import('./nodes/5')
+	() => import('./nodes/5'),
+	() => import('./nodes/6')
 ];
 
 export const server_loads = [];
 
 export const dictionary = {
 		"/": [2],
-		"/hyprfect": [3],
-		"/matrix": [4],
-		"/matrix/post/[page]": [5]
+		"/duskmeter": [3],
+		"/hyprfect": [4],
+		"/matrix": [5],
+		"/matrix/post/[page]": [6]
 	};
 
 export const hooks = {
