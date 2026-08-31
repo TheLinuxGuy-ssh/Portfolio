@@ -164,6 +164,18 @@
       "_app/immutable/assets/monkeytype.rCyoUCor.png"
     ]
   },
+  "src/routes/api/jelly/+server.js": {
+    "file": "entries/endpoints/api/jelly/_server.js",
+    "name": "entries/endpoints/api/jelly/_server",
+    "src": "src/routes/api/jelly/+server.js",
+    "isEntry": true
+  },
+  "src/routes/api/wakatime/+server.js": {
+    "file": "entries/endpoints/api/wakatime/_server.js",
+    "name": "entries/endpoints/api/wakatime/_server",
+    "src": "src/routes/api/wakatime/+server.js",
+    "isEntry": true
+  },
   "src/routes/duskmeter/+page.svelte": {
     "file": "entries/pages/duskmeter/_page.svelte.js",
     "name": "entries/pages/duskmeter/_page.svelte",

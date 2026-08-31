@@ -1,4 +1,4 @@
-export const manifest = (() => {
+const manifest = (() => {
 function __memo(fn) {
 	let value;
 	return () => value ??= (value = fn());
@@ -12,13 +12,13 @@ return {
 	_: {
 		client: {start:"_app/immutable/entry/start.CncPIy3p.js",app:"_app/immutable/entry/app.txAdIB7R.js",imports:["_app/immutable/entry/start.CncPIy3p.js","_app/immutable/chunks/BxcYXdis.js","_app/immutable/chunks/BHx8RFvj.js","_app/immutable/chunks/BCZ298Ou.js","_app/immutable/chunks/CiA_tNj2.js","_app/immutable/entry/app.txAdIB7R.js","_app/immutable/chunks/B5XJ12kY.js","_app/immutable/chunks/BHx8RFvj.js","_app/immutable/chunks/CFKnS7ac.js","_app/immutable/chunks/BCZ298Ou.js","_app/immutable/chunks/Ct1hdpKU.js","_app/immutable/chunks/DfZHBpJc.js","_app/immutable/chunks/CiA_tNj2.js","_app/immutable/chunks/DMmJkTC2.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
-			__memo(() => import('./nodes/0.js')),
-			__memo(() => import('./nodes/1.js')),
-			__memo(() => import('./nodes/2.js')),
-			__memo(() => import('./nodes/3.js')),
-			__memo(() => import('./nodes/4.js')),
-			__memo(() => import('./nodes/5.js')),
-			__memo(() => import('./nodes/6.js'))
+			__memo(() => import('./nodes/0.js-UM1O8zE0.js')),
+			__memo(() => import('./nodes/1.js-C-axmSKR.js')),
+			__memo(() => import('./nodes/2.js-DPHi_F8h.js')),
+			__memo(() => import('./nodes/3.js-DPcCzjN_.js')),
+			__memo(() => import('./nodes/4.js-CELaLUs9.js')),
+			__memo(() => import('./nodes/5.js-DJdvfZCT.js')),
+			__memo(() => import('./nodes/6.js-Cp81fKag.js'))
 		],
 		remotes: {
 			
@@ -36,14 +36,14 @@ return {
 				pattern: /^\/api\/jelly\/?$/,
 				params: [],
 				page: null,
-				endpoint: __memo(() => import('./entries/endpoints/api/jelly/_server.js'))
+				endpoint: __memo(() => import('./entries/endpoints/api/jelly/_server.js-CEFHde9M.js'))
 			},
 			{
 				id: "/api/wakatime",
 				pattern: /^\/api\/wakatime\/?$/,
 				params: [],
 				page: null,
-				endpoint: __memo(() => import('./entries/endpoints/api/wakatime/_server.js'))
+				endpoint: __memo(() => import('./entries/endpoints/api/wakatime/_server.js-Dqh4F2sU.js'))
 			},
 			{
 				id: "/duskmeter",
@@ -83,3 +83,6 @@ return {
 	}
 }
 })();
+
+export { manifest as m };
+//# sourceMappingURL=manifest.js-Cxeokzys.js.map

@@ -1,10 +1,8 @@
-import { r as root } from "./root.js";
-import "./server.js";
+import { r as root } from './root.js-DCvEOIhH.js';
+
 let read_implementation = null;
 function set_read_implementation(fn) {
   read_implementation = fn;
-}
-function set_manifest(_) {
 }
 let public_env = {};
 function set_private_env(environment) {
@@ -123,13 +121,6 @@ async function get_hooks() {
     transport
   };
 }
-export {
-  set_public_env as a,
-  set_read_implementation as b,
-  set_manifest as c,
-  get_hooks as g,
-  options as o,
-  public_env as p,
-  read_implementation as r,
-  set_private_env as s
-};
+
+export { set_public_env as a, set_read_implementation as b, get_hooks as g, options as o, public_env as p, read_implementation as r, set_private_env as s };
+//# sourceMappingURL=internal.js-BlM7WVZG.js.map
