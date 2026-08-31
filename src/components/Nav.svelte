@@ -9,7 +9,7 @@
 			<ul class="nav-list">
 				<li class="nav-item">
 					<a
-						href="https://github.com/thelinuxguy-ssh"
+						href="https://git.linuxguy.tech/thelinuxguy"
 						class="nav-item__link"
 						target="_blank"
 						rel="me"
