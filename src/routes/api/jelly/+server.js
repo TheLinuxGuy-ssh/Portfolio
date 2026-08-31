@@ -17,13 +17,25 @@ export async function GET() {
         });
 
         if (!response.ok) {
-            return new Response(JSON.stringify({ error: "Failed fetch", status: response.status }), {
+            const text = await response.text();
+            console.error("Jellyfin error response:", text);
+            return new Response(JSON.stringify({ error: "Failed fetch", status: response.status, detail: text }), {
                 status: response.status,
                 headers: { 'Content-Type': 'application/json' }
             });
         }
 
-        const data = await response.json();
+        const text = await response.text();
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            console.error("Jellyfin returned non-JSON:", text);
+            return new Response(JSON.stringify({ error: "Invalid JSON from Jellyfin", detail: text }), {
+                status: 502,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
         const parts = url.split('/Sessions');
         const jfBaseUrl = parts[0];
 

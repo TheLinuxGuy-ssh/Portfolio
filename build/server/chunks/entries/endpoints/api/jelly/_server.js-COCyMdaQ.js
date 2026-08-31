@@ -49,6 +49,6 @@ async function GET() {
     });
   }
 }
-export {
-  GET
-};
+
+export { GET };
+//# sourceMappingURL=_server.js-COCyMdaQ.js.map
