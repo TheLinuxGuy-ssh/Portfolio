@@ -65,7 +65,7 @@
             "desc": "A Web Application to track the International Space Station and other satellites in real time with a 3D model of the earth and the satellites orbiting it.",
             "type": "Web Application (Contributor)",
             "url": "https://keplerai.vercel.app",
-            "github": "kepler",
+            "github": "https://github.com/7-blocks/kepler",
             "status": "4",
             "tags": [
                 {

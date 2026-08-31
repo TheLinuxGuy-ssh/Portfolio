@@ -110,8 +110,8 @@
                     {#if project.github != null}
                         <a
                             class="github-btn"
-                            href={"https://github.com/thelinuxguy-ssh/" +
-                                project.github}
+                            href={project.github.slice(0,5) != "https" ? ("https://git.linuxguy.tech/thelinuxguy/" +
+                                project.github) : project.github}
                             target="_blank"
                         >
                             <enhanced:img src={githubLogo} alt="" /> Github
