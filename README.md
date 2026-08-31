@@ -188,4 +188,4 @@ Produces optimized static assets. Deployed to Vercel with automatic image optimi
 | GSAP | 3.14.2 |
 | AOS | 2.3.4 |
 | Locomotive Scroll | 5.0.1 |
-| `@vercel/analytics` + `speed-insights` | monitoring |
+<!-- | `@vercel/analytics` + `speed-insights` | monitoring | -->
