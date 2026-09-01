@@ -175,6 +175,7 @@ npm run build
 
 Produces optimized static assets. Deployed to Vercel with automatic image optimization and zero-config HTTPS.
 
+
 ---
 
 ## Dependencies
@@ -189,3 +190,4 @@ Produces optimized static assets. Deployed to Vercel with automatic image optimi
 | AOS | 2.3.4 |
 | Locomotive Scroll | 5.0.1 |
 <!-- | `@vercel/analytics` + `speed-insights` | monitoring | -->
+
