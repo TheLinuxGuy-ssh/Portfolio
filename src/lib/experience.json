@@ -1,17 +1,48 @@
 {
     "experience": [
         {
-            "role": "Server Administrator",
-            "organization": "Self-Hosted Infrastructure",
-            "period": "2022 — Present",
-            "location": "Remote",
+            "role": "Founder & CEO",
+            "organization": "StarWalk",
+            "period": "Aug 2026 — Present",
+            "location": "On-site",
             "type": "full-time",
-            "description": "Design, deploy, and maintain production-grade Linux servers. Hardened Arch/Debian systems with automated provisioning, monitoring (Prometheus/Grafana), backup strategies, and container orchestration (Docker/Podman). Achieved 99.9% uptime across 15+ services.",
-            "skills": ["Linux", "Docker", "Nginx", "PostgreSQL", "Ansible", "Prometheus", "Grafana", "ZFS", "WireGuard"],
+            "logo": "starwalk.jpg",
+            "description": "Leading StarWalk — production server infrastructure and full-stack development for a B2B platform that combines Kubernetes with an LLM-driven control plane for datacenter operations.",
+            "skills": ["Infrastructure", "Full-Stack", "Kubernetes", "Docker", "Linux", "TypeScript"],
             "highlights": [
-                "Automated certificate lifecycle with mTLS for 50+ internal services",
-                "Built immutable infrastructure with reproducible NixOS configurations",
-                "Reduced deployment time 80% via CI/CD pipelines"
+                "Production server infrastructure management",
+                "Full-stack product development",
+                "LLM-driven control plane for datacenter ops"
+            ]
+        },
+        {
+            "role": "Open Source Founder",
+            "organization": "SkillHiive",
+            "period": "May 2026 — Present",
+            "location": "India · On-site",
+            "type": "full-time",
+            "logo": "skillhiive.jpg",
+            "description": "Building SkillHiive — an open-source social platform for developers. Own server administration and product development, including a React Native app with real-time peer-to-peer video on a fully self-hosted backend.",
+            "skills": ["Server Administration", "Product Development", "React Native", "TypeScript", "Docker", "Linux"],
+            "highlights": [
+                "Server administration for a self-hosted production stack",
+                "Product development across web and mobile",
+                "Real-time P2P video load-tested past 1,500 concurrent users"
+            ]
+        },
+        {
+            "role": "Senior Developer",
+            "organization": "Digipod.co.in",
+            "period": "Oct 2021 — Sep 2026",
+            "location": "India · Remote",
+            "type": "part-time",
+            "logo": "digipod.jpg",
+            "description": "Senior developer focused on production server infrastructure, full-stack delivery, and graphic design — including internal tooling that automated client communication and project tracking.",
+            "skills": ["Graphic Design", "Server Infrastructure", "React", "Next.js", "TypeScript", "Node.js"],
+            "highlights": [
+                "Production server infrastructure management",
+                "Internal tooling for client communication & project tracking",
+                "Graphic design alongside product engineering"
             ]
         },
         {
@@ -20,70 +51,104 @@
             "period": "2021 — Present",
             "location": "Remote",
             "type": "full-time",
-            "description": "Delivered 20+ production web applications using SvelteKit, Next.js, React Native, and Three.js. End-to-end ownership: architecture, database design, API development, deployment, and maintenance. Specialized in performance-critical, privacy-first applications.",
-            "skills": ["SvelteKit", "Next.js", "TypeScript", "Three.js", "PostgreSQL", "Supabase", "Docker", "Tailwind"],
+            "logo": "logo.webp",
+            "description": "Delivered 20+ production web applications for clients across India, the US, EU, and Brunei. End-to-end ownership across architecture, APIs, deployment, and maintenance.",
+            "skills": ["React", "Next.js", "TypeScript", "Node.js", "Docker", "Linux", "SvelteKit"],
             "highlights": [
-                "Built Duskmeter — satellite light pollution mapping with Three.js/WebGL",
-                "Developed Hyprfect — 2000+ star Hyprland dotfiles on GitHub",
-                "Shipped DarwinX — browser-based macOS experience (React/Three.js)"
-            ]
-        },
-        {
-            "role": "Open Source Contributor",
-            "organization": "Various Projects",
-            "period": "2020 — Present",
-            "location": "Global",
-            "type": "part-time",
-            "description": "Active contributor to Linux desktop ecosystem (Hyprland, Wayland tools), web framework internals, and developer tooling. Focus on performance, accessibility, and developer experience.",
-            "skills": ["C", "Rust", "Go", "TypeScript", "Bash", "Wayland", "Hyprland"],
-            "highlights": [
-                "Merged PRs to Hyprland core (dynamic workspaces, animations)",
-                "Contributed to SvelteKit adapter ecosystem",
-                "Maintain 15+ personal open-source projects"
+                "20+ shipped projects across four regions",
+                "End-to-end ownership from architecture to production"
             ]
         }
     ],
     "volunteering": [
         {
-            "role": "Tech Lead / Mentor",
-            "organization": "COSMA Tech Fest (Inter-School)",
-            "period": "2022 — 2024",
+            "role": "Core Member — Technical Team",
+            "organization": "Insights Club, VIT Bhopal",
+            "period": "Sep 2026 — Present",
+            "location": "VIT Bhopal, India",
+            "type": "event",
+            "logo": "insights.jpg",
+            "description": "Core technical member of Insights Club — VIT Bhopal’s official journalism and media club (“The Voice of Our Campus”). Support club tooling, event tech, and digital platforms for campus reporting, newsletters, and media coverage.",
+            "skills": ["Web Development", "Event Tech", "Media Platforms", "Team Collaboration"],
+            "highlights": [
+                "Technical support for campus media and publications",
+                "Backing events like Insights Yudh and fest coverage (Advitya)",
+                "Partnering with other clubs on joint campus milestones"
+            ]
+        },
+        {
+            "role": "Contributor (Kepler Project)",
+            "organization": "7Blocks",
+            "period": "Jul 2026 — Present",
+            "location": "Remote",
+            "type": "open-source",
+            "logo": "kepler.jpg",
+            "description": "Open-source contributor to Kepler — an AI-powered orbital intelligence platform for satellite monitoring, debris tracking, and collision-risk prediction.",
+            "skills": ["TypeScript", "React", "PostgreSQL", "Tailwind", "Open Source"],
+            "highlights": [
+                "Space-Track → PostgreSQL satellite synchronization pipeline",
+                "Technologies page with /tech routes (#55)",
+                "Dynamic themes driven by collision status and time of day"
+            ]
+        },
+        {
+            "role": "Contributor",
+            "organization": "Open Source Kigali",
+            "period": "Jun 2026 — Aug 2026",
+            "location": "Remote",
+            "type": "open-source",
+            "logo": "kigali.jpg",
+            "description": "Contributed to the official Open Source Kigali website — the public face for community events, member/partner onboarding, and open-source contribution in Kigali’s tech ecosystem.",
+            "skills": ["Web Development", "Accessibility", "Open Source", "UI Polish"],
+            "highlights": [
+                "Subtle shadow polish on Hero CTA buttons (#243)",
+                "Cleanup PR: unused code, typo fixes, alphabetical sort (#223, #217, #225)",
+                "Footer image alt-text accessibility fix"
+            ]
+        },
+        {
+            "role": "Tech Team Head",
+            "organization": "St. Mary's Academy, Meerut Cantt.",
+            "period": "Jul 2022 — Mar 2024",
             "location": "Meerut, India",
             "type": "event",
-            "description": "Led technical team for annual inter-school technology festival. Designed and deployed event websites, managed server infrastructure, mentored 50+ students in web development, Linux, and competitive programming.",
-            "skills": ["Mentoring", "Event Management", "Web Development", "Linux", "Team Leadership"],
+            "logo": "stmarys.jpg",
+            "description": "Led the school’s technical team for high-scale campus events — owning AV, stage tech, event sites, and live ops so festivals and competitions ran without technical failures.",
+            "skills": ["Event Management", "Web Development", "Team Leadership", "Live Ops"],
             "highlights": [
-                "Built COSMA 2023/2024 websites serving 5000+ visitors",
-                "Conducted 10+ workshops on Linux, Git, Web Dev",
-                "Coordinated 20-member student tech team"
+                "Headed tech for major school events across 2022–2024",
+                "Built and maintained event websites and on-site infrastructure",
+                "Coordinated student crew during live productions"
             ]
         },
         {
-            "role": "Open Source Educator",
-            "organization": "Community Workshops / GitHub",
-            "period": "2021 — Present",
-            "location": "Online",
+            "role": "Workshop Assistant",
+            "organization": "Microsoft Student Community × DIT",
+            "period": "Jun 2022 — Jan 2024",
+            "location": "India",
+            "type": "event",
+            "logo": "mxdit.jpg",
+            "description": "Organised workshops and events, helped build community websites, and supported the team’s day-to-day technical needs across the Microsoft Student Community × DIT collaboration.",
+            "skills": ["Workshops", "Web Development", "Community", "Technical Support"],
+            "highlights": [
+                "Organised workshops and community events",
+                "Built and maintained community websites",
+                "Hands-on technical support for the organising team"
+            ]
+        },
+        {
+            "role": "Web Development Instructor",
+            "organization": "Mahaveer International School",
+            "period": "May 2023 — Jun 2023",
+            "location": "India",
             "type": "education",
-            "description": "Free technical education through blog posts, GitHub repositories, and community workshops. Topics: Linux system administration, self-hosting, privacy tools, web performance, and open-source contribution.",
-            "skills": ["Technical Writing", "Teaching", "Linux", "Self-Hosting", "Privacy"],
+            "logo": "mahaveer.jpg",
+            "description": "Taught students from classes 6–12 the fundamentals of HTML, CSS, and JavaScript — culminating in a combined project where they built a complete website together.",
+            "skills": ["Teaching", "HTML", "CSS", "JavaScript", "Curriculum"],
             "highlights": [
-                "Published 15+ in-depth technical guides",
-                "Hyprfect dotfiles: 2000+ stars, 300+ forks",
-                "Helped 100+ developers migrate to Linux/self-hosting"
-            ]
-        },
-        {
-            "role": "Privacy Advocate",
-            "organization": "Digital Rights Communities",
-            "period": "2020 — Present",
-            "location": "Online",
-            "type": "advocacy",
-            "description": "Promote digital privacy, decentralized tools, and user sovereignty. Contribute to privacy-focused projects, educate on threat modeling, and advocate for FOSS alternatives to surveillance capitalism.",
-            "skills": ["Privacy", "Threat Modeling", "FOSS", "Cryptography", "Community Building"],
-            "highlights": [
-                "Authored privacy hardening guides for Arch/Debian",
-                "Moderate privacy-focused Discord/Matrix communities",
-                "Contributed to hardened browser configurations"
+                "Instructed classes 6–12 in web fundamentals",
+                "Guided a combined end-to-end website project",
+                "Focused on practical, project-based learning"
             ]
         }
     ]

@@ -1,6 +1,6 @@
 <script>
     import { projects } from "$lib/projects.json";
-    import { onMount } from "svelte";
+    import { onMount, onDestroy } from "svelte";
     import linkArrow from "$lib/assets/arrow-right-top.svg";
     import githubLogo from "$lib/assets/github.webp";
     const statusMap = {
@@ -10,6 +10,9 @@
         3: { label: "Paused", class: "paused" },
         4: { label: "Maintained", class: "maintained" },
     };
+
+    let onMouseMove;
+
     onMount(() => {
         const trailer = document.getElementById("trailer");
 
@@ -17,41 +20,38 @@
             const x = e.clientX - trailer.offsetWidth / 2,
                 y = e.clientY - trailer.offsetHeight / 2;
 
-            const keyframes = {
-                transform: `translate(${x}px, ${y}px) scale(${interacting ? 8 : 1})`,
-                background: `#000000`,
-            };
-
-            trailer.animate(keyframes, {
-                duration: 300,
-                fill: "forwards",
-            });
+            trailer.animate(
+                {
+                    transform: `translate(${x}px, ${y}px) scale(${interacting ? 8 : 1})`,
+                    background: interacting ? "#000000" : "#ffffff",
+                },
+                {
+                    duration: 300,
+                    fill: "forwards",
+                },
+            );
         };
 
-        const getTrailerClass = (type) => {
-            switch (type) {
-                case "video":
-                    return "fa-solid fa-play";
-                default:
-                    return "fa-solid fa-arrow-up-right";
-            }
-        };
-
-        window.onmousemove = (e) => {
+        onMouseMove = (e) => {
             const interactable = e.target.closest(".interactable"),
                 interacting = interactable !== null;
-
             const icon = document.getElementById("trailer-icon");
 
             animateTrailer(e, interacting);
-
             trailer.dataset.type = interacting ? interactable.dataset.type : "";
 
             if (interacting) {
-                icon.className = getTrailerClass(interactable.dataset.type);
                 trailer.classList.add("hovered");
+            } else {
+                trailer.classList.remove("hovered");
             }
         };
+
+        window.addEventListener("mousemove", onMouseMove);
+    });
+
+    onDestroy(() => {
+        if (onMouseMove) window.removeEventListener("mousemove", onMouseMove);
     });
 </script>
 
@@ -110,7 +110,7 @@
                     {#if project.github != null}
                         <a
                             class="project-btn github-btn"
-                            href={project.github.slice(0,5) != "https" ? ("https://git.linuxguy.tech/thelinuxguy/" +
+                            href={project.github.slice(0,5) != "https" ? ("https://github.com/thelinuxguy-ssh/" +
                                 project.github) : project.github}
                             target="_blank"
                         >
@@ -125,7 +125,10 @@
                 </div>
                 <div class="tags">
                     {#each Object.entries(project.tags || {}) as [key, tag], index (key)}
-                        <div class="tag" style:color={tag.accent}>
+                        <div
+                            class="tag"
+                            style="--tag-accent: {tag.accent}; color: {tag.accent}"
+                        >
                             {tag.name}
                         </div>
                     {/each}
@@ -146,43 +149,53 @@
     .project-name {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5em;
     }
 
     .project-desc {
         padding-top: 0.75em;
         font-family: HermitBold;
+        line-height: 1.55;
+        font-size: 1rem;
     }
 
     .status-btn {
         height: fit-content;
-        font-size: 0.55em;
+        font-size: 0.7rem;
         background-color: #000;
-        padding: 0.2em 0.5em;
+        padding: 0.25em 0.55em;
         border: 1px solid;
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        margin-left: 1em;
-        font-weight: 100;
+        margin-left: 0;
+        font-weight: 400;
+        letter-spacing: 0.02em;
     }
 
     .status-btn.deprecated {
         color: tomato;
+        border-color: tomato;
     }
 
     .status-btn.paused {
         color: sandybrown;
+        border-color: sandybrown;
     }
 
     .status-btn.ongoing {
         color: #deee75;
+        border-color: #deee75;
     }
 
     .status-btn.completed {
         color: #00fe1a;
+        border-color: #00fe1a;
     }
 
     .status-btn.maintained {
         color: #9375ee;
+        border-color: #9375ee;
     }
 
     .projects {
@@ -195,20 +208,27 @@
         justify-content: end;
         align-items: center;
         font-family: Pro, Arial;
-        transition: 0.2s all;
+        transition: 0.2s background-color, 0.2s color, 0.2s border-color;
         text-decoration: none;
         color: #fff;
         width: 100%;
         border-top: 1px solid #575757;
     }
-    .projects .project:nth-child(1) {
-        border: 0;
+
+    .projects .project-title + .project {
+        border-top: 0;
     }
 
     .projects .project:hover {
         background-color: #e7e7e7;
         color: #000;
+        border-color: #bbb;
     }
+
+    .projects .project:hover .status-btn {
+        background-color: #111;
+    }
+
     .project-title {
         text-align: center;
         padding: 1rem 0;
@@ -216,11 +236,17 @@
         font-family: Pro;
         margin-bottom: 10rem;
     }
+
     .project-type {
         font-size: 1rem;
         margin: 0 0.5rem;
         color: #999999;
     }
+
+    .projects .project:hover .project-type {
+        color: #444;
+    }
+
     .projects .project .project-no {
         font-size: 2em;
         text-align: center;
@@ -243,35 +269,45 @@
         width: 60%;
         text-align: left;
     }
+
     .projects .project .tags {
         display: flex;
         width: 100%;
         flex-wrap: wrap;
         font-family: "Pro", Arial !important;
         margin-bottom: auto;
+        gap: 0.15em;
     }
+
     .projects .project .tag {
-        padding: 0.25em 0.5em;
-        font-size: 0.75em;
-        border: 1px solid;
-        margin: 0.25em;
+        padding: 0.3em 0.55em;
+        font-size: 0.8125rem;
+        border: 1px solid var(--tag-accent, currentColor);
+        margin: 0.2em;
         background-color: #000000;
+        letter-spacing: 0.02em;
     }
+
+    .projects .project:hover .tag {
+        background-color: #fff;
+        color: #111 !important;
+        border-color: var(--tag-accent, #111);
+    }
+
     .projects .project .skills {
-    
         display: flex;
         width: 100%;
         flex-wrap: wrap;
         font-family: "Pro", Arial !important;
     }
+
     .projects .project .skill {
         padding: 0.25em 0.5em;
-        font-size: 0.75em;
+        font-size: 0.8125rem;
         border: 1px solid;
         margin: 0.25em;
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        color: invert;
     }
 
     .projects .project .project-category-pane {
@@ -290,21 +326,27 @@
         justify-content: center;
         align-items: center;
         transition: 0.055s all ease-in-out;
+        cursor: pointer;
     }
-    
+
     .project-btn:hover {
         transform: scale(1.05) !important;
     }
+
+    .project-btn:active {
+        transform: scale(0.9) !important;
+    }
+
     .github-btn {
         color: white;
         background-color: #000000;
         padding: 0.25em 0.5em;
         border: 1px solid #676767;
-        
     }
 
-    
- 
+    .projects .project:hover .github-btn {
+        border-color: #111;
+    }
 
     .live-btn {
         color: black;
@@ -313,6 +355,11 @@
         border: 1px solid #676767;
     }
 
+    .projects .project:hover .live-btn {
+        background-color: #111;
+        color: #fff;
+        border-color: #111;
+    }
 
     .github-btn img {
         width: 1em;
@@ -320,15 +367,20 @@
 
     .github-btn span {
         display: flex;
-  align-items: center; 
-  justify-content: center;
-  margin-left: 0.2em;
-  line-height: 0.8;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0.2em;
+        line-height: 0.8;
     }
 
-    .projects .project * {
+    .projects .project {
         cursor: default;
     }
+
+    .projects .project a {
+        cursor: pointer;
+    }
+
     .projects .project:hover .project-vid {
         overflow: hidden;
         transform: scale(1.05);
@@ -341,31 +393,42 @@
         transition: 0.2s all;
         box-shadow: 0 0 1px 0 rgba(190, 238, 175, 0.502);
     }
+
     @media screen and (max-width: 1024px) {
+        .project-title {
+            font-size: 2.25em;
+            margin-bottom: 4rem;
+        }
+
         .projects .project {
             flex-direction: column;
-
             margin: 2em 0;
         }
+
         .projects .project:hover .project-vid {
             transform: scale(1.02);
         }
+
         .projects .project .project-vid {
             width: 95%;
             padding: 0;
             margin: 0.5em 2.5%;
             height: auto;
         }
+
         .projects .project .project-content {
             margin: 1em 5%;
             width: 95%;
         }
+
         .projects .project .project-no {
             display: none;
         }
+
         .projects .project .tags {
             margin: 2.5% 0;
         }
+
         .projects .project .skills {
             margin: 2.5% 0;
         }

@@ -1,5 +1,30 @@
 {
     "projects": [
+               {
+            "name": "HyprAesthetic",
+            "desc": "Corrected sky brightness estimates from fused VIIRS satellite radiance and ground-truth observations. Quantifies LED light pollution invisible to every public map.",
+            "type": "Web Application",
+            "github": "hypraesthetic",
+            "status": "1",
+            "tags": [
+                {
+                    "name": "Bash",
+                    "accent": "#89e051"
+                },
+                {
+                    "name": "Lua",
+                    "accent": "#3178C6"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                },
+                {
+                    "name": "SCSS",
+                    "accent": "#c6538c"
+                }
+            ]
+        },
         {
             "name": "Duskmeter",
             "desc": "Corrected sky brightness estimates from fused VIIRS satellite radiance and ground-truth observations. Quantifies LED light pollution invisible to every public map.",

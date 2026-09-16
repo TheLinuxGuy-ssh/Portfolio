@@ -72,7 +72,7 @@ body {
 	z-index: 10000;
 
 	pointer-events: none;
-	opacity: 1;
+	opacity: 0;
 	transition: opacity 500ms ease;
 
 	display: grid;
@@ -80,6 +80,10 @@ body {
 }
 
 body:hover>#trailer {
+	opacity: 1;
+}
+
+#trailer.hovered {
 	opacity: 1;
 }
 

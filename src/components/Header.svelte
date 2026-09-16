@@ -26,4 +26,12 @@
   #logo {
     transition: 0.5s top;
   }
+  @media screen and (max-width: 1024px) {
+    .head-logo {
+      top: 1em;
+      left: 1em;
+      width: 3.5em;
+      height: 3.5em;
+    }
+  }
 </style>

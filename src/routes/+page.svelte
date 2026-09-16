@@ -5,7 +5,8 @@
         Hero,
         Nav,
         About,
-        Skills,
+        Experience,
+        Volunteering,
         Work,
         Footer,
         Miscellaneous,
@@ -48,7 +49,8 @@
     <Hero />
     <Wakatime />
     <About />
-    
+    <Experience />
+    <Volunteering />
     <Work />
     <Footer />
     <Widget />

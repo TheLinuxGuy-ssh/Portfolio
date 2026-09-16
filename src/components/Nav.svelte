@@ -49,7 +49,7 @@
 
 <style>
 	.bottom-nav {
-		padding: var(--container-padding);
+		padding: 0;
 		justify-content: center;
 		align-items: center;
 		display: flex;
@@ -61,7 +61,8 @@
 	}
 	@media screen and (max-width: 1024px) {
 		.bottom-nav {
-			left: 5em;
+			left: 50%;
+			bottom: 5.5em;
 		}
 	}
 
@@ -131,14 +132,15 @@
 
 	.nav-item__tooltip {
 		z-index: 0;
-		background-color: var(--color-neutral-100);
+		background-color: #111;
+		border: 1px solid #333;
 		opacity: 0;
 		color: #fff;
 		font-family: Pro, Arial;
 		white-space: nowrap;
 		border-radius: 0.25em;
 		padding: 0.4em 0.5em;
-		font-size: 1em;
+		font-size: 0.875em;
 		transition:
 			transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
 			opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);

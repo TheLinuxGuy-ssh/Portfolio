@@ -77,11 +77,11 @@
   @keyframes arrow {
     0% {
       opacity: 0;
-      margin-left: 0px;
+      transform: translateX(0);
     }
     100% {
       opacity: 1;
-      margin-left: 10px;
+      transform: translateX(6px);
     }
   }
 
@@ -97,9 +97,9 @@
 
   .footer .work-together {
     color: transparent;
-    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: white;
-    -moz-text-stroke-width: 3px;
+    -moz-text-stroke-width: 1.5px;
     -moz-text-stroke-color: white;
     font-size: 3em;
     margin-top: 20%;
@@ -119,10 +119,8 @@
     }
     .footer .work-together {
       font-size: 2em;
-    }
-    .icon-Container svg {
-      transition-duration: 1.5s;
-      animation: arrow 1s linear infinite;
+      -webkit-text-stroke-width: 1px;
+      -moz-text-stroke-width: 1px;
     }
   }
 </style>

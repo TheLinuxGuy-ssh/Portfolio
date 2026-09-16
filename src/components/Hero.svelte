@@ -72,10 +72,11 @@
   .hero-desc {
     margin-top: 2em;
     font-weight: 100;
-    font-size: 28px;
+    font-size: clamp(1rem, 3.5vw, 1.75rem);
     color: #fafafa;
     font-family: Pro, Arial;
     text-align: center;
+    min-height: 1.5em;
   }
   @media screen and (max-width: 1024px) {
     .hero-title {

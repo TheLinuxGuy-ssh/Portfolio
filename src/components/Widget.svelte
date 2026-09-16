@@ -143,10 +143,12 @@
     right: 1em;
     width: 12em;
     color: #fff;
+    z-index: 50;
   }
   .playing {
     margin: 1em 0;
-    font-size: 0.75em;
+    font-size: 0.875rem;
+    color: #c9ffcf;
   }
   .master-wrapper {
     width: 100%;
@@ -154,11 +156,23 @@
     padding: 1em 0;
     white-space: nowrap;
     background-color: #000;
+    border: 1px solid #2a2a2a;
     box-shadow:
       0 0 0.1em 0.1em rgba(190, 238, 175, 0.2),
       0 0 1em 0.4em rgba(190, 238, 175, 0.3);
   }
   .marquee-content {
     margin: 0 1em;
+    font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: 640px) {
+    .widget {
+      bottom: 5.25em;
+      right: 0.75em;
+      left: 0.75em;
+      width: auto;
+      max-width: calc(100vw - 1.5em);
+    }
   }
 </style>

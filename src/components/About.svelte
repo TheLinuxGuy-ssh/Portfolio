@@ -486,8 +486,8 @@ current_interest="Backend systems & developer tools"
   }
   @media screen and (max-width: 768px) {
     .about-title {
-      font-size: 2.75vw;
-      line-height: 2vw;
+      font-size: clamp(0.7rem, 2.75vw, 1rem);
+      line-height: 1.15;
     }
   }
   .about .bg {
@@ -602,11 +602,29 @@ current_interest="Backend systems & developer tools"
     }
   }
 
+  @keyframes flicker {
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+      opacity: 0.95;
+    }
+    20%,
+    24%,
+    55% {
+      opacity: 0.72;
+    }
+  }
+
   .oldscreeneffect {
     background: radial-gradient(ellipse at center, #000 50%, #003d02 100%);
     background-size: 100% 4px;
     background-repeat: repeat-y;
-    opacity: 0.9;
+    opacity: 0.95;
     animation: 5s flicker infinite;
   }
 
@@ -637,8 +655,8 @@ current_interest="Backend systems & developer tools"
   .screen .screentext {
     color: #00fe1a;
     margin: 20px 30px;
-    text-shadow: 0px 0px 10px #ffffff;
-    opacity: 0.6;
+    text-shadow: 0px 0px 6px rgba(0, 254, 26, 0.35);
+    opacity: 0.9;
     font-size: 1.25rem;
     transition: 0.2s opacity;
   }
@@ -653,8 +671,8 @@ current_interest="Backend systems & developer tools"
   }
 
   .sctext {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 1.05rem;
+    line-height: 1.55;
     margin: 1em 0 0 0;
     font-family: HermitBold;
     user-select: text;
