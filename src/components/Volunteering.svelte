@@ -218,8 +218,7 @@
         line-height: 1.5;
         color: #c8c8c8;
         display: -webkit-box;
-        -webkit-line-clamp: 4;
-        line-clamp: 4;
+        ;
         -webkit-box-orient: vertical;
         flex: 1;
     }
