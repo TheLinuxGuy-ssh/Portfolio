@@ -83,12 +83,13 @@
             "location": "Remote",
             "type": "open-source",
             "logo": "kepler.jpg",
-            "description": "Open-source contributor to Kepler — an AI-powered orbital intelligence platform for satellite monitoring, debris tracking, and collision-risk prediction.",
+            "description": "Open-source contributor to Kepler — an AI-powered orbital intelligence platform for satellite monitoring, debris tracking, and collision-risk prediction. Shipped 18 commits across 9 merged PRs spanning data infrastructure, theming, and UI.",
             "skills": ["TypeScript", "React", "PostgreSQL", "Tailwind", "Open Source"],
             "highlights": [
+                "18 commits shipping 9 merged PRs across the stack",
                 "Space-Track → PostgreSQL satellite synchronization pipeline",
-                "Technologies page with /tech routes (#55)",
-                "Dynamic themes driven by collision status and time of day"
+                "437-line technologies page with reusable UI subcomponents (#55)",
+                "Diagnosed a production 404-on-refresh bug via a 6-comment maintainer thread"
             ]
         },
         {
@@ -98,12 +99,13 @@
             "location": "Remote",
             "type": "open-source",
             "logo": "kigali.jpg",
-            "description": "Contributed to the official Open Source Kigali website — the public face for community events, member/partner onboarding, and open-source contribution in Kigali’s tech ecosystem.",
+            "description": "Contributed to the official Open Source Kigali website — the public face for community events, member/partner onboarding, and open-source contribution in Kigali’s tech ecosystem. Shipped 4 merged PRs, closing 3 tracked issues.",
             "skills": ["Web Development", "Accessibility", "Open Source", "UI Polish"],
             "highlights": [
-                "Subtle shadow polish on Hero CTA buttons (#243)",
-                "Cleanup PR: unused code, typo fixes, alphabetical sort (#223, #217, #225)",
-                "Footer image alt-text accessibility fix"
+                "4 merged PRs closing 3 tracked issues (#223, #217, #225)",
+                "Codebase cleanup: unused code removal, typo fixes, alphabetical sort",
+                "Footer image alt-text accessibility fix",
+                "Hero CTA button polish shipped through a 5-comment review cycle (#243)"
             ]
         },
         {
@@ -113,12 +115,13 @@
             "location": "Meerut, India",
             "type": "event",
             "logo": "stmarys.jpg",
-            "description": "Led the school’s technical team for high-scale campus events — owning AV, stage tech, event sites, and live ops so festivals and competitions ran without technical failures.",
+            "description": "Led the school’s technical team for two years — owning AV, stage tech, event sites, and live ops for nearly every campus event, including flagship productions with 2,000+ attendees like the annual day and athletic meet.",
             "skills": ["Event Management", "Web Development", "Team Leadership", "Live Ops"],
             "highlights": [
-                "Headed tech for major school events across 2022–2024",
+                "Headed tech for nearly every school event across 2022–2024",
+                "Owned AV, video, and audio for 2,000+ attendee productions",
                 "Built and maintained event websites and on-site infrastructure",
-                "Coordinated student crew during live productions"
+                "Coordinated the student crew through live productions with zero technical failures"
             ]
         },
         {
@@ -143,12 +146,12 @@
             "location": "India",
             "type": "education",
             "logo": "mahaveer.jpg",
-            "description": "Taught students from classes 6–12 the fundamentals of HTML, CSS, and JavaScript — culminating in a combined project where they built a complete website together.",
+            "description": "Taught web development fundamentals — HTML, CSS, and JavaScript — to 60+ students across classes 6–12 over 8 hands-on sessions, with every student shipping a complete website by the end.",
             "skills": ["Teaching", "HTML", "CSS", "JavaScript", "Curriculum"],
             "highlights": [
-                "Instructed classes 6–12 in web fundamentals",
-                "Guided a combined end-to-end website project",
-                "Focused on practical, project-based learning"
+                "Instructed 60+ students across classes 6–12",
+                "8 hands-on, project-based sessions",
+                "100% of students shipped a complete website"
             ]
         }
     ]
