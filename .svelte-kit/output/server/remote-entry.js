@@ -3,7 +3,6 @@ import { parse } from "devalue";
 import { error, json } from "@sveltejs/kit";
 import { M as MUTATIVE_METHODS, c as create_field_proxy, n as normalize_issue, s as set_nested_value, f as flatten_issues, d as deep_set, a as stringify_remote_arg, b as noop, e as stringify, g as create_remote_key, h as handle_error_and_jsonify, p as parse_remote_arg } from "./chunks/utils.js";
 import { ValidationError, HttpError, SvelteKitError } from "@sveltejs/kit/internal";
-import { b as browser } from "./chunks/false.js";
 import { b as base, a as app_dir, p as prerendering } from "./chunks/server.js";
 function create_validator(validate_or_fn, maybe_fn) {
   if (!maybe_fn) {
@@ -274,6 +273,9 @@ function form(validate_or_fn, maybe_fn) {
     Object.defineProperty(instance, "pending", {
       get: () => 0
     });
+    Object.defineProperty(instance, "submitted", {
+      get: () => false
+    });
     Object.defineProperty(instance, "preflight", {
       // preflight is a noop on the server
       value: () => instance
@@ -398,7 +400,7 @@ function prerender(validate_or_fn, fn_or_options, maybe_options) {
     const promise = get_response(__, payload, state, async () => {
       const id = __.id;
       const url = `${base}/${app_dir}/remote/${id}${payload ? `/${payload}` : ""}`;
-      if (!state.prerendering && !browser && !event.isRemoteRequest) {
+      if (!state.prerendering && true && !event.isRemoteRequest) {
         try {
           const response = await fetch(new URL(url, event.url.origin).href);
           if (!response.ok) {

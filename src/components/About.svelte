@@ -472,10 +472,7 @@ current_interest="Backend systems & developer tools"
     top: 50%;
     transform: translateY(-50%);
   }
-  .dud {
-  color: #757575;
-  opacity: 0.5;
-}
+
  .header-main-text {
   display: inline-block;
   vertical-align: bottom; 

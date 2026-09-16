@@ -1,4 +1,4 @@
-import { g as getContext, p as store_get, m as head, e as escape_html, b as attr, j as attr_style, u as unsubscribe_stores, h as stringify } from "../../../../../chunks/index.js";
+import { g as getContext, q as store_get, o as head, e as escape_html, c as attr, k as attr_style, u as unsubscribe_stores, j as stringify } from "../../../../../chunks/index.js";
 import "clsx";
 import "@sveltejs/kit/internal";
 import "../../../../../chunks/exports.js";
@@ -8,18 +8,18 @@ import "../../../../../chunks/root.js";
 import "../../../../../chunks/state.svelte.js";
 import { p as posts } from "../../../../../chunks/content.js";
 const getStores = () => {
-  const stores$1 = getContext("__svelte__");
+  const stores = getContext("__svelte__");
   return {
     /** @type {typeof page} */
     page: {
-      subscribe: stores$1.page.subscribe
+      subscribe: stores.page.subscribe
     },
     /** @type {typeof navigating} */
     navigating: {
-      subscribe: stores$1.navigating.subscribe
+      subscribe: stores.navigating.subscribe
     },
     /** @type {typeof updated} */
-    updated: stores$1.updated
+    updated: stores.updated
   };
 };
 const page = {
@@ -42,14 +42,13 @@ function _page($$renderer, $$props) {
       $$renderer3.title(($$renderer4) => {
         $$renderer4.push(`<title>TheLinuxGuy | Tech Enthusiast</title>`);
       });
-      $$renderer3.push(`<meta charset="UTF-8" class="svelte-1ki1qr1"/> <link rel="icon" type="image/svg+xml" href="/images/general/logo.webp" class="svelte-1ki1qr1"/> <meta name="viewport" content="width=device-width, initial-scale=1.0" class="svelte-1ki1qr1"/> <meta name="title"${attr("content", post.title)} class="svelte-1ki1qr1"/> <meta name="description"${attr("content", post.preview)} class="svelte-1ki1qr1"/> <meta name="keywords" content="Artificial Intelligence, Ai, AI, humans, history" class="svelte-1ki1qr1"/> <meta name="robots" content="index, follow" class="svelte-1ki1qr1"/> <meta http-equiv="Content-Type" content="text/html; charset=utf-8" class="svelte-1ki1qr1"/> <meta name="language" content="English" class="svelte-1ki1qr1"/> <meta name="revisit-after" content="14 days" class="svelte-1ki1qr1"/> <meta name="author" content="TheLinuxGuy" class="svelte-1ki1qr1"/> <link rel="preconnect" href="https://fonts.googleapis.com" class="svelte-1ki1qr1"/> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" class="svelte-1ki1qr1"/> <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400&amp;display=swap" rel="stylesheet" class="svelte-1ki1qr1"/>`);
+      $$renderer3.push(`<meta charset="UTF-8"/> <link rel="icon" type="image/svg+xml" href="/images/general/logo.webp"/> <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <meta name="title"${attr("content", post.title)}/> <meta name="description"${attr("content", post.preview)}/> <meta name="keywords" content="Artificial Intelligence, Ai, AI, humans, history"/> <meta name="robots" content="index, follow"/> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> <meta name="language" content="English"/> <meta name="revisit-after" content="14 days"/> <meta name="author" content="TheLinuxGuy"/> <link rel="preconnect" href="https://fonts.googleapis.com"/> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/> <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400&amp;display=swap" rel="stylesheet"/>`);
     });
     $$renderer2.push(`<div class="container svelte-1ki1qr1"><div class="ruler svelte-1ki1qr1"><div class="mask one svelte-1ki1qr1">${escape_html(top)}%</div> <div class="mask two svelte-1ki1qr1">${escape_html(bottom)}%</div> <div class="lines svelte-1ki1qr1"><span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span> <span class="svelte-1ki1qr1"></span></div></div> <a href="../" class="back-btn svelte-1ki1qr1">`);
     {
       $$renderer2.push("<!--[0-->");
       {
-        $$renderer2.push("<!--[-1-->");
-        $$renderer2.push(`<img${attr("src", leftArrow)} class="back-img svelte-1ki1qr1" alt=""/>`);
+        $$renderer2.push(`<!--[-1--><img${attr("src", leftArrow)} class="back-img svelte-1ki1qr1" alt=""/>`);
       }
       $$renderer2.push(`<!--]-->`);
     }

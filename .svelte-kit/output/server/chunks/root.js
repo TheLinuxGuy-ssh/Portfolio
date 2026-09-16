@@ -1,4 +1,4 @@
-import { q as hydration_mismatch, H as HYDRATION_ERROR, C as COMMENT_NODE, t as HYDRATION_END, v as HYDRATION_START, w as HYDRATION_START_ELSE, x as get_next_sibling, y as effect_tracking, z as get, A as render_effect, B as source, D as untrack, E as increment, F as queue_micro_task, G as active_effect, I as BOUNDARY_EFFECT, J as block, K as branch, L as create_text, M as pause_effect, N as current_batch, O as move_effect, P as defer_effect, Q as set_active_effect, R as set_active_reaction, S as set_component_context, T as Batch, U as handle_error, V as active_reaction, W as component_context, X as internal_set, Y as destroy_effect, Z as invoke_error_boundary, _ as svelte_boundary_reset_onerror, $ as HYDRATION_START_FAILED, a0 as svelte_boundary_reset_noop, a1 as EFFECT_TRANSPARENT, a2 as EFFECT_PRESERVED, a3 as define_property, a4 as init_operations, a5 as get_first_child, a6 as hydration_failed, a7 as clear_text_content, a8 as component_root, a9 as array_from, aa as is_passive_event, ab as push, ac as pop, ad as set, ae as LEGACY_PROPS, af as flushSync, ag as mutable_source, ah as render, ai as setContext, aj as derived } from "./index.js";
+import { t as hydration_mismatch, H as HYDRATION_ERROR, C as COMMENT_NODE, v as HYDRATION_END, w as HYDRATION_START, x as HYDRATION_START_ELSE, y as get_next_sibling, z as define_property, A as set_active_reaction, B as set_active_effect, D as active_reaction, E as active_effect, F as effect_tracking, G as get, I as render_effect, J as source, K as untrack, L as increment, M as queue_micro_task, N as BOUNDARY_EFFECT, O as block, P as branch, Q as create_text, R as invoke_error_boundary, S as current_batch, T as pause_effect, U as move_effect, V as defer_effect, W as set_component_context, X as Batch, Y as component_context, Z as internal_set, _ as destroy_effect, $ as svelte_boundary_reset_noop, a0 as svelte_boundary_reset_onerror, a1 as HYDRATION_START_FAILED, a2 as EFFECT_TRANSPARENT, a3 as EFFECT_PRESERVED, a4 as init_operations, a5 as get_first_child, a6 as hydration_failed, a7 as clear_text_content, a8 as component_root, a9 as array_from, aa as is_passive_event, ab as push, ac as mark_as_component, ad as pop, ae as set, af as LEGACY_PROPS, ag as flushSync, ah as mutable_source, ai as render, aj as setContext, ak as derived } from "./index.js";
 let hydrating = false;
 function set_hydrating(value) {
   hydrating = value;
@@ -48,6 +48,112 @@ function skip_nodes(remove = true) {
     );
     if (remove) node.remove();
     node = next2;
+  }
+}
+const event_symbol = /* @__PURE__ */ Symbol("events");
+const all_registered_events = /* @__PURE__ */ new Set();
+const root_event_handles = /* @__PURE__ */ new Set();
+let last_propagated_event = null;
+let last_propagated_event_clear_scheduled = false;
+function handle_event_propagation(event) {
+  var handler_element = this;
+  var owner_document = (
+    /** @type {Node} */
+    handler_element.ownerDocument
+  );
+  var event_name = event.type;
+  var path = event.composedPath?.() || [];
+  var current_target = (
+    /** @type {null | Element} */
+    path[0] || event.target
+  );
+  last_propagated_event = event;
+  if (!last_propagated_event_clear_scheduled) {
+    last_propagated_event_clear_scheduled = true;
+    setTimeout(() => {
+      last_propagated_event_clear_scheduled = false;
+      last_propagated_event = null;
+    });
+  }
+  var path_idx = 0;
+  var handled_at = last_propagated_event === event && event[event_symbol];
+  if (handled_at) {
+    var at_idx = path.indexOf(handled_at);
+    if (at_idx !== -1 && (handler_element === document || handler_element === /** @type {any} */
+    window)) {
+      event[event_symbol] = handler_element;
+      return;
+    }
+    var handler_idx = path.indexOf(handler_element);
+    if (handler_idx === -1) {
+      return;
+    }
+    if (at_idx <= handler_idx) {
+      path_idx = at_idx;
+    }
+  }
+  current_target = /** @type {Element} */
+  path[path_idx] || event.target;
+  if (current_target === handler_element) return;
+  define_property(event, "currentTarget", {
+    configurable: true,
+    get() {
+      return current_target || owner_document;
+    }
+  });
+  var previous_reaction = active_reaction;
+  var previous_effect = active_effect;
+  set_active_reaction(null);
+  set_active_effect(null);
+  try {
+    var throw_error;
+    var other_errors = [];
+    while (current_target !== null) {
+      if (current_target === handler_element) break;
+      try {
+        var delegated = current_target[event_symbol]?.[event_name];
+        if (delegated != null && (!/** @type {any} */
+        current_target.disabled || // DOM could've been updated already by the time this is reached, so we check this as well
+        // -> the target could not have been disabled because it emits the event in the first place
+        event.target === current_target)) {
+          delegated.call(current_target, event);
+        }
+      } catch (error) {
+        if (throw_error) {
+          other_errors.push(error);
+        } else {
+          throw_error = error;
+        }
+      }
+      if (event.cancelBubble) break;
+      path_idx++;
+      current_target = path_idx < path.length ? (
+        /** @type {Element} */
+        path[path_idx]
+      ) : null;
+    }
+    if (throw_error) {
+      for (let error of other_errors) {
+        queueMicrotask(() => {
+          throw error;
+        });
+      }
+      throw throw_error;
+    }
+  } finally {
+    event[event_symbol] = handler_element;
+    delete event.currentTarget;
+    set_active_reaction(previous_reaction);
+    set_active_effect(previous_effect);
+  }
+}
+function assign_nodes(start, end) {
+  var effect = (
+    /** @type {Effect} */
+    active_effect
+  );
+  if (effect.nodes === null) {
+    effect.nodes = { start, end, a: null, t: null };
   }
 }
 function createSubscriber(start) {
@@ -187,15 +293,54 @@ class Boundary {
    */
   #hydrate_failed_content(error) {
     const failed = this.#props.failed;
+    const { reset, invoke_onerror } = this.#create_reset(error);
+    queue_micro_task(invoke_onerror);
     if (!failed) return;
     this.#failed_effect = branch(() => {
       failed(
         this.#anchor,
         () => error,
-        () => () => {
-        }
+        () => reset
       );
     });
+  }
+  /**
+   * Creates the `reset` function for a failed boundary, along with a function
+   * that invokes `onerror` with it (if provided)
+   * @param {unknown} error
+   * @returns {{ reset: () => void, invoke_onerror: () => void }}
+   */
+  #create_reset(error) {
+    var did_reset = false;
+    var calling_on_error = false;
+    const reset = () => {
+      if (did_reset) {
+        svelte_boundary_reset_noop();
+        return;
+      }
+      did_reset = true;
+      if (calling_on_error) {
+        svelte_boundary_reset_onerror();
+      }
+      if (this.#failed_effect !== null) {
+        pause_effect(this.#failed_effect, () => {
+          this.#failed_effect = null;
+        });
+      }
+      this.#run(() => {
+        this.#render();
+      });
+    };
+    const invoke_onerror = () => {
+      try {
+        calling_on_error = true;
+        this.#props.onerror?.(error, reset);
+        calling_on_error = false;
+      } catch (err) {
+        invoke_error_boundary(err, this.#effect && this.#effect.parent);
+      }
+    };
+    return { reset, invoke_onerror };
   }
   #hydrate_pending_content() {
     const pending = this.#props.pending;
@@ -205,10 +350,29 @@ class Boundary {
     queue_micro_task(() => {
       var fragment = this.#offscreen_fragment = document.createDocumentFragment();
       var anchor = create_text();
+      var handled = false;
       fragment.append(anchor);
       this.#main_effect = this.#run(() => {
-        return branch(() => this.#children(anchor));
+        try {
+          return branch(() => this.#children(anchor));
+        } catch (error) {
+          try {
+            this.error(error);
+            handled = true;
+          } catch (error2) {
+            invoke_error_boundary(error2, this.#effect.parent);
+          }
+          return null;
+        }
       });
+      if (this.#main_effect === null) {
+        this.#offscreen_fragment = null;
+        if (handled) this.#resolve(
+          /** @type {Batch} */
+          current_batch
+        );
+        return;
+      }
       if (this.#pending_count === 0) {
         this.#anchor.before(fragment);
         this.#offscreen_fragment = null;
@@ -290,9 +454,6 @@ class Boundary {
     try {
       Batch.ensure();
       return fn();
-    } catch (e) {
-      handle_error(e);
-      return null;
     } finally {
       set_active_effect(previous_effect);
       set_active_reaction(previous_reaction);
@@ -392,36 +553,10 @@ class Boundary {
       next();
       set_hydrate_node(skip_nodes());
     }
-    var onerror = this.#props.onerror;
     let failed = this.#props.failed;
-    var did_reset = false;
-    var calling_on_error = false;
-    const reset = () => {
-      if (did_reset) {
-        svelte_boundary_reset_noop();
-        return;
-      }
-      did_reset = true;
-      if (calling_on_error) {
-        svelte_boundary_reset_onerror();
-      }
-      if (this.#failed_effect !== null) {
-        pause_effect(this.#failed_effect, () => {
-          this.#failed_effect = null;
-        });
-      }
-      this.#run(() => {
-        this.#render();
-      });
-    };
     const handle_error_result = (transformed_error) => {
-      try {
-        calling_on_error = true;
-        onerror?.(transformed_error, reset);
-        calling_on_error = false;
-      } catch (error2) {
-        invoke_error_boundary(error2, this.#effect && this.#effect.parent);
-      }
+      const { reset, invoke_onerror } = this.#create_reset(transformed_error);
+      invoke_onerror();
       if (failed) {
         this.#failed_effect = this.#run(() => {
           try {
@@ -468,104 +603,6 @@ class Boundary {
         handle_error_result(result);
       }
     });
-  }
-}
-const event_symbol = /* @__PURE__ */ Symbol("events");
-const all_registered_events = /* @__PURE__ */ new Set();
-const root_event_handles = /* @__PURE__ */ new Set();
-let last_propagated_event = null;
-function handle_event_propagation(event) {
-  var handler_element = this;
-  var owner_document = (
-    /** @type {Node} */
-    handler_element.ownerDocument
-  );
-  var event_name = event.type;
-  var path = event.composedPath?.() || [];
-  var current_target = (
-    /** @type {null | Element} */
-    path[0] || event.target
-  );
-  last_propagated_event = event;
-  var path_idx = 0;
-  var handled_at = last_propagated_event === event && event[event_symbol];
-  if (handled_at) {
-    var at_idx = path.indexOf(handled_at);
-    if (at_idx !== -1 && (handler_element === document || handler_element === /** @type {any} */
-    window)) {
-      event[event_symbol] = handler_element;
-      return;
-    }
-    var handler_idx = path.indexOf(handler_element);
-    if (handler_idx === -1) {
-      return;
-    }
-    if (at_idx <= handler_idx) {
-      path_idx = at_idx;
-    }
-  }
-  current_target = /** @type {Element} */
-  path[path_idx] || event.target;
-  if (current_target === handler_element) return;
-  define_property(event, "currentTarget", {
-    configurable: true,
-    get() {
-      return current_target || owner_document;
-    }
-  });
-  var previous_reaction = active_reaction;
-  var previous_effect = active_effect;
-  set_active_reaction(null);
-  set_active_effect(null);
-  try {
-    var throw_error;
-    var other_errors = [];
-    while (current_target !== null) {
-      if (current_target === handler_element) break;
-      try {
-        var delegated = current_target[event_symbol]?.[event_name];
-        if (delegated != null && (!/** @type {any} */
-        current_target.disabled || // DOM could've been updated already by the time this is reached, so we check this as well
-        // -> the target could not have been disabled because it emits the event in the first place
-        event.target === current_target)) {
-          delegated.call(current_target, event);
-        }
-      } catch (error) {
-        if (throw_error) {
-          other_errors.push(error);
-        } else {
-          throw_error = error;
-        }
-      }
-      if (event.cancelBubble) break;
-      path_idx++;
-      current_target = path_idx < path.length ? (
-        /** @type {Element} */
-        path[path_idx]
-      ) : null;
-    }
-    if (throw_error) {
-      for (let error of other_errors) {
-        queueMicrotask(() => {
-          throw error;
-        });
-      }
-      throw throw_error;
-    }
-  } finally {
-    event[event_symbol] = handler_element;
-    delete event.currentTarget;
-    set_active_reaction(previous_reaction);
-    set_active_effect(previous_effect);
-  }
-}
-function assign_nodes(start, end) {
-  var effect = (
-    /** @type {Effect} */
-    active_effect
-  );
-  if (effect.nodes === null) {
-    effect.nodes = { start, end, a: null, t: null };
   }
 }
 function mount(component, options) {
@@ -646,7 +683,7 @@ function _mount(Component, { target, anchor, props = {}, events, context, intro 
             null
           );
         }
-        component = Component(anchor_node2, props) || {};
+        component = Component(anchor_node2, props) || mark_as_component();
         if (hydrating) {
           active_effect.nodes.end = hydrate_node;
           if (hydrate_node === null || hydrate_node.nodeType !== COMMENT_NODE || /** @type {Comment} */

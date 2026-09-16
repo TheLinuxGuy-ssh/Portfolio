@@ -1,4 +1,5 @@
-import { b as attr, c as sanitize_props, r as rest_props, f as fallback, d as attributes, h as stringify, i as ensure_array_like, j as attr_style, e as escape_html, k as bind_props, l as attr_class, a as slot, m as head } from "../../chunks/index.js";
+import { c as attr, d as ensure_array_like, e as escape_html, f as sanitize_props, r as rest_props, h as fallback, i as attributes, j as stringify, k as attr_style, l as bind_props, m as attr_class, a as slot, o as head } from "../../chunks/index.js";
+import { p as posts } from "../../chunks/content.js";
 import "clsx";
 import { o as onDestroy, c as createEventDispatcher } from "../../chunks/index-server.js";
 const logo = "/_app/immutable/assets/logo.9uv7gBk4.webp";
@@ -8,16 +9,36 @@ function Header($$renderer, $$props) {
     {
       $$renderer2.push("<!--[0-->");
       {
-        $$renderer2.push("<!--[-1-->");
-        $$renderer2.push(`<img${attr("src", logo)} alt="" class="svelte-oiwvqb"/>`);
+        $$renderer2.push(`<!--[-1--><img${attr("src", logo)} alt="" class="svelte-oiwvqb"/>`);
       }
       $$renderer2.push(`<!--]-->`);
     }
     $$renderer2.push(`<!--]--></a></div>`);
   });
 }
-function Hero($$renderer) {
-  $$renderer.push(`<section class="hero svelte-juboms" id="hero"><div class="hero-content svelte-juboms"><div class="center"><div class="hero-title svelte-juboms" data-scroll="" data-scroll-speed="-0.1" data-scroll-direction="vertical" data-aos="zoom-in-up">TheLinuxGuy</div> <div class="hero-desc svelte-juboms"></div></div></div></section>`);
+function Hero($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const heroPosts = posts.slice(0, 3);
+    $$renderer2.push(`<section class="hero svelte-juboms" id="hero"><div class="hero-content svelte-juboms"><div class="center"><div class="hero-title svelte-juboms" data-scroll="" data-scroll-speed="-0.1" data-scroll-direction="vertical" data-aos="zoom-in-up">TheLinuxGuy</div> <div class="hero-desc svelte-juboms"></div></div> <div class="matrix-container svelte-juboms"><!--[-->`);
+    const each_array = ensure_array_like(heroPosts);
+    for (let index = 0, $$length = each_array.length; index < $$length; index++) {
+      let post = each_array[index];
+      $$renderer2.push(`<a${attr("href", `./matrix/post/${post.id}`)} class="card-link svelte-juboms"><article class="card svelte-juboms"><div class="card-badge svelte-juboms"><time class="date-time svelte-juboms"${attr("datetime", `${post.year}-${post.date}`)}><span class="year svelte-juboms">${escape_html(post.year)}</span> <span class="separator svelte-juboms" aria-hidden="true"></span> <span class="day-month svelte-juboms">${escape_html(post.date)}</span></time></div> <div class="card-content svelte-juboms"><header class="card-header svelte-juboms"><h2 class="card-title svelte-juboms">${escape_html(post.title)}</h2> `);
+      if (post.tags && post.tags.length > 0) {
+        $$renderer2.push(`<!--[0--><div class="card-tags svelte-juboms" role="list"><!--[-->`);
+        const each_array_1 = ensure_array_like(post.tags.slice(0, 3));
+        for (let i = 0, $$length2 = each_array_1.length; i < $$length2; i++) {
+          let tag = each_array_1[i];
+          $$renderer2.push(`<span class="card-tag svelte-juboms" role="listitem">${escape_html(tag.name)}</span>`);
+        }
+        $$renderer2.push(`<!--]--></div>`);
+      } else {
+        $$renderer2.push("<!--[-1-->");
+      }
+      $$renderer2.push(`<!--]--></header> <p class="card-excerpt svelte-juboms">${escape_html(post.preview)}</p> <footer class="card-footer svelte-juboms"><span class="card-action svelte-juboms">Read Article <svg class="arrow svelte-juboms" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span></footer></div></article></a>`);
+    }
+    $$renderer2.push(`<!--]--></div></div></section>`);
+  });
 }
 const Themes = {
   dark: {
@@ -488,19 +509,15 @@ function Terminal($$renderer, $$props) {
       let line = each_array[$$index_1];
       $$renderer2.push(`<div class="line svelte-g3pyzz">`);
       if (line.type === "command") {
-        $$renderer2.push("<!--[0-->");
-        $$renderer2.push(`<span class="prompt-label svelte-g3pyzz"${attr_style(`color: ${stringify(activeTheme.prompt)};`)}>${escape_html(line.promptLabel || "$")}</span> <span class="svelte-g3pyzz">${escape_html(line.content)}</span>`);
+        $$renderer2.push(`<!--[0--><span class="prompt-label svelte-g3pyzz"${attr_style(`color: ${stringify(activeTheme.prompt)};`)}>${escape_html(line.promptLabel || "$")}</span> <span class="svelte-g3pyzz">${escape_html(line.content)}</span>`);
       } else if (line.type === "error") {
-        $$renderer2.push("<!--[1-->");
-        $$renderer2.push(`<span class="error svelte-g3pyzz">${escape_html(line.content)}</span>`);
+        $$renderer2.push(`<!--[1--><span class="error svelte-g3pyzz">${escape_html(line.content)}</span>`);
       } else {
         $$renderer2.push("<!--[-1-->");
         if (typeof line.content === "string") {
-          $$renderer2.push("<!--[0-->");
-          $$renderer2.push(`<div class="output svelte-g3pyzz">${escape_html(line.content)}</div>`);
+          $$renderer2.push(`<!--[0--><div class="output svelte-g3pyzz">${escape_html(line.content)}</div>`);
         } else if (Array.isArray(line.content)) {
-          $$renderer2.push("<!--[1-->");
-          $$renderer2.push(`<!--[-->`);
+          $$renderer2.push(`<!--[1--><!--[-->`);
           const each_array_1 = ensure_array_like(line.content);
           for (let $$index = 0, $$length2 = each_array_1.length; $$index < $$length2; $$index++) {
             let item = each_array_1[$$index];
@@ -524,11 +541,9 @@ function Terminal($$renderer, $$props) {
     }
     $$renderer2.push(`<!--]--> `);
     if (!autoplay) {
-      $$renderer2.push("<!--[0-->");
-      $$renderer2.push(`<div class="input-line svelte-g3pyzz"><span class="prompt-label shrink-0 svelte-g3pyzz"${attr_style(`color: ${stringify(activeTheme.prompt)};`)}>${escape_html(promptStr || `${user}@host ${shell.currentPath.join("/")} $`)}</span> <input${attr("value", currentInput)} class="terminal-input svelte-g3pyzz"${attr_style(`color: ${stringify(activeTheme.cursor)}; caret-color: ${stringify(activeTheme.cursor)};`)} spellcheck="false" autocomplete="off"/></div>`);
+      $$renderer2.push(`<!--[0--><div class="input-line svelte-g3pyzz"><span class="prompt-label shrink-0 svelte-g3pyzz"${attr_style(`color: ${stringify(activeTheme.prompt)};`)}>${escape_html(promptStr || `${user}@host ${shell.currentPath.join("/")} $`)}</span> <input${attr("value", currentInput)} class="terminal-input svelte-g3pyzz"${attr_style(`color: ${stringify(activeTheme.cursor)}; caret-color: ${stringify(activeTheme.cursor)};`)} spellcheck="false" autocomplete="off"/></div>`);
     } else {
-      $$renderer2.push("<!--[-1-->");
-      $$renderer2.push(`<div class="input-line svelte-g3pyzz"><span class="prompt-label shrink-0 svelte-g3pyzz"${attr_style(`color: ${stringify(activeTheme.prompt)};`)}>${escape_html(promptStr || `${user}@host ${shell.currentPath.join("/")} $`)}</span> <span class="svelte-g3pyzz">${escape_html(currentInput)}</span> <span class="cursor-block svelte-g3pyzz"${attr_style(`background-color: ${stringify(activeTheme.cursor)};`)}></span></div>`);
+      $$renderer2.push(`<!--[-1--><div class="input-line svelte-g3pyzz"><span class="prompt-label shrink-0 svelte-g3pyzz"${attr_style(`color: ${stringify(activeTheme.prompt)};`)}>${escape_html(promptStr || `${user}@host ${shell.currentPath.join("/")} $`)}</span> <span class="svelte-g3pyzz">${escape_html(currentInput)}</span> <span class="cursor-block svelte-g3pyzz"${attr_style(`background-color: ${stringify(activeTheme.cursor)};`)}></span></div>`);
     }
     $$renderer2.push(`<!--]--></div>`);
     bind_props($$props, {
@@ -654,12 +669,11 @@ const githubLogo = "/_app/immutable/assets/github.DFfuPLv2.webp";
 const monkey = "/_app/immutable/assets/monkeytype.rCyoUCor.png";
 function Nav($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
-    $$renderer2.push(`<section class="bottom-nav svelte-1jnx671"><div class="nav-wrap svelte-1jnx671"><nav class="nav-bar"><ul class="nav-list svelte-1jnx671"><li class="nav-item svelte-1jnx671"><a href="https://github.com/thelinuxguy-ssh" class="nav-item__link svelte-1jnx671" target="_blank" rel="me">`);
+    $$renderer2.push(`<section class="bottom-nav svelte-1jnx671"><div class="nav-wrap svelte-1jnx671"><nav class="nav-bar"><ul class="nav-list svelte-1jnx671"><li class="nav-item svelte-1jnx671"><a href="https://git.linuxguy.tech/thelinuxguy" class="nav-item__link svelte-1jnx671" target="_blank" rel="me">`);
     {
       $$renderer2.push("<!--[0-->");
       {
-        $$renderer2.push("<!--[-1-->");
-        $$renderer2.push(`<img${attr("src", githubLogo)} loading="eager" alt="Github Icon" class="image svelte-1jnx671"/>`);
+        $$renderer2.push(`<!--[-1--><img${attr("src", githubLogo)} loading="eager" alt="Github Icon" class="image svelte-1jnx671"/>`);
       }
       $$renderer2.push(`<!--]-->`);
     }
@@ -667,8 +681,7 @@ function Nav($$renderer, $$props) {
     {
       $$renderer2.push("<!--[0-->");
       {
-        $$renderer2.push("<!--[-1-->");
-        $$renderer2.push(`<img${attr("src", monkey)} loading="eager" alt="Monkeytype Icon" class="image svelte-1jnx671" style="border-radius: 0.1em"/>`);
+        $$renderer2.push(`<!--[-1--><img${attr("src", monkey)} loading="eager" alt="Monkeytype Icon" class="image svelte-1jnx671" style="border-radius: 0.1em"/>`);
       }
       $$renderer2.push(`<!--]-->`);
     }
@@ -678,7 +691,7 @@ function Nav($$renderer, $$props) {
 function Desktop($$renderer) {
   $$renderer.push(`<div class="desktop-container svelte-ok63kg"><h1 class="desktop-title svelte-ok63kg">Current Desktop</h1> <div class="current-desktop svelte-ok63kg"><video src="/Desktop.mp4" muted="" loop="" playsinline="" class="svelte-ok63kg"></video></div></div>`);
 }
-const projects = [{ "name": "Duskmeter", "desc": "Corrected sky brightness estimates from fused VIIRS satellite radiance and ground-truth observations. Quantifies LED light pollution invisible to every public map.", "type": "Web Application", "url": "https://duskmeter.linuxguy.tech", "github": "duskmeter", "status": "2", "tags": [{ "name": "SvelteKit", "accent": "#FF3E00" }, { "name": "TypeScript", "accent": "#3178C6" }, { "name": "Tailwind", "accent": "#06B6D4" }, { "name": "Three.js", "accent": "#F05023" }, { "name": "SQLite", "accent": "#0F9BB5" }, { "name": "Docker", "accent": "#2496ED" }, { "name": "Leaflet", "accent": "#199900" }] }, { "name": "CV", "desc": "An ATS friendly CV template with single file config, built for the web and to be exported as a document on print", "type": "Web Application", "url": "https://cv-bbe2.vercel.app/", "github": "cv", "status": "2", "tags": [{ "name": "Next.js", "accent": "#0070F3" }, { "name": "Typescript", "accent": "#3178C6" }, { "name": "CSS", "accent": "#CC6699" }] }, { "name": "Kepler", "desc": "A Web Application to track the International Space Station and other satellites in real time with a 3D model of the earth and the satellites orbiting it.", "type": "Web Application (Contributor)", "url": "https://keplerai.vercel.app", "github": "https://github.com/7-blocks/kepler", "status": "4", "tags": [{ "name": "Three.js", "accent": "#F05023" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }], "skills": [{ "name": "Web Development", "accent": "#7FB8FF" }, { "name": "3D", "accent": "#7FB8FF" }] }, { "name": "Sosh Media", "desc": "A Creative Agency built for brands that actually have something to say.", "type": "Website", "status": "1", "tags": [{ "name": "Three.js", "accent": "#F05023" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }], "skills": [{ "name": "Web Development", "accent": "#7FB8FF" }, { "name": "3D", "accent": "#7FB8FF" }] }, { "name": "StarWalk CA", "desc": "A Shell based mTLS Certificate automation for orchestrating node setup, configuration, and lifecycle operations. (For Org Use Only)", "type": "Unix Package / Daemon", "status": "4", "tags": [{ "name": "Bash", "accent": "#73A5CA" }, { "name": "CronD", "accent": "#FFEE8C" }] }, { "name": "SkillHiive Stack", "desc": "Upcoming Web + Mobile Stack for SkillHiive", "type": "Web + Mobile Application", "status": "1", "tags": [{ "name": "React", "accent": "#61DBFB" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }, { "name": "Postgres", "accent": "#7FB8FF" }], "skills": [{ "name": "Web App Development", "accent": "#7FB8FF" }, { "name": "Server Administration", "accent": "#7FB8FF" }, { "name": "devOPs", "accent": "#7FB8FF" }] }, { "name": "Hyprfect", "desc": "Hyprland configuration for a clean, minimal arch linux setup!", "type": "Linux Dotfiles", "github": "hyprfect", "status": "4", "tags": [{ "name": "Bash", "accent": "#73A5CA" }, { "name": "SCSS", "accent": "#CC6699" }, { "name": "GLSL", "accent": "#50C878" }], "skills": [{ "name": "LINUX RICING", "accent": "#7FB8FF" }, { "name": "SCRIPTING", "accent": "#7FB8FF" }] }, { "name": "The Spartan Rage", "desc": "Kratos faces his next adventure in the egyptian mythology after his son walks on a different path.", "type": "2D Game", "url": "https://thelinuxguy-ssh.github.io/TheSpartanRage", "github": "thespartanrage", "status": "3", "tags": [{ "name": "GDScript", "accent": "#478cbf" }, { "name": "Pixilart", "accent": "#FF0000" }], "skills": [{ "name": "Game Development", "accent": "#7FB8FF" }, { "name": "PIXEL ART", "accent": "#7FB8FF" }] }, { "name": "DarwinX", "desc": "An online experience of macOS at the cost of nothing but Internet packets", "type": "Web Application", "url": "https://darwinx.vercel.app", "github": "darwinx", "status": "0", "tags": [{ "name": "React", "accent": "#61DBFB" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }], "skills": [{ "name": "Web App Development", "accent": "#7FB8FF" }, { "name": "SCRIPTING", "accent": "#7FB8FF" }] }, { "name": "ESP32 Irrigation Automation", "desc": "This project provides a soil moisture monitoring system using an ESP32 and a soil moisture sensor. The system reads moisture levels from the sensor and displays the readings", "type": "IoT", "github": "esp32irrigation", "status": "2", "tags": [{ "name": "CSS", "accent": "#CC6699" }, { "name": "Adruino", "accent": "#478cbf" }], "skills": [{ "name": "IOT", "accent": "#7FB8FF" }, { "name": "Adruino Programming", "accent": "#7FB8FF" }, { "name": "Web Development", "accent": "#7FB8FF" }] }, { "name": "Marine Consultancy Group", "desc": "Marine Consultancy Services (MCS) is a design-driven marine consultancy firm supporting shipyards, vessel owners, and government agencies across India, Bangladesh, Sri Lanka, and Southeast Asia", "type": "Website", "url": "https://www.shipconsultant.org", "status": "2", "tags": [{ "name": "Three.js", "accent": "#F05023" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }], "skills": [{ "name": "Web Development", "accent": "#7FB8FF" }, { "name": "3D", "accent": "#7FB8FF" }] }, { "name": "Tagged", "desc": "Co-op game where two players play tag to win!", "type": "Game", "url": "https://thelinuxguy-ssh.github.io/Tagged", "github": "Tagged", "status": "2", "tags": [{ "name": "GDScript", "accent": "#478cbf" }, { "name": "Pixilart", "accent": "#FF0000" }], "skills": [{ "name": "Game Development", "accent": "#7FB8FF" }, { "name": "PIXEL ART", "accent": "#7FB8FF" }] }, { "name": "Global Insulation", "desc": "An insulation company which supplies insulation material all over Victoria, Austrailia", "type": "Website", "url": "https://www.globalinsulation.com.au", "status": "2", "tags": [{ "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }, { "name": "Three.js", "accent": "#F05023" }, { "name": "Adobe Premiere Pro", "accent": "#b76fff" }, { "name": "Adobe After Effects", "accent": "#CF96FD" }], "skills": [{ "name": "Web Development", "accent": "#7FB8FF" }, { "name": "Web Development", "accent": "#7FB8FF" }] }, { "name": "TLG Start Page", "desc": "Your Personal Browser Start Page from the Future! ", "type": "Web Application", "url": "https://tlg-start-page.vercel.app/", "github": "tlg-start-page", "status": "2", "tags": [{ "name": "Next.js", "accent": "#0070F3" }, { "name": "Docker", "accent": "#0db7ed" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }, { "name": "Bash", "accent": "#ED1C24" }, { "name": "Powershell", "accent": "#8FAAFF" }] }, { "name": "TLG Links", "desc": "A fork for TLG Start Page for specifically routing people through a set of personalised links in a presentable format ", "type": "Web Application", "url": "https://tlg-links.vercel.app/", "github": "tlg-links", "status": "2", "tags": [{ "name": "Next.js", "accent": "#0070F3" }, { "name": "Docker", "accent": "#0db7ed" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }, { "name": "Bash", "accent": "#ED1C24" }, { "name": "Powershell", "accent": "#8FAAFF" }] }, { "name": "Unite.Do", "desc": "A Task management Web app for team management", "type": "Web Application", "url": "https://unite-do.vercel.app", "github": "unite.do", "status": "3", "tags": [{ "name": "React", "accent": "#61DBFB" }, { "name": "Postgres", "accent": "#7FB8FF" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }] }, { "name": "DigiPod", "desc": "A Landing page for an upcoming AI tool!", "type": "Website", "github": "DigiPod-Website", "status": "2", "tags": [{ "name": "Three.js", "accent": "#F05023" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }] }, { "name": "COSMA2k24", "desc": "An Inter-School Tech Event Website", "type": "Website", "url": "https://thelinuxguy-ssh.github.io/cosma2k24/", "status": "2", "tags": [{ "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }, { "name": "Three.js", "accent": "#F05023" }] }, { "name": "Mahaveer International School", "desc": "A website for Mahaveer International school, situated in north-west outskirt of historical city of Meerut", "type": "Website", "url": "https://mismeerut.com/", "status": "2", "tags": [{ "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }] }, { "name": "JP Academy", "desc": "A website for a school which is a part of the JP Educational Trust Society laying it's foundation in the educational field", "type": "Website", "url": "https://jpacademy.in", "status": "2", "tags": [{ "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }] }, { "name": "COSMA 2023", "desc": "A website for an inter-school Tech Event", "type": "Website", "url": "https://thelinuxguy-ssh.github.io/cosma/", "status": "2", "tags": [{ "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }] }];
+const projects = [{ "name": "Duskmeter", "desc": "Corrected sky brightness estimates from fused VIIRS satellite radiance and ground-truth observations. Quantifies LED light pollution invisible to every public map.", "type": "Web Application", "url": "https://duskmeter.linuxguy.tech", "github": "duskmeter", "status": "2", "tags": [{ "name": "SvelteKit", "accent": "#FF3E00" }, { "name": "TypeScript", "accent": "#3178C6" }, { "name": "Tailwind", "accent": "#06B6D4" }, { "name": "Three.js", "accent": "#F05023" }, { "name": "SQLite", "accent": "#0F9BB5" }, { "name": "Docker", "accent": "#2496ED" }, { "name": "Leaflet", "accent": "#199900" }] }, { "name": "CV", "desc": "An ATS friendly CV template with single file config, built for the web and to be exported as a document on print", "type": "Web Application", "url": "https://cv-bbe2.vercel.app/", "github": "cv", "status": "2", "tags": [{ "name": "Next.js", "accent": "#0070F3" }, { "name": "Typescript", "accent": "#3178C6" }, { "name": "CSS", "accent": "#CC6699" }] }, { "name": "Kepler", "desc": "A Web Application to track the International Space Station and other satellites in real time with a 3D model of the earth and the satellites orbiting it.", "type": "Web Application (Contributor)", "url": "https://keplerai.vercel.app", "github": "https://github.com/7-blocks/kepler", "status": "4", "tags": [{ "name": "Three.js", "accent": "#F05023" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }], "skills": [{ "name": "Web Development", "accent": "#7FB8FF" }, { "name": "3D", "accent": "#7FB8FF" }] }, { "name": "Sosh Media", "desc": "A Creative Agency built for brands that actually have something to say.", "type": "Website", "status": "1", "tags": [{ "name": "Three.js", "accent": "#F05023" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }], "skills": [{ "name": "Web Development", "accent": "#7FB8FF" }, { "name": "3D", "accent": "#7FB8FF" }] }, { "name": "StarWalk CA", "desc": "A Shell based mTLS Certificate automation for orchestrating node setup, configuration, and lifecycle operations. (For Org Use Only)", "type": "Unix Package / Daemon", "status": "4", "tags": [{ "name": "Bash", "accent": "#73A5CA" }, { "name": "CronD", "accent": "#FFEE8C" }] }, { "name": "SkillHiive Stack", "desc": "Upcoming Web + Mobile Stack for SkillHiive", "type": "Web + Mobile Application", "status": "1", "tags": [{ "name": "React", "accent": "#61DBFB" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }, { "name": "Postgres", "accent": "#7FB8FF" }], "skills": [{ "name": "Web App Development", "accent": "#7FB8FF" }, { "name": "Server Administration", "accent": "#7FB8FF" }, { "name": "devOPs", "accent": "#7FB8FF" }] }, { "name": "Hyprfect", "desc": "Hyprland configuration for a clean, minimal arch linux setup!", "type": "Linux Dotfiles", "github": "hyprfect", "status": "4", "tags": [{ "name": "Bash", "accent": "#73A5CA" }, { "name": "SCSS", "accent": "#CC6699" }, { "name": "GLSL", "accent": "#50C878" }], "skills": [{ "name": "LINUX RICING", "accent": "#7FB8FF" }, { "name": "SCRIPTING", "accent": "#7FB8FF" }] }, { "name": "The Spartan Rage", "desc": "Kratos faces his next adventure in the egyptian mythology after his son walks on a different path.", "type": "2D Game", "url": "https://thelinuxguy-ssh.github.io/TheSpartanRage", "github": "thespartanrage", "status": "1", "tags": [{ "name": "GDScript", "accent": "#478cbf" }, { "name": "Pixilart", "accent": "#FF0000" }], "skills": [{ "name": "Game Development", "accent": "#7FB8FF" }, { "name": "PIXEL ART", "accent": "#7FB8FF" }] }, { "name": "DarwinX", "desc": "An online experience of macOS at the cost of nothing but Internet packets", "type": "Web Application", "url": "https://darwinx.vercel.app", "github": "darwinx", "status": "0", "tags": [{ "name": "React", "accent": "#61DBFB" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }], "skills": [{ "name": "Web App Development", "accent": "#7FB8FF" }, { "name": "SCRIPTING", "accent": "#7FB8FF" }] }, { "name": "ESP32 Irrigation Automation", "desc": "This project provides a soil moisture monitoring system using an ESP32 and a soil moisture sensor. The system reads moisture levels from the sensor and displays the readings", "type": "IoT", "github": "esp32irrigation", "status": "2", "tags": [{ "name": "CSS", "accent": "#CC6699" }, { "name": "Adruino", "accent": "#478cbf" }], "skills": [{ "name": "IOT", "accent": "#7FB8FF" }, { "name": "Adruino Programming", "accent": "#7FB8FF" }, { "name": "Web Development", "accent": "#7FB8FF" }] }, { "name": "Marine Consultancy Group", "desc": "Marine Consultancy Services (MCS) is a design-driven marine consultancy firm supporting shipyards, vessel owners, and government agencies across India, Bangladesh, Sri Lanka, and Southeast Asia", "type": "Website", "url": "https://www.shipconsultant.org", "status": "2", "tags": [{ "name": "Three.js", "accent": "#F05023" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }], "skills": [{ "name": "Web Development", "accent": "#7FB8FF" }, { "name": "3D", "accent": "#7FB8FF" }] }, { "name": "Tagged", "desc": "Co-op game where two players play tag to win!", "type": "Game", "url": "https://thelinuxguy-ssh.github.io/Tagged", "github": "Tagged", "status": "2", "tags": [{ "name": "GDScript", "accent": "#478cbf" }, { "name": "Pixilart", "accent": "#FF0000" }], "skills": [{ "name": "Game Development", "accent": "#7FB8FF" }, { "name": "PIXEL ART", "accent": "#7FB8FF" }] }, { "name": "Global Insulation", "desc": "An insulation company which supplies insulation material all over Victoria, Austrailia", "type": "Website", "url": "https://www.globalinsulation.com.au", "status": "2", "tags": [{ "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }, { "name": "Three.js", "accent": "#F05023" }, { "name": "Adobe Premiere Pro", "accent": "#b76fff" }, { "name": "Adobe After Effects", "accent": "#CF96FD" }], "skills": [{ "name": "Web Development", "accent": "#7FB8FF" }, { "name": "Web Development", "accent": "#7FB8FF" }] }, { "name": "TLG Start Page", "desc": "Your Personal Browser Start Page from the Future! ", "type": "Web Application", "url": "https://tlg-start-page.vercel.app/", "github": "tlg-start-page", "status": "2", "tags": [{ "name": "Next.js", "accent": "#0070F3" }, { "name": "Docker", "accent": "#0db7ed" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }, { "name": "Bash", "accent": "#ED1C24" }, { "name": "Powershell", "accent": "#8FAAFF" }] }, { "name": "TLG Links", "desc": "A fork for TLG Start Page for specifically routing people through a set of personalised links in a presentable format ", "type": "Web Application", "url": "https://tlg-links.vercel.app/", "github": "tlg-links", "status": "2", "tags": [{ "name": "Next.js", "accent": "#0070F3" }, { "name": "Docker", "accent": "#0db7ed" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }, { "name": "Bash", "accent": "#ED1C24" }, { "name": "Powershell", "accent": "#8FAAFF" }] }, { "name": "Unite.Do", "desc": "A Task management Web app for team management", "type": "Web Application", "url": "https://unite-do.vercel.app", "github": "unite.do", "status": "3", "tags": [{ "name": "React", "accent": "#61DBFB" }, { "name": "Postgres", "accent": "#7FB8FF" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }] }, { "name": "DigiPod", "desc": "A Landing page for an upcoming AI tool!", "type": "Website", "github": "DigiPod-Website", "status": "2", "tags": [{ "name": "Three.js", "accent": "#F05023" }, { "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }] }, { "name": "COSMA2k24", "desc": "An Inter-School Tech Event Website", "type": "Website", "url": "https://thelinuxguy-ssh.github.io/cosma2k24/", "status": "2", "tags": [{ "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }, { "name": "Three.js", "accent": "#F05023" }] }, { "name": "Mahaveer International School", "desc": "A website for Mahaveer International school, situated in north-west outskirt of historical city of Meerut", "type": "Website", "url": "https://mismeerut.com/", "status": "2", "tags": [{ "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }] }, { "name": "JP Academy", "desc": "A website for a school which is a part of the JP Educational Trust Society laying it's foundation in the educational field", "type": "Website", "url": "https://jpacademy.in", "status": "2", "tags": [{ "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }] }, { "name": "COSMA 2023", "desc": "A website for an inter-school Tech Event", "type": "Website", "url": "https://thelinuxguy-ssh.github.io/cosma/", "status": "2", "tags": [{ "name": "JS", "accent": "#F7DF1E" }, { "name": "CSS", "accent": "#CC6699" }] }];
 const linkArrow = "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='800px'%20height='800px'%20viewBox='0%200%2024%2024'%20role='img'%20xmlns='http://www.w3.org/2000/svg'%20aria-labelledby='arrowRightTopIconTitle'%20stroke='%23000000'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20fill='none'%20color='%23000000'%3e%3ctitle%20id='arrowRightTopIconTitle'%3eArrow%20Right%20Top%3c/title%3e%3cpath%20d='M19%2013V5h-8'/%3e%3cpath%20stroke-linecap='round'%20d='M19%205l-1%201'/%3e%3cpath%20d='M18%206L5%2019'/%3e%3c/svg%3e";
 function Work($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
@@ -693,8 +706,7 @@ function Work($$renderer, $$props) {
     {
       $$renderer2.push("<!--[0-->");
       {
-        $$renderer2.push("<!--[-1-->");
-        $$renderer2.push(`<img id="trailer-icon"${attr("src", linkArrow)} alt=""/>`);
+        $$renderer2.push(`<!--[-1--><img id="trailer-icon"${attr("src", linkArrow)} alt=""/>`);
       }
       $$renderer2.push(`<!--]-->`);
     }
@@ -705,21 +717,17 @@ function Work($$renderer, $$props) {
       const status = statusMap[project.status] || { label: "Unknown", class: "" };
       $$renderer2.push(`<div class="project svelte-15hxidr">`);
       if (project.url != null) {
-        $$renderer2.push("<!--[0-->");
-        $$renderer2.push(`<a${attr("href", project.url || null)} aria-label="project" target="_blank"${attr_class("svelte-15hxidr", void 0, { "interactable": project.url != null })}><video class="project-vid svelte-15hxidr" preload="metadeta"${attr("src", "/images/projects/" + project.name + ".mp4")} muted="" autoplay="" loop="" playsinline=""></video></a>`);
+        $$renderer2.push(`<!--[0--><a${attr("href", project.url || null)} aria-label="project" target="_blank"${attr_class("svelte-15hxidr", void 0, { "interactable": project.url != null })}><video class="project-vid svelte-15hxidr" preload="metadeta"${attr("src", "/images/projects/" + project.name + ".mp4")} muted="" autoplay="" loop="" playsinline=""></video></a>`);
       } else {
-        $$renderer2.push("<!--[-1-->");
-        $$renderer2.push(`<div class="svelte-15hxidr"><video class="project-vid svelte-15hxidr" preload="metadeta"${attr("src", "/images/projects/" + project.name + ".mp4")} muted="" autoplay="" loop="" playsinline=""></video></div>`);
+        $$renderer2.push(`<!--[-1--><div class="svelte-15hxidr"><video class="project-vid svelte-15hxidr" preload="metadeta"${attr("src", "/images/projects/" + project.name + ".mp4")} muted="" autoplay="" loop="" playsinline=""></video></div>`);
       }
       $$renderer2.push(`<!--]--> <div class="project-content svelte-15hxidr"><h2 class="project-name svelte-15hxidr">${escape_html(project.name)} <span class="project-type svelte-15hxidr">[${escape_html(project.type)}]</span> <div href=""${attr_class(`status-btn ${stringify(status.class)}`, "svelte-15hxidr")}>${escape_html(status.label)}</div></h2> <p class="project-desc svelte-15hxidr">${escape_html(project.desc)}</p> <div class="project-links svelte-15hxidr">`);
       if (project.github != null) {
-        $$renderer2.push("<!--[0-->");
-        $$renderer2.push(`<a class="github-btn svelte-15hxidr"${attr("href", project.github.slice(0, 5) != "https" ? "https://git.linuxguy.tech/thelinuxguy/" + project.github : project.github)} target="_blank">`);
+        $$renderer2.push(`<!--[0--><a class="github-btn svelte-15hxidr"${attr("href", project.github.slice(0, 5) != "https" ? "https://git.linuxguy.tech/thelinuxguy/" + project.github : project.github)} target="_blank">`);
         {
           $$renderer2.push("<!--[0-->");
           {
-            $$renderer2.push("<!--[-1-->");
-            $$renderer2.push(`<img${attr("src", githubLogo)} alt="" class="svelte-15hxidr"/>`);
+            $$renderer2.push(`<!--[-1--><img${attr("src", githubLogo)} alt="" class="svelte-15hxidr"/>`);
           }
           $$renderer2.push(`<!--]-->`);
         }
@@ -729,8 +737,7 @@ function Work($$renderer, $$props) {
       }
       $$renderer2.push(`<!--]--> `);
       if (project.url != null) {
-        $$renderer2.push("<!--[0-->");
-        $$renderer2.push(`<a${attr("href", project.url)} class="live-btn svelte-15hxidr" target="_blank">Visit</a>`);
+        $$renderer2.push(`<!--[0--><a${attr("href", project.url)} class="live-btn svelte-15hxidr" target="_blank">Visit</a>`);
       } else {
         $$renderer2.push("<!--[-1-->");
       }
@@ -886,8 +893,7 @@ function Marquee($$renderer, $$props) {
     slot($$renderer2, $$props, "default", {});
     $$renderer2.push(`<!--]--></div> `);
     if (mode === "multiple") {
-      $$renderer2.push("<!--[0-->");
-      $$renderer2.push(`<div class="marquee svelte-c1c7lb"><!--[-->`);
+      $$renderer2.push(`<!--[0--><div class="marquee svelte-c1c7lb"><!--[-->`);
       slot($$renderer2, $$props, "default", {});
       $$renderer2.push(`<!--]--></div>`);
     } else {

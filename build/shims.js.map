@@ -1,1 +1,0 @@
-{"version":3,"file":"shims.js","sources":["../.svelte-kit/adapter-node/entries/shims.js"],"sourcesContent":["import { installPolyfills } from '@sveltejs/kit/node/polyfills';\n\ninstallPolyfills();\n"],"names":[],"mappings":";;AAEA,gBAAgB,EAAE"}

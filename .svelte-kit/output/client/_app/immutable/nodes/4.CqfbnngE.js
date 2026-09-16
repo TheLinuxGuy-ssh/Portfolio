@@ -1,0 +1,1 @@
+import{a as r,f as e}from"../chunks/BNZpLE_s.js";import"../chunks/D2Q_y0-0.js";import{h as a}from"../chunks/BrF-Z7rX.js";var h=e('<meta http-equiv="refresh" content="0;url=https://github.com/thelinuxguy-ssh/hyprfect"/>');function f(m){a("4ourek",t=>{var o=h();r(t,o)})}export{f as component};

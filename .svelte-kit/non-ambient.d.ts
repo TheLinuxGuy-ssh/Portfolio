@@ -29,27 +29,20 @@ declare module "$app/types" {
 	type MatcherParam<M> = M extends (param : string) => param is (infer U extends string) ? U : string;
 
 	export interface AppTypes {
-		RouteId(): "/" | "/about" | "/api" | "/api/jelly" | "/api/wakatime" | "/contact" | "/cv" | "/duskmeter" | "/hyprfect" | "/matrix" | "/matrix/post" | "/matrix/post/[page]" | "/test" | "/work" | "/work/[slug]";
+		RouteId(): "/" | "/api" | "/api/jelly" | "/api/wakatime" | "/duskmeter" | "/hyprfect" | "/matrix" | "/matrix/post" | "/matrix/post/[page]";
 		RouteParams(): {
-			"/matrix/post/[page]": { page: string };
-			"/work/[slug]": { slug: string }
+			"/matrix/post/[page]": { page: string }
 		};
 		LayoutParams(): {
-			"/": { page?: string | undefined; slug?: string | undefined };
-			"/about": Record<string, never>;
+			"/": { page?: string | undefined };
 			"/api": Record<string, never>;
 			"/api/jelly": Record<string, never>;
 			"/api/wakatime": Record<string, never>;
-			"/contact": Record<string, never>;
-			"/cv": Record<string, never>;
 			"/duskmeter": Record<string, never>;
 			"/hyprfect": Record<string, never>;
 			"/matrix": { page?: string | undefined };
 			"/matrix/post": { page?: string | undefined };
-			"/matrix/post/[page]": { page: string };
-			"/test": Record<string, never>;
-			"/work": { slug?: string | undefined };
-			"/work/[slug]": { slug: string }
+			"/matrix/post/[page]": { page: string }
 		};
 		Pathname(): "/" | "/api/jelly" | "/api/wakatime" | "/duskmeter" | "/hyprfect" | "/matrix" | `/matrix/post/${string}` & {};
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;

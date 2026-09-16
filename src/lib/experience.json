@@ -1,0 +1,90 @@
+{
+    "experience": [
+        {
+            "role": "Server Administrator",
+            "organization": "Self-Hosted Infrastructure",
+            "period": "2022 — Present",
+            "location": "Remote",
+            "type": "full-time",
+            "description": "Design, deploy, and maintain production-grade Linux servers. Hardened Arch/Debian systems with automated provisioning, monitoring (Prometheus/Grafana), backup strategies, and container orchestration (Docker/Podman). Achieved 99.9% uptime across 15+ services.",
+            "skills": ["Linux", "Docker", "Nginx", "PostgreSQL", "Ansible", "Prometheus", "Grafana", "ZFS", "WireGuard"],
+            "highlights": [
+                "Automated certificate lifecycle with mTLS for 50+ internal services",
+                "Built immutable infrastructure with reproducible NixOS configurations",
+                "Reduced deployment time 80% via CI/CD pipelines"
+            ]
+        },
+        {
+            "role": "Full-Stack Developer",
+            "organization": "Freelance / Contract",
+            "period": "2021 — Present",
+            "location": "Remote",
+            "type": "full-time",
+            "description": "Delivered 20+ production web applications using SvelteKit, Next.js, React Native, and Three.js. End-to-end ownership: architecture, database design, API development, deployment, and maintenance. Specialized in performance-critical, privacy-first applications.",
+            "skills": ["SvelteKit", "Next.js", "TypeScript", "Three.js", "PostgreSQL", "Supabase", "Docker", "Tailwind"],
+            "highlights": [
+                "Built Duskmeter — satellite light pollution mapping with Three.js/WebGL",
+                "Developed Hyprfect — 2000+ star Hyprland dotfiles on GitHub",
+                "Shipped DarwinX — browser-based macOS experience (React/Three.js)"
+            ]
+        },
+        {
+            "role": "Open Source Contributor",
+            "organization": "Various Projects",
+            "period": "2020 — Present",
+            "location": "Global",
+            "type": "part-time",
+            "description": "Active contributor to Linux desktop ecosystem (Hyprland, Wayland tools), web framework internals, and developer tooling. Focus on performance, accessibility, and developer experience.",
+            "skills": ["C", "Rust", "Go", "TypeScript", "Bash", "Wayland", "Hyprland"],
+            "highlights": [
+                "Merged PRs to Hyprland core (dynamic workspaces, animations)",
+                "Contributed to SvelteKit adapter ecosystem",
+                "Maintain 15+ personal open-source projects"
+            ]
+        }
+    ],
+    "volunteering": [
+        {
+            "role": "Tech Lead / Mentor",
+            "organization": "COSMA Tech Fest (Inter-School)",
+            "period": "2022 — 2024",
+            "location": "Meerut, India",
+            "type": "event",
+            "description": "Led technical team for annual inter-school technology festival. Designed and deployed event websites, managed server infrastructure, mentored 50+ students in web development, Linux, and competitive programming.",
+            "skills": ["Mentoring", "Event Management", "Web Development", "Linux", "Team Leadership"],
+            "highlights": [
+                "Built COSMA 2023/2024 websites serving 5000+ visitors",
+                "Conducted 10+ workshops on Linux, Git, Web Dev",
+                "Coordinated 20-member student tech team"
+            ]
+        },
+        {
+            "role": "Open Source Educator",
+            "organization": "Community Workshops / GitHub",
+            "period": "2021 — Present",
+            "location": "Online",
+            "type": "education",
+            "description": "Free technical education through blog posts, GitHub repositories, and community workshops. Topics: Linux system administration, self-hosting, privacy tools, web performance, and open-source contribution.",
+            "skills": ["Technical Writing", "Teaching", "Linux", "Self-Hosting", "Privacy"],
+            "highlights": [
+                "Published 15+ in-depth technical guides",
+                "Hyprfect dotfiles: 2000+ stars, 300+ forks",
+                "Helped 100+ developers migrate to Linux/self-hosting"
+            ]
+        },
+        {
+            "role": "Privacy Advocate",
+            "organization": "Digital Rights Communities",
+            "period": "2020 — Present",
+            "location": "Online",
+            "type": "advocacy",
+            "description": "Promote digital privacy, decentralized tools, and user sovereignty. Contribute to privacy-focused projects, educate on threat modeling, and advocate for FOSS alternatives to surveillance capitalism.",
+            "skills": ["Privacy", "Threat Modeling", "FOSS", "Cryptography", "Community Building"],
+            "highlights": [
+                "Authored privacy hardening guides for Arch/Debian",
+                "Moderate privacy-focused Discord/Matrix communities",
+                "Contributed to hardened browser configurations"
+            ]
+        }
+    ]
+}

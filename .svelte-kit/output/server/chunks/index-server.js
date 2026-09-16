@@ -1,4 +1,4 @@
-import { o as ssr_context, n as noop } from "./index.js";
+import { p as ssr_context, n as noop } from "./index.js";
 import "clsx";
 function onDestroy(fn) {
   /** @type {SSRContext} */

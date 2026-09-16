@@ -109,16 +109,16 @@
                 <div class="project-links">
                     {#if project.github != null}
                         <a
-                            class="github-btn"
+                            class="project-btn github-btn"
                             href={project.github.slice(0,5) != "https" ? ("https://git.linuxguy.tech/thelinuxguy/" +
                                 project.github) : project.github}
                             target="_blank"
                         >
-                            <enhanced:img src={githubLogo} alt="" /> Github
+                            <enhanced:img src={githubLogo} alt="" /> <span>Github</span>
                         </a>
                     {/if}
                     {#if project.url != null}
-                        <a href={project.url} class="live-btn" target="_blank">
+                        <a href={project.url} class="project-btn live-btn" target="_blank">
                             Visit
                         </a>
                     {/if}
@@ -212,7 +212,7 @@
     .project-title {
         text-align: center;
         padding: 1rem 0;
-        font-size: 3em;
+        font-size: 3.5em;
         font-family: Pro;
         margin-bottom: 10rem;
     }
@@ -280,14 +280,31 @@
 
     .project-links {
         margin: 1em 0;
+        display: flex;
+        gap: 0.5em;
     }
 
+    .project-btn {
+        display: flex;
+        width: fit-content;
+        justify-content: center;
+        align-items: center;
+        transition: 0.055s all ease-in-out;
+    }
+    
+    .project-btn:hover {
+        transform: scale(1.05) !important;
+    }
     .github-btn {
         color: white;
         background-color: #000000;
         padding: 0.25em 0.5em;
         border: 1px solid #676767;
+        
     }
+
+    
+ 
 
     .live-btn {
         color: black;
@@ -296,8 +313,17 @@
         border: 1px solid #676767;
     }
 
+
     .github-btn img {
         width: 1em;
+    }
+
+    .github-btn span {
+        display: flex;
+  align-items: center; 
+  justify-content: center;
+  margin-left: 0.2em;
+  line-height: 0.8;
     }
 
     .projects .project * {
@@ -311,7 +337,7 @@
     .projects .project .project-vid {
         margin: 1.5em 2em;
         margin-right: auto;
-        height: 17.5em;
+        height: 22.5em;
         transition: 0.2s all;
         box-shadow: 0 0 1px 0 rgba(190, 238, 175, 0.502);
     }

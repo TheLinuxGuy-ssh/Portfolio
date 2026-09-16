@@ -1,0 +1,1 @@
+import{t as m,a as t,f as n}from"../chunks/BNZpLE_s.js";import"../chunks/D2Q_y0-0.js";import{n as p}from"../chunks/C5DfGS39.js";import{h as s}from"../chunks/BrF-Z7rX.js";var h=n('<meta http-equiv="refresh" content="0;url=https://github.com/thelinuxguy-ssh/duskmeter"/>');function c(e){p();var o=m("n");s("x4wow5",r=>{var a=h();t(r,a)}),t(e,o)}export{c as component};

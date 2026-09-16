@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     let paused = false;
 </script>
 
@@ -55,4 +55,4 @@
             width: 100%;
         }
     }
-</style>
+</style> -->

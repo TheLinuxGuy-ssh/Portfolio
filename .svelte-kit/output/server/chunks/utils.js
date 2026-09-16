@@ -8,6 +8,17 @@ const SVELTE_KIT_ASSETS = "/_svelte_kit_assets";
 const ENDPOINT_METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"];
 const MUTATIVE_METHODS = ["POST", "PUT", "PATCH", "DELETE"];
 const PAGE_METHODS = ["GET", "POST", "HEAD"];
+function noop() {
+}
+function once(fn) {
+  let done = false;
+  let result;
+  return () => {
+    if (done) return result;
+    done = true;
+    return result = fn();
+  };
+}
 const decoder = new TextDecoder();
 function set_nested_value(object, path_string, value) {
   if (path_string.startsWith("n:")) {
@@ -19,6 +30,7 @@ function set_nested_value(object, path_string, value) {
   }
   deep_set(object, split_path(path_string), value);
 }
+const DELETE_KEY = {};
 function convert_formdata(data) {
   const result = {};
   for (let key of data.keys()) {
@@ -166,7 +178,7 @@ async function deserialize_binary_form(request) {
       const chunk = await get_chunk(chunks.length);
       has_more = !!chunk;
     }
-  })();
+  })().catch(noop);
   return { data, meta, form_data: null };
 }
 function deserialize_error(message) {
@@ -311,13 +323,20 @@ function deep_set(object, keys, value) {
       throw new Error(`Invalid array key ${keys[i + 1]}`);
     }
     if (!exists) {
+      if (value === DELETE_KEY) {
+        return;
+      }
       current[key] = is_array ? [] : {};
     }
     current = current[key];
   }
   const final_key = keys[keys.length - 1];
   check_prototype_pollution(final_key);
-  current[final_key] = value;
+  if (value === DELETE_KEY) {
+    delete current[final_key];
+  } else {
+    current[final_key] = value;
+  }
 }
 function normalize_issue(issue, server = false) {
   const normalized = { name: "", path: [], message: issue.message, server };
@@ -427,10 +446,11 @@ function create_field_proxy(target, get_input, set_input, get_issues, path = [])
               message: issue.message
             }));
           }
-          return all_issues?.filter((issue) => issue.name === key)?.map((issue) => ({
+          const issues = all_issues?.filter((issue) => issue.name === key)?.map((issue) => ({
             path: issue.path,
             message: issue.message
           }));
+          return issues?.length ? issues : void 0;
         };
         return create_field_proxy(issues_func, get_input, set_input, get_issues, [...path, prop]);
       }
@@ -730,17 +750,6 @@ function split_remote_key(key) {
     payload: key.slice(i + 1)
   };
 }
-function noop() {
-}
-function once(fn) {
-  let done = false;
-  let result;
-  return () => {
-    if (done) return result;
-    done = true;
-    return result = fn();
-  };
-}
 function coalesce_to_error(err) {
   return err instanceof Error || err && /** @type {any} */
   err.name && /** @type {any} */
@@ -764,7 +773,7 @@ function get_message(error) {
 function negotiate(accept, types) {
   const parts = [];
   accept.split(",").forEach((str, i) => {
-    const match = /([^/ \t]+)\/([^; \t]+)[ \t]*(?:;[ \t]*q=([0-9.]+))?/.exec(str);
+    const match = /^[ \t]*([^/ \t]+)\/([^; \t]+)[ \t]*(?:;[ \t]*q=([0-9.]+))?/.exec(str);
     if (match) {
       const [, type, subtype, q = "1"] = match;
       parts.push({ type, subtype, q: +q, i });
@@ -911,7 +920,7 @@ function redirect_response(status, location) {
 }
 function clarify_devalue_error(event, error) {
   if (error.path) {
-    return `Data returned from \`load\` while rendering ${event.route.id} is not serializable: ${error.message} (${error.path}). If you need to serialize/deserialize custom types, use transport hooks: https://svelte.dev/docs/kit/hooks#Universal-hooks-transport.`;
+    return `Data returned from \`load\` while rendering ${event.route.id} is not serializable: ${error.message} (${error.path}). If you need to serialize/deserialize custom types, use transport hooks: https://svelte.dev/docs/kit/hooks#transport.`;
   }
   if (error.path === "") {
     return `Data returned from \`load\` while rendering ${event.route.id} is not a plain object`;
