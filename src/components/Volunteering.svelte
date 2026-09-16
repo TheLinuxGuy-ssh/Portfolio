@@ -28,15 +28,15 @@
         {#each data.volunteering as entry}
             {@const type = typeMap[entry.type] || {
                 label: entry.type,
-                class: "",
+                class: ""
             }}
             <article class="tile {type.class}">
                 <span class="tile-chip">{type.label}</span>
                 <div class="tile-top">
                     <div class="tile-logo">
                         {#if entry.logo}
-                            <img
-                                src={"/images/orgs/" + entry.logo}
+                            <enhanced:img
+                                src={`/images/orgs/${entry.logo}`}
                                 alt="{entry.organization} logo"
                                 width="56"
                                 height="56"

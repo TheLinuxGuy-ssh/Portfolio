@@ -34,8 +34,8 @@
                 <div class="timeline-rail" aria-hidden="true">
                     <span class="timeline-node">
                         {#if entry.logo}
-                            <img
-                                src={"/images/orgs/" + entry.logo}
+                            <enhanced:img
+                                src={`/images/orgs/${entry.logo}`}
                                 alt=""
                                 width="56"
                                 height="56"
