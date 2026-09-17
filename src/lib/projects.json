@@ -29,6 +29,7 @@
             "name": "HyperPhish",
             "desc": "An open-source phishing simulation platform for organizations and security educators. It delivers realistic login-page simulations across 47 major services",
             "type": "Web Application",
+            "url": "https://hyperphish.linuxguy.tech/",
             "github": "https://git.linuxguy.tech/thelinuxguy/hyperphish",
             "status": "2",
             "tags": [
