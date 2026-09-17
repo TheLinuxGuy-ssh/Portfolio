@@ -60,99 +60,121 @@
             ]
         }
     ],
-    "volunteering": [
-        {
-            "role": "Core Member — Technical Team",
-            "organization": "Insights Club, VIT Bhopal",
-            "period": "Sep 2026 — Present",
-            "location": "VIT Bhopal, India",
-            "type": "event",
-            "logo": "insights.jpg",
-            "description": "Core technical member of Insights Club — VIT Bhopal’s official journalism and media club (“The Voice of Our Campus”). Support club tooling, event tech, and digital platforms for campus reporting, newsletters, and media coverage.",
-            "skills": ["Web Development", "Event Tech", "Media Platforms", "Team Collaboration"],
-            "highlights": [
-                "Technical support for campus media and publications",
-                "Backing events like Insights Yudh and fest coverage (Advitya)",
-                "Partnering with other clubs on joint campus milestones"
-            ]
-        },
-        {
-            "role": "Contributor (Kepler Project)",
-            "organization": "7Blocks",
-            "period": "Jul 2026 — Present",
-            "location": "Remote",
-            "type": "open-source",
-            "logo": "kepler.jpg",
-            "description": "Open-source contributor to Kepler — an AI-powered orbital intelligence platform for satellite monitoring, debris tracking, and collision-risk prediction. Shipped 18 commits across 9 merged PRs spanning data infrastructure, theming, and UI.",
-            "skills": ["TypeScript", "React", "PostgreSQL", "Tailwind", "Open Source"],
-            "highlights": [
-                "18 commits shipping 9 merged PRs across the stack",
-                "Space-Track → PostgreSQL satellite synchronization pipeline",
-                "437-line technologies page with reusable UI subcomponents (#55)",
-                "Diagnosed a production 404-on-refresh bug via a 6-comment maintainer thread"
-            ]
-        },
-        {
-            "role": "Contributor",
-            "organization": "Open Source Kigali",
-            "period": "Jun 2026 — Aug 2026",
-            "location": "Remote",
-            "type": "open-source",
-            "logo": "kigali.jpg",
-            "description": "Contributed to the official Open Source Kigali website — the public face for community events, member/partner onboarding, and open-source contribution in Kigali’s tech ecosystem. Shipped 4 merged PRs, closing 3 tracked issues.",
-            "skills": ["Web Development", "Accessibility", "Open Source", "UI Polish"],
-            "highlights": [
-                "4 merged PRs closing 3 tracked issues (#223, #217, #225)",
-                "Codebase cleanup: unused code removal, typo fixes, alphabetical sort",
-                "Footer image alt-text accessibility fix",
-                "Hero CTA button polish shipped through a 5-comment review cycle (#243)"
-            ]
-        },
-        {
-            "role": "Tech Team Head",
-            "organization": "St. Mary's Academy, Meerut Cantt.",
-            "period": "Jul 2022 — Mar 2024",
-            "location": "Meerut, India",
-            "type": "event",
-            "logo": "stmarys.jpg",
-            "description": "Led the school’s technical team for two years — owning AV, stage tech, event sites, and live ops for nearly every campus event, including flagship productions with 2,000+ attendees like the annual day and athletic meet.",
-            "skills": ["Event Management", "Web Development", "Team Leadership", "Live Ops"],
-            "highlights": [
-                "Headed tech for nearly every school event across 2022–2024",
-                "Owned AV, video, and audio for 2,000+ attendee productions",
-                "Built and maintained event websites and on-site infrastructure",
-                "Coordinated the student crew through live productions with zero technical failures"
-            ]
-        },
-        {
-            "role": "Workshop Assistant",
-            "organization": "Microsoft Student Community × DIT",
-            "period": "Jun 2022 — Jan 2024",
-            "location": "India",
-            "type": "event",
-            "logo": "mxdit.jpg",
-            "description": "Organised workshops and events, helped build community websites, and supported the team’s day-to-day technical needs across the Microsoft Student Community × DIT collaboration.",
-            "skills": ["Workshops", "Web Development", "Community", "Technical Support"],
-            "highlights": [
-                "Organised workshops and community events",
-                "Built and maintained community websites",
-                "Hands-on technical support for the organising team"
-            ]
-        },
-        {
-            "role": "Web Development Instructor",
-            "organization": "Mahaveer International School",
-            "period": "May 2023 — Jun 2023",
-            "location": "India",
-            "type": "education",
-            "logo": "mahaveer.jpg",
-            "description": "Taught web development fundamentals — HTML, CSS, and JavaScript — to 60+ students across classes 6–12 over 8 hands-on sessions, with every student shipping a complete website by the end.",
-            "skills": ["Teaching", "HTML", "CSS", "JavaScript", "Curriculum"],
-            "highlights": [
-                "Instructed 60+ students across classes 6–12",
-                "8 hands-on, project-based sessions",
-                "100% of students shipped a complete website"
-            ]
-        }
-    ]
+      "volunteering": [
+    {
+      "role": "Core Member — Technical Team",
+      "organization": "Insights Club, VIT Bhopal",
+      "period": "Sep 2026 — Present",
+      "location": "VIT Bhopal, India",
+      "type": "event",
+      "logo": "insights.jpg",
+      "description": "Core technical member of Insights Club, VIT Bhopal's official journalism and media club known as the Voice of Our Campus.",
+      "skills": [
+        "Web Development",
+        "Event Tech",
+        "Media Platforms"
+      ],
+      "highlights": [
+        "Own tech and digital infrastructure for the club's newsletters and campus reporting",
+        "Support event tech for Insights Yudh debates and Advitya fest coverage"
+      ]
+    },
+    {
+      "role": "Contributor (Kepler Project)",
+      "organization": "7Blocks",
+      "period": "Jul 2026 — Present",
+      "location": "Remote",
+      "type": "open-source",
+      "logo": "kepler.jpg",
+      "description": "An AI-powered orbital intelligence platform for satellite monitoring, debris tracking, and collision-risk prediction. Shipped 18 commits across 9 merged PRs spanning data infrastructure, theming, and UI.",
+      "skills": [
+        "TypeScript",
+        "React",
+        "PostgreSQL",
+        "Tailwind"
+      ],
+      "highlights": [
+        "Built a Space-Track to PostgreSQL satellite synchronization pipeline",
+        "Shipped a 437-line technologies page with reusable UI subcomponents (#55)",
+        "Diagnosed a production 404-on-refresh bug via a 6-comment maintainer thread"
+      ]
+    },
+    {
+      "role": "Contributor",
+      "organization": "Open Source Kigali",
+      "period": "Jun 2026 — Aug 2026",
+      "location": "Remote",
+      "type": "open-source",
+      "logo": "kigali.jpg",
+      "description": "Contributed to the official Open Source Kigali website, the public face for community events and member and partner onboarding in Kigali's tech ecosystem. Shipped 4 merged PRs, closing 3 tracked issues.",
+      "skills": [
+        "Web Development",
+        "Accessibility",
+        "Open Source"
+      ],
+      "highlights": [
+        "Shipped a conditional Donate button across the navbar, drawer, and footer",
+        "Codebase and accessibility cleanup (#223, #217, #225): dead code removal, typo fixes, alt-text fix",
+        "Hero CTA button polish through a 5-comment review cycle (#243)"
+      ]
+    },
+    {
+      "role": "Tech Team Head",
+      "organization": "St. Mary's Academy, Meerut Cantt.",
+      "period": "Jul 2022 — Mar 2024",
+      "location": "Meerut, India",
+      "type": "event",
+      "logo": "stmarys.jpg",
+      "description": "Led the school's technical team for two years, owning AV, stage tech, event sites, and live ops for flagship productions with 2,000+ attendees like the annual day and athletic meet.",
+      "skills": [
+        "Event Management",
+        "Web Development",
+        "Team Leadership",
+        "Live Ops"
+      ],
+      "highlights": [
+        "Directed tech for COSMA, an inter-school hackathon with 20+ participating schools, personally building the event website and brochure two years running",
+        "Ran live technical operations independently, with no dedicated school budget or vendor support",
+        "Coordinated the student crew through live productions with zero technical failures"
+      ]
+    },
+    {
+      "role": "Workshop Assistant",
+      "organization": "Microsoft Student Community × DIT",
+      "period": "Jun 2022 — Jan 2024",
+      "location": "India",
+      "type": "event",
+      "logo": "mxdit.jpg",
+      "description": "Organised workshops and events and supported day-to-day technical needs for the Microsoft Student Community × DIT collaboration over a year and a half.",
+      "skills": [
+        "Workshops",
+        "Web Development",
+        "Community"
+      ],
+      "highlights": [
+        "Ran on-site technical setup for workshops across the collaboration",
+        "Built and maintained community websites for registration and event promotion"
+      ]
+    },
+    {
+      "role": "Web Development Instructor",
+      "organization": "Mahaveer International School",
+      "period": "May 2023 — Jun 2023",
+      "location": "India",
+      "type": "education",
+      "logo": "mahaveer.jpg",
+      "description": "Designed and taught a web development curriculum covering HTML, CSS, and JavaScript fundamentals, guiding students from complete beginners to shipping their own live website.",
+      "skills": [
+        "Teaching",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "highlights": [
+        "Instructed 60+ students across classes 6–12",
+        "8 hands-on, project-based sessions",
+        "100% of students shipped a complete website"
+      ]
+    }
+  ]
 }

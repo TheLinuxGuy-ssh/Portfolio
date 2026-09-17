@@ -26,6 +26,27 @@
             ]
         },
         {
+            "name": "HyperPhish",
+            "desc": "An open-source phishing simulation platform for organizations and security educators. It delivers realistic login-page simulations across 47 major services",
+            "type": "Web Application",
+            "github": "https://git.linuxguy.tech/thelinuxguy/hyperphish",
+            "status": "2",
+            "tags": [
+                {
+                    "name": "Python",
+                    "accent": "#3572a5"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                },
+                {
+                    "name": "JS",
+                    "accent": "#f1e05a"
+                }
+            ]
+        },
+        {
             "name": "Duskmeter",
             "desc": "Corrected sky brightness estimates from fused VIIRS satellite radiance and ground-truth observations. Quantifies LED light pollution invisible to every public map.",
             "type": "Web Application",
@@ -82,38 +103,6 @@
                 {
                     "name": "CSS",
                     "accent": "#CC6699"
-                }
-            ]
-        },
-        {
-            "name": "Kepler",
-            "desc": "A Web Application to track the International Space Station and other satellites in real time with a 3D model of the earth and the satellites orbiting it.",
-            "type": "Web Application (Contributor)",
-            "url": "https://keplerai.vercel.app",
-            "github": "https://github.com/7-blocks/kepler",
-            "status": "4",
-            "tags": [
-                {
-                    "name": "Three.js",
-                    "accent": "#F05023"
-                },
-                {
-                    "name": "JS",
-                    "accent": "#F7DF1E"
-                },
-                {
-                    "name": "CSS",
-                    "accent": "#CC6699"
-                }
-            ],
-            "skills": [
-                {
-                    "name": "Web Development",
-                    "accent": "#7FB8FF"
-                },
-                {
-                    "name": "3D",
-                    "accent": "#7FB8FF"
                 }
             ]
         },

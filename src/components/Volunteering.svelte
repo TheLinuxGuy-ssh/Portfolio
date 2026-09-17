@@ -55,6 +55,13 @@
                 </div>
                 <p class="tile-period">{entry.period}</p>
                 <p class="tile-desc">{entry.description}</p>
+                {#if entry.highlights?.length}
+                <p class="tile-highlights">
+                    {#each entry.highlights as highlight}
+                        <li>{highlight}</li>
+                    {/each}
+                </p>
+                {/if}
                 {#if entry.skills?.length}
                     <div class="tile-tags">
                         {#each entry.skills.slice(0, 4) as skill}
@@ -218,9 +225,13 @@
         line-height: 1.5;
         color: #c8c8c8;
         display: -webkit-box;
-        ;
+        width: 100%;
         -webkit-box-orient: vertical;
         flex: 1;
+    }
+
+    .tile-highlights {
+        margin: 0 0.75em 0.75em 0.75em; 
     }
 
     .tile-tags {
