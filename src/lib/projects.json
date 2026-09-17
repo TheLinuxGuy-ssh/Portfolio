@@ -13,7 +13,7 @@
                 },
                 {
                     "name": "Lua",
-                    "accent": "#3178C6"
+                    "accent": "#4A9EFF"
                 },
                 {
                     "name": "CSS",
@@ -35,7 +35,7 @@
             "tags": [
                 {
                     "name": "Python",
-                    "accent": "#3572a5"
+                    "accent": "#4B8BBE"
                 },
                 {
                     "name": "CSS",
@@ -61,7 +61,7 @@
                 },
                 {
                     "name": "TypeScript",
-                    "accent": "#3178C6"
+                    "accent": "#4A9EFF"
                 },
                 {
                     "name": "Tailwind",
@@ -95,11 +95,11 @@
             "tags": [
                 {
                     "name": "Next.js",
-                    "accent": "#0070F3"
+                    "accent": "#3291FF"
                 },
                 {
                     "name": "Typescript",
-                    "accent": "#3178C6"
+                    "accent": "#4A9EFF"
                 },
                 {
                     "name": "CSS",
@@ -421,7 +421,7 @@
             "tags": [
                 {
                     "name": "Next.js",
-                    "accent": "#0070F3"
+                    "accent": "#3291FF"
                 },
                 {
                     "name": "Docker",
@@ -455,7 +455,7 @@
             "tags": [
                 {
                     "name": "Next.js",
-                    "accent": "#0070F3"
+                    "accent": "#3291FF"
                 },
                 {
                     "name": "Docker",

@@ -51,7 +51,7 @@ html.has-scroll-smooth {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: black;
+    background-color: #666;
     opacity: 0.5;
     width: 7px;
     border-radius: 10px;

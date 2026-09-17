@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img">
+  <rect width="128" height="128" rx="24" fill="#0a0a0a"/>
+  <rect x="4" y="4" width="120" height="120" rx="20" fill="none" stroke="#00a4ef" stroke-width="3" opacity="0.85"/>
+  <text x="64" y="76" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#00a4ef">MS</text>
+</svg>

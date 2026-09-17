@@ -56,11 +56,11 @@
                 <p class="tile-period">{entry.period}</p>
                 <p class="tile-desc">{entry.description}</p>
                 {#if entry.highlights?.length}
-                <p class="tile-highlights">
-                    {#each entry.highlights as highlight}
-                        <li>{highlight}</li>
-                    {/each}
-                </p>
+                <ul class="tile-highlights">
+                        {#each entry.highlights as highlight}
+                            <li>{highlight}</li>
+                        {/each}
+                </ul>
                 {/if}
                 {#if entry.skills?.length}
                     <div class="tile-tags">
@@ -216,7 +216,7 @@
     .tile-period {
         font-family: HermitBold, Arial;
         font-size: 0.82rem;
-        color: #6f6f6f;
+        color: #9a9a9a;
     }
 
     .tile-desc {

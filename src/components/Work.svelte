@@ -55,7 +55,7 @@
     });
 </script>
 
-<div class="projects">
+<div class="projects" id="work">
     <div id="trailer">
         <enhanced:img id="trailer-icon" src={linkArrow} alt="" />
     </div>
