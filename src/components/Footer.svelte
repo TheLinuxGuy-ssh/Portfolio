@@ -57,9 +57,7 @@
     © 2026 TheLinuxGuy
     <span class="dot">·</span>
     built with
-    <a
-      target="_blank"
-      rel="noopener noreferrer">Resilience</a
+    <span class="footer-highlight">Resilience</span
     >
     <span class="dot">·</span>
     local time {time}
@@ -179,7 +177,7 @@
     text-align: center;
   }
 
-  .footer-meta a {
+  .footer-meta .footer-highlight {
     color: #00fe1a;
     text-decoration: none;
   }
