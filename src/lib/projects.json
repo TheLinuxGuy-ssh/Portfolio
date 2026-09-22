@@ -1,6 +1,44 @@
 {
     "projects": [
-               {
+        {
+            "name": "eDEX-CORE",
+            "desc": "A cross-platform, science-fiction-themed workspace that fuses your terminal, editor, and browser into one resource-efficient environment, built for real work, not just a pretty cockpit.",
+            "type": "Electron Application",
+            "github": "eDEX-CORE",
+            "status": "1",
+            "tags": [
+                {
+                    "name": "JS",
+                    "accent": "#c1b348"
+                },
+                {
+                    "name": "CSS",
+                    "accent": "#CC6699"
+                },
+                {
+                    "name": "Bash",
+                    "accent": "#89e051"
+                }
+            ]
+        },
+        {
+            "name": "Aegies",
+            "desc": "A command-line tool for tracking Data Structures & Algorithms practice problems using a Leitner-system spaced-repetition schedule.",
+            "type": "CLI Utility",
+            "github": "aegies",
+            "status": "1",
+            "tags": [
+                {
+                    "name": "Python",
+                    "accent": "#4B8BBE"
+                },
+                {
+                    "name": "SQL",
+                    "accent": "#4A9EFF"
+                }
+            ]
+        },
+        {
             "name": "HyprAesthetic",
             "desc": "Corrected sky brightness estimates from fused VIIRS satellite radiance and ground-truth observations. Quantifies LED light pollution invisible to every public map.",
             "type": "Web Application",

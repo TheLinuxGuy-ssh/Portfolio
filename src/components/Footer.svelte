@@ -182,7 +182,7 @@
     text-decoration: none;
   }
 
-  .footer-meta a:hover {
+  .footer-meta .footer-highlight:hover {
     text-decoration: underline;
   }
 
