@@ -1,1 +1,0 @@
-export { default as component } from "../../../../src/routes/matrix/post/[page]/+page.svelte";
