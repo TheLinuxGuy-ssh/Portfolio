@@ -1,6 +1,24 @@
 {
     "projects": [
         {
+            "name": "Mom.exe",
+            "desc": "Mom.exe is a wellness coach for students who moved out of the home where somebody else used to keep track of their life. You write what is going on in your own words, and it returns a concrete plan for the rest of the day and night.",
+            "type": "Web Application",
+            "github": "mom.exe",
+            "url": "https://momexe.vercel.app",
+            "status": "4",
+            "tags": [
+                {
+                    "name": "Typescript",
+                    "accent": "#3178c6"
+                },
+                {
+                    "name": "SvelteKit",
+                    "accent": "#ff3e00"
+                }
+            ]
+        },
+        {
             "name": "eDEX-CORE",
             "desc": "A cross-platform, science-fiction-themed workspace that fuses your terminal, editor, and browser into one resource-efficient environment, built for real work, not just a pretty cockpit.",
             "type": "Electron Application",
@@ -12,12 +30,12 @@
                     "accent": "#c1b348"
                 },
                 {
-                    "name": "CSS",
-                    "accent": "#CC6699"
-                },
-                {
                     "name": "Bash",
                     "accent": "#89e051"
+                },
+                {
+                    "name": "Other",
+                    "accent": "#ffffff"
                 }
             ]
         },
@@ -26,7 +44,7 @@
             "desc": "A command-line tool for tracking Data Structures & Algorithms practice problems using a Leitner-system spaced-repetition schedule.",
             "type": "CLI Utility",
             "github": "aegies",
-            "status": "1",
+            "status": "2",
             "tags": [
                 {
                     "name": "Python",
@@ -54,10 +72,6 @@
                     "accent": "#4A9EFF"
                 },
                 {
-                    "name": "CSS",
-                    "accent": "#CC6699"
-                },
-                {
                     "name": "SCSS",
                     "accent": "#c6538c"
                 }
@@ -74,10 +88,6 @@
                 {
                     "name": "Python",
                     "accent": "#4B8BBE"
-                },
-                {
-                    "name": "CSS",
-                    "accent": "#CC6699"
                 },
                 {
                     "name": "JS",
@@ -138,10 +148,6 @@
                 {
                     "name": "Typescript",
                     "accent": "#4A9EFF"
-                },
-                {
-                    "name": "CSS",
-                    "accent": "#CC6699"
                 }
             ]
         },
@@ -158,10 +164,6 @@
                 {
                     "name": "JS",
                     "accent": "#F7DF1E"
-                },
-                {
-                    "name": "CSS",
-                    "accent": "#CC6699"
                 }
             ],
             "skills": [
@@ -204,10 +206,6 @@
                 {
                     "name": "JS",
                     "accent": "#F7DF1E"
-                },
-                {
-                    "name": "CSS",
-                    "accent": "#CC6699"
                 },
                 {
                     "name": "Postgres",
@@ -303,10 +301,6 @@
                 {
                     "name": "JS",
                     "accent": "#F7DF1E"
-                },
-                {
-                    "name": "CSS",
-                    "accent": "#CC6699"
                 }
             ],
             "skills": [
@@ -365,10 +359,6 @@
                 {
                     "name": "JS",
                     "accent": "#F7DF1E"
-                },
-                {
-                    "name": "CSS",
-                    "accent": "#CC6699"
                 }
             ],
             "skills": [
@@ -422,10 +412,6 @@
                     "accent": "#F7DF1E"
                 },
                 {
-                    "name": "CSS",
-                    "accent": "#CC6699"
-                },
-                {
                     "name": "Three.js",
                     "accent": "#F05023"
                 },
@@ -470,10 +456,6 @@
                     "accent": "#F7DF1E"
                 },
                 {
-                    "name": "CSS",
-                    "accent": "#CC6699"
-                },
-                {
                     "name": "Bash",
                     "accent": "#ED1C24"
                 },
@@ -504,10 +486,6 @@
                     "accent": "#F7DF1E"
                 },
                 {
-                    "name": "CSS",
-                    "accent": "#CC6699"
-                },
-                {
                     "name": "Bash",
                     "accent": "#ED1C24"
                 },
@@ -536,10 +514,6 @@
                 {
                     "name": "JS",
                     "accent": "#F7DF1E"
-                },
-                {
-                    "name": "CSS",
-                    "accent": "#CC6699"
                 }
             ]
         },
@@ -557,10 +531,6 @@
                 {
                     "name": "JS",
                     "accent": "#F7DF1E"
-                },
-                {
-                    "name": "CSS",
-                    "accent": "#CC6699"
                 }
             ]
         },
@@ -574,10 +544,6 @@
                 {
                     "name": "JS",
                     "accent": "#F7DF1E"
-                },
-                {
-                    "name": "CSS",
-                    "accent": "#CC6699"
                 },
                 {
                     "name": "Three.js",
@@ -595,10 +561,6 @@
                 {
                     "name": "JS",
                     "accent": "#F7DF1E"
-                },
-                {
-                    "name": "CSS",
-                    "accent": "#CC6699"
                 }
             ]
         },
